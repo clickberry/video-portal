@@ -1,0 +1,59 @@
+/*!
+ * jQuery UI Selectmenu @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2013 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Selectmenu#theming
+ */
+.ui-selectmenu-menu {
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
+
+.ui-selectmenu-menu ul.ui-menu {
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.ui-selectmenu-menu .ui-menu .ui-menu-item a { padding: 0.3em 1em 0.3em 1em; }
+
+.ui-selectmenu-menu .ui-menu li.ui-selectmenu-optgroup {
+    border: 0;
+    font-size: 1em;
+    font-weight: bold;
+    height: auto;
+    line-height: 1.5;
+    margin: 0.5em 0 0 0;
+    padding: 2px 0.4em;
+}
+
+.ui-selectmenu-open { display: block; }
+
+.ui-selectmenu-button a.ui-button {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+}
+
+.ui-selectmenu-button span.ui-icon {
+    left: auto;
+    margin-top: -8px;
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+}
+
+.ui-selectmenu-button span.ui-selectmenu-text {
+    display: block;
+    line-height: 1.4;
+    padding: 0.4em 2.1em 0.4em 1em;
+    text-align: left;
+}

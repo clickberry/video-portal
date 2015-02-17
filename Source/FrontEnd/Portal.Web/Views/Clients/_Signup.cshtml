@@ -1,0 +1,82 @@
+﻿<script type="text/ng-template" id="client.signup.html">
+    
+    <div ui-view class="slide-left"></div>
+
+</script>
+
+<script type="text/ng-template" id="client.signup.step1.html">
+    
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- registration-field -->
+        <div class="registration-field count-wrap">
+            <h1>Welcome! Please register.</h1>
+            <div class="edit-profile">
+                <form action="" ng-submit="submitStep1()" name="clientRegisterStep1">
+                    <div class="holder-input"><input type="email" placeholder="E-mail" ng-model="model.email" ng-minlength="4" cb-model-email required></div>
+                    <div class="holder-input"><input type="email" placeholder="Confirm e-mail" ng-model="model.confirmEmail" cb-model-confirm="model.email" ng-minlength="4" required></div>
+                    <div class="holder-input"><input type="password" placeholder="Create your password" ng-model="model.password" ng-minlength="6" ng-maxlength="100" required></div>
+                    <div class="holder-input"><input type="password" placeholder="Confirm password" ng-model="model.confirmPassword" cb-model-confirm="model.password" ng-minlength="6" ng-maxlength="100" required></div>
+                    <div class="btn btn-submit edit-profile-submit">
+                        <input type="submit" value="" ng-disabled="clientRegisterStep1.$invalid" />Next
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- registration-field end -->
+    </div>
+    <!-- fix-content end -->
+
+</script>
+
+<script type="text/ng-template" id="client.signup.step2.html">
+    
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- registration-field -->
+        <div class="registration-field count-wrap">
+            <h1>Excellent! It's almost done.</h1>
+            <div class="edit-profile">
+                <form action="" ng-submit="submitStep2(model)" name="clientRegisterStep2">
+                    <!-- drop-select -->
+                    <cb-select placeholder="Country*" ng-model="model.country" ng-options="countries" ng-required="true">
+                    </cb-select>
+                    <!-- drop-select end -->
+                    <div class="holder-input"><input type="text" placeholder="Company name" ng-model="model.companyName" ng-maxlength="100"></div>
+                    <div class="holder-input" ng-show="showEin"> <input type="text" placeholder="EIN" ng-model="model.ein" cb-model-ein></div>
+                    <div class="holder-input"><input type="text" placeholder="Contact Person" ng-model="model.contactPerson" ng-maxlength="100"></div>
+                    <div class="holder-input"><input type="text" placeholder="Company address" ng-model="model.address" ng-maxlength="320" ></div>
+                    <div class="holder-input"><input type="text" placeholder="ZIP code*" ng-model="model.zipCode" cb-model-zipcode required></div>
+                    <div class="holder-input"><input type="text" placeholder="Phone number" ng-model="model.phoneNumber" cb-model-phone ></div>
+                    <div class="btn btn-submit edit-profile-submit">
+                        <input type="submit" value="" ng-disabled="clientRegisterStep2.$invalid" />Finish
+                    </div>
+                </form>
+                <div class="indicates-field">* - Indicates required field</div>
+            </div>
+            <cb-loader loader-if="isLoading"></cb-loader>
+        </div>
+        <!-- registration-field end -->
+    </div>
+    <!-- fix-content end -->
+
+</script>
+
+<script type="text/ng-template" id="client.signup.success.html">
+
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- registration-field -->
+        <div class="registration-field count-wrap">
+            <h1>We've sent account activation instructions to your email.</h1>
+            <div class="edit-profile">
+                <p>To complete your registration please follow instructions in email message we've sent.</p>
+            </div>
+        </div>
+        <!-- registration-field end -->
+    </div>
+    <!-- fix-content end -->
+
+</script>
+
+@Html.Partial("_Select")

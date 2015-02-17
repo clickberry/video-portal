@@ -1,0 +1,32 @@
+﻿@using Asp.Infrastructure.Extensions
+@{
+    ViewBag.Title = "Clickberry Partner Program";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<section>
+    
+    @Html.Partial("_Client")
+    <div data-ui-view></div>
+
+</section>
+
+@section Menu {
+    <nav data-cb-client-menu></nav>
+}
+
+@section Config {
+    <div data-cb-config
+         data-link-tracker-domain="@Html.Raw(ViewBag.LinkTrackerDomain)"
+         data-jw-flash-player-url="@Html.Raw(ViewBag.JwFlashPlayerUrl)"
+         data-stripe-public-key="@ViewBag.StripePublicKey"
+         data-jira-issue-collector="@Html.Raw(ViewBag.JiraIssueCollector)">
+    </div>
+}
+
+@section ScriptsBottom
+{
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    @CdnResources.RenderScripts("~/cdn/scripts/clickberry.js")
+    @CdnResources.RenderScripts("~/cdn/scripts/client.js")
+}

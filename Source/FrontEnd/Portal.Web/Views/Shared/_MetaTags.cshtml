@@ -1,0 +1,24 @@
+﻿@using Portal.Domain.ProfileContext
+@model Portal.Web.Models.VideoModel
+
+<meta name="description" content="@Model.Description" />
+<meta property="og:site_name" content="Clickberry">
+<meta property="og:url" content="@Model.VideoUrl" />
+<meta property="og:title" content="@Model.Name" />
+<meta property="og:description" content="@Model.Description" />
+<meta property="og:image" content="@(Model.Image)" />
+<meta property="og:image:secure_url" content="@(Model.ImageSecure)" />
+@if (Model.Robot == ProviderType.Vk)
+{
+    <meta property="og:type" content="video" />
+    <meta property="og:video" content="@Model.EmbedUrl" />
+    <meta property="og:video:secure_url" content="@Model.EmbedSecureUrl" />
+    <meta property="og:video:ifrаme" content="@Model.EmbedUrl">
+    <meta property="og:video:height" content="640" />
+    <meta property="og:video:width" content="395" />
+    <meta property="og:video:type" content="application/x-shockwave-flash" />
+}
+else
+{
+    <meta property="og:type" content="object" />
+}

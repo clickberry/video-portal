@@ -1,0 +1,282 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+
+<script type="text/ng-template" id="client.subscriptions.add.html">
+
+    <div ui-view class="slide-left"></div>
+
+</script>
+
+<script type="text/ng-template" id="client.subscriptions.add.step1.html">
+
+    <!-- fix-content -->
+    <div class="fix-content">
+        <div class="subscriptions count-wrap">
+            <div class="add-subscriptions">
+                <h1>Add subscription</h1>
+                <div class="add-subscriptions-inner">
+                    <ul class="subscriptions-list">
+                        <li class="regular-item state-inactive">
+                            <h3>Free</h3>
+                            <ul>
+                                <li>
+                                    All sharing/engagement features available.
+                                </li>
+                                <li>
+                                    Google Analytics integration.
+                                </li>
+                                <li>
+                                    E-mail support.
+                                </li>
+                                <li>
+                                    Users register with Clickberry.
+                                </li>
+                                <li>
+                                    Up to 1,000 clicks on shares/month<sup>*</sup>.
+                                </li>
+                            </ul>
+                            <a href="" ng-disabled="true" class="btn-silver" @* ng-click="selectType(0)" *@>Get</a>
+                        </li>
+                        <li class="partner-item">
+                            <h3>Basic</h3>
+                            <ul>
+                                <li>All sharing/engagement features available.</li>
+                                <li>Google Analytics integration.</li>
+                                <li>E-mail support.</li>
+                                <li>Users register with Clickberry.</li>
+                                <li>Up to 10,000 clicks on shares/month <sup>*</sup>.</li>
+                            </ul>                            
+                            <a href="" class="btn-green" ng-click="selectType(1)">Sign up</a>
+                        </li>
+                        <li class="premium-item state-inactive">
+                            <h3>Pro</h3>
+                            <ul>
+                                <li>
+                                    All sharing/engagement features available.
+                                </li>
+                                <li>
+                                    Google Analytics integration.
+                                </li>
+                                <li>
+                                    Customizable interface appearance.
+                                </li>
+                                <li>
+                                    E-mail support.
+                                </li>
+                                <li>
+                                    Users register with Clickberry.
+                                </li>
+                                <li>Up to 100,000 clicks on shares/month<sup>*</sup>.</li>
+                            </ul>
+                            <a href="" ng-disabled="true" class="btn-red" @*ng-click="selectType(2)"*@>Get</a>
+                        </li>
+                        <li class="custom-item state-inactive">
+                            <h3>Custom</h3>
+                            <ul>
+                                <li>
+                                    All sharing/engagement features available.
+                                </li>
+                                <li>
+                                    Customizable interface appearance.
+                                </li>
+                                <li>
+                                    Google Analytics integration.
+                                </li>
+                                <li>
+                                    E-mail/phone support.
+                                </li>
+                                <li>
+                                    Users register with Client’s registration.
+                                </li>
+                                <li>
+                                    Integration with Client’s CDN.
+                                </li>
+                                <li>No limit on clicks/views<sup>*</sup>.</li>
+                            </ul>
+                            <a href="" ng-disabled="true" class="btn-black" @*ng-click="selectType(3)"*@>Get</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p>
+                <sup>*</sup> number of new visitors that come to Client’s video following the shared “snaps”.
+            </p>
+        </div>
+    </div>
+    <!-- fix-content end -->
+     @Html.Partial("_FAQ")
+</script>
+
+<script type="text/ng-template" id="client.subscriptions.add.step2.html">
+
+    <!-- fix-content -->
+    <div class="fix-content">
+
+        <div class="subscriptions count-wrap">
+            <div class="add-subscriptions">
+                <h1>Fill subscription details</h1>
+                <div class="add-subscriptions-inner">
+
+                    <!-- form -->
+                    <div class="subscriptions-form regular-form" ng-class="{'regular-form': model.type == 0, 'partner-form': model.type == 1, 'premium-form': model.type == 2, 'custom-form': model.type == 3}">
+                        <form action="" ng-submit="submit()" name="addSubscriptionForm">
+                            <div class="form-row">
+                                <div class="holder-input"><input type="text" placeholder="Project name*" ng-model="model.siteName" ng-maxlength="100" required /></div>
+                                <div class="holder-input"><input type="text" placeholder="Host Name*" ng-model="model.siteHostname" cb-model-host-name required /></div>
+                                <div class="holder-input"><input type="text" placeholder="Google Analytics ID" ng-model="model.googleAnalyticsId" ng-maxlength="64" /></div>
+                            </div>
+                            <div class="agreement">
+                                <section ng-show="model.type == 1">
+                                    <h3><span>Basic </span>Terms of Service</h3>
+
+                                    <h4>1. Acknowledgement and Acceptance of Terms</h4>
+                                    <p>Clickberry Inc., a Delaware corporation, provides the Clickberry mobile phone app, browser extension, Interactivity Creator, <a href="http://clickberry.com">www.clickberry.com</a>,  and the <a href="https://clickberry.tv">www.clickberry.tv</a> site (the "Services") subject to your acceptance of all the terms and conditions contained in this document (the "Terms of Service"). In addition, if you elect to utilize any music tracks provided within the product's user interface, your use of such tracks is governed by the license agreement appearing after Paragraph 16 below.</p>
+                                    <p>In addition, when using the Services you shall be subject to any posted guidelines or rules within that service in addition to those in the Terms of Service.</p>
+                                    <p>By using the Services, you agree to the Terms of Service. If you do not agree, please do not use the Service.</p>
+                                    <p>We may modify, suspend, discontinue or restrict the use of the Services, any portion thereof or any content at any time with or without notice to you.</p>
+
+                                    <h4>2. Age Requirement</h4>
+                                    <p>The Services are only available for individuals age 13 years or older. If you are under the age of 18, you should review the Terms of Service with your parent or guardian to make sure that you and your parent or guardian understand and agrees with the Terms of Service.</p>
+
+                                    <h4>3. Service Assets</h4>
+                                    <p>All text, graphics, user and visual interfaces, photographs, trademarks, logos, sounds, music, videos, artwork, applications, computer code and associated documentation (collectively, the "Service Assets"), including but not limited to the design, structure, arrangement and "look and feel" of such Content, are owned by or licensed to Clickberry and are protected by copyright, trademark and other intellectual property rights and laws.</p>
+                                    <p>Except as expressly provided in the Terms of Service, no part of the Service Assets may be copied, reproduced, sold, republished, transmitted, displayed, reposted or otherwise distributed for public or commercial purposes.</p>
+
+                                    <h4>4. Submitted Content</h4>
+                                    <p>You may submit Content to the Services, including videos and comments. You understand that we do not guarantee any confidentiality with respect to any Content you submit.</p>
+                                    <p>You shall be solely responsible for the Content you submit and the consequences of submitting your Content on the Services. You retain your ownership rights in the Content you submit to the Services.</p>
+                                    <p>You warrant that you have the necessary licenses, rights, consents, and permissions to publish Content on the Services and that the Content will not contain third party copyrighted material, or material that is subject to other third party proprietary rights, unless you are legally entitled to post the material and in which case you agree to grant Clickberry all of the license rights granted herein.</p>
+                                    <p>You may not submit Content that contain sexually explicit material or pornography, hateful, defamatory, or discriminatory material, incite hatred against any individual or group, depict unlawful acts or extreme violence, depict animal cruelty or extreme violence towards animals, violate any law.</p>
+                                    <p>You license to Clickberry all patent, trademark, trade secret, copyright or other proprietary rights in and to such Content for publication on the Services pursuant to these Terms of Service. By submitting Content to the Services, you grant Clickberry a worldwide, non-exclusive, royalty-free, sublicenseable and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform the Content in connection with the Services (and its successors' and affiliates'), including without limitation for promoting and redistributing part or all of the Content (and derivative works thereof) in any media formats and through any media channels. You also hereby grant each user of the Services a non-exclusive license to access your Content through the Services, and to use, reproduce, distribute, display and perform such Content as permitted through the functionality of the Services and under these Terms of Service.</p>
+                                    <p>You may not submit Content that contain sexually explicit material or pornography, hateful, defamatory, or discriminatory material, incite hatred against any individual or group, depict unlawful acts or extreme violence, depict animal cruelty or extreme violence towards animals, seek to intimidate, control, manipulate, put down, falsely discredit, or humiliate any individual, violate any law.</p>
+
+                                    <h4>5. Use of Services</h4>
+                                    <p>Your use of the Services is subject to all applicable laws and regulations.</p>
+                                    <p>You may not:</p>
+                                    <ul>
+                                        <li>use any "deep-link", "page-scrape", "robot", "spider" or other automatic device, program, algorithm or methodology, or any manual process to access, acquire, copy or monitor any portion of the Services or any Content or obtain or attempt to obtain any materials, documents or information through any means not purposely made available through the Sites;</li>
+                                        <li>attempt to gain unauthorized access to any portion of the Services or any Content, or any systems or networks connected to the Site, by hacking, password "mining" or any other illegitimate means;</li>
+                                        <li>probe, scan or test the vulnerability of the Services or any Content, or any system or network connected to the Site;</li>
+                                        <li>reverse look-up or trace any information of any other user or visitor or otherwise use the Services for the purpose of obtaining information of any user or visitor;</li>
+                                        <li>use any device, software or process to interfere with, or attempt to interfere with, the proper working of the Services or any Content, or any systems or networks connected to the Services, or with any other person's use of the Services; or</li>
+                                        <li>use the Services or any Content for any purpose that is unlawful or prohibited by the Terms of Service.</li>
+                                    </ul>
+                                    <p>Any unauthorized use of the Services or any Content may violate copyright, trademark and other applicable laws and could result in criminal or civil penalties.</p>
+
+                                    <h4>6. Account Information</h4>
+                                    <p>Certain features or services offered on or through the Services may require you to open an account (including your name, a user name and password). You are responsible for taking all steps to ensure that no unauthorized person shall have access to your account or password. It is your sole responsibility to: (i) control the dissemination and use of your account and password; and (ii) promptly inform us of any need to deactivate an account or password. We are not liable for any harm related to the theft of passwords, or your disclosure of passwords. You shall immediately notify us of any unauthorized use of your account or password or any breach of confidentiality. You are solely responsible for any damage resulting from the use of your account and username. You may not use your account or password to breach security of another account.</p>
+
+                                    <h4>7. Privacy</h4>
+                                    <p>We respect your privacy and will not  share your private information with people you don't choose to share it with.</p>
+                                    <p>Clickberry's Privacy Policy is designed to help you understand how we collect and use the personal information you decide to share, and help you make informed decisions when using Clickberry applications or accessing any of the Services of Clickberry.</p>
+                                    <p>By using Clickberry applications or accessing our website, you are accepting the practices described in this Privacy Policy.  If you have questions or concerns regarding this statement, you should contact us at <a href="mailto:support@clickberry.com">support@clickberry.com</a>.</p>
+
+                                    <dl>
+                                        <dt>
+                                            <h5>The Information We Collect</h5>
+                                            <p>When you launch a Clickberry application you provide us with four types of information: personal information you knowingly choose to disclose that is collected by us; locational use information collected by us as you interact with our services; usage information that is collected by our servers as you use our applications; and information related to third party services that you would like to access through our applications and services.</p>
+                                            <p>When you register with Clickberry, you provide us with certain personal information, such as your name, username, your email address and a photo representation ("avatar") and any other personal or preference information that you provide to us.</p>
+                                            <p>When you launch or interact with a Clickberry application, we collect your device type and IP address. This information is gathered for all users. In addition, we use the unique Device ID ("UUID") that vendors such as Apple and Android licensees makes available for each  device in order to authenticate the user session. This UUID functions similarly to a persistent cookie to make it possible to authenticate the user without the need for a password. You can disassociate a UUID from a user account at any time by emailing us at <a href="mailto:support@clickberry.com">support@clickberry.com</a>.</p>
+                                            <p>When you use Clickberry applications, you may set up your personal profile, form relationships, send messages, and transmit information through various channels. We collect this information so that we can provide you the service and offer personalized features. In most cases, we retain it so that, for instance, you can return to view prior videos or messages you have posted or easily see the list of people you follow. When you update information, we usually keep a backup copy of the prior version for a reasonable period of time to enable reversion to the prior version of that information.</p>
+                                            <p>You post User Content through Clickberry applications at your own risk. We cannot control the actions of other Users with whom you may choose to share your information. Therefore, we cannot and do not guarantee that User Content you post with Clickberry will not be viewed by unauthorized persons. We are not responsible for circumvention of any privacy settings or security measures contained in Clickberry applications. You understand and acknowledge that, even after removal, copies of User Content may remain viewable in cached and archived form or if other Users have copied or stored your User Content.</p>
+                                            <p>Any improper collection or misuse of information provided on Clickberry applications is a violation of the Clickberry Terms of Service and should be reported to <a href="mailto:support@clickberry.com">support@clickberry.com</a>.</p>
+                                            <p>If you choose to use our invitation service, we may ask you for information needed to send the invitation, such as the recipient's email address and we will automatically send a one-time email or instant message inviting him or her to visit the site or to download our application. Clickberry stores this information to send this one-time invitation, to register a new  connection if your invitation is accepted, and to track the success of our referral program. The person you invited may contact us at <a href="mailto:support@clickberry.com">support@clickberry.com</a> to request that we remove this information from our databases.</p>
+                                            <p>Clickberry may also collect information about you from other sources, such as newspapers, blogs, instant messaging services, and other users of Clickberry applications through the operation of the service in order to provide you with more useful information and a more personalized experience.By using Clickberry, you are consenting to have your personal data transferred to and processed in the United States.</p>
+
+                                            <h5>Third Party Services Accessed by Clickberry</h5>
+                                            <p>You can configure certain third party services to be accessed by Clickberry applications and services. When you do so, we will store your access credentials to such third party services in a secure manner; we may temporarily cache your list of contacts from these services; and we will store messages, videos, and other content created using our applications that are delivered to such third party services. We do this to improve the performance and experience of these services (such as, adding videos and location information not available in the third party services).</p>
+
+                                            <h5>Use of Information Obtained by Clickberry</h5>
+                                            <p>When you register with Clickberry, you create your own profile.</p>
+                                            <p>Your name, username and avatar (but not email address) are displayed to other Clickberry users to enable you to connect with people on Clickberry. We expect that you will use the name which you are most commonly known by.  We may occasionally use your username or email address to send you notifications regarding new services offered by Clickberry that we think you may find valuable.</p>
+                                            <p>Your profile can be shared across all of the applications in the Clickberry portfolio. As a previously registered user, when you download and access a new Clickberry application, your user profile is automatically incorporated into that new application. </p>
+                                            <p>Clickberry may send you service-related announcements from time to time through the general operation of the service. For instance, if a person you follow posts a new video, you may receive an email or other notification alerting you to that fact. These announcements may also relate to new product launches or other relevant information about Clickberry and the services we provide.</p>
+                                            <p>Clickberry may use information in your profile or related to your activities on Clickberry applications in order to personalize the application experience for you. Clickberry may also share information such as user trends and application downloads in aggregate to third parties without identifying you as an individual.</p>
+
+                                            <h5>Sharing Your Information with Third Parties</h5>
+                                            <p>Clickberry is about users sharing information with others.</p>
+                                            <p>We do not provide contact information to third party marketers without your permission. We share your information with third parties only in limited circumstances where we believe such sharing is 1) necessary for business operations (e.g., emailing you through a third party server), 2) legally required or when we choose to collaborate with a law enforcement agency in the investigation of a possible crime, 3) permitted by you.</p>
+                                            <p>If the ownership of  Clickberry, Inc. were to change, your user information may be transferred to the new owner so the service can continue operations. In any such transfer of information, your user information would remain subject to the promises made in any pre-existing Privacy Policy.</p>
+
+                                            <h5>Changing or Removing Information</h5>
+                                            <p>Clickberry users may modify or delete any of their profile information at any time by logging into their account. Information will be updated immediately. Individuals who wish to deactivate their Clickberry account may do so by emailing us at support@clickberry.com. Removed information may persist in backup copies for a reasonable period of time but will not be generally available to members of Clickberry.</p>
+                                            <p>Clickberry services and applications have communication features that allow you to share information with other individuals on Clickberry, however, you generally cannot remove such communications.</p>
+
+                                            <h5>Security</h5>
+                                            <p>Clickberry takes appropriate precautions to protect our users' information. Your account information is located on a secured server or are hosted by a third party cloud service provider such as Amazon. Clickberry does not run and cannot guarantee the security of  third party cloud service providers. If you have any questions about the security of Clickberry applications, please contact us at <a href="mailto:support@clickberry.com">support@clickberry.com</a>.</p>
+
+                                            <h5>Children</h5>
+                                            <p>Clickberry does not knowingly collect or retain personal information about persons under 13 years of age.  Any person who provides their personal information to Clickberry through its Services must be 13 years of age or older.  If we learn that personal information of persons under the age of 13 years has been collected on one of our Services we will take the appropriate steps to delete this information.</p>
+                                            <p>If you are a parent or guardian and discover that your child under the age of 13 has obtained a Service account, then you may alert us at <a href="mailto:support@clickberry.com">support@clickberry.com</a> and request that we delete that child's personal information from our systems.</p>
+
+                                            <h5>International Users</h5>
+                                            <p>The Services are currently hosted in the United States.  If you visit any of the Services from other regions of the world with laws governing data collection and use that may differ from laws of the United States, you acknowledge that you are transferring personal information outside of those jurisdictions to the United States for the uses identified above and in accordance with this Privacy Policy.  By providing your personal information on any of the Services you consent to that transfer.</p>
+
+                                            <h5>Terms of Service, Notices and Revisions</h5>
+                                            <p>Your use of Clickberry, and any disputes arising from it, is subject to this Privacy Policy as well as our Terms of Service and all of its dispute resolution provisions including arbitration, limitation on damages and choice of law. We reserve the right to change our Privacy Policy and our Terms of Service at any time. Non-material changes and clarifications will take effect immediately, and material changes will take effect within 30 days of their posting on this site. If we make changes, we will post them and will indicate at the top of this page the policy's new effective date. We encourage you to refer to this policy on an ongoing basis so that you understand our current privacy policy. Unless stated otherwise, our current privacy policy applies to all information that we have about you and your account.</p>
+
+                                            <h5>Contacting Clickberry</h5>
+                                            <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:support@clickberry.com">support@clickberry.com</a>.</p>
+                                        </dt>
+                                    </dl>
+
+                                    <h4>8. Disclaimer of Warranties and Limitation of Liability</h4>
+                                    <p>THE SERVICES AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, COMPLETENESS, CURRENTNESS, FREEDOM FROM INTERRUPTION, VIRUSES OR OTHER DEFECT, AND NON-INFRINGEMENT.</p>
+                                    <p>YOUR SOLE REMEDY AGAINST US FOR DISSATISFACTION WITH THE SERVICES OR ANY CONTENT IS TO STOP USING THE SERVICES OR ANY SUCH CONTENT. IN NO EVENT SHALL WE OR OUR OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS OR CONTENT PROVIDERS (our "AFFILIATES") BE LIABLE FOR ANY DAMAGES, INCLUDING, WITHOUT LIMIATION, INDIRECT, CONSEQUENTIAL, SPECIAL, INCIDENTAL OR PUNITIVE DAMAGES, RESULTING FROM THE USE OR INABILITY TO USE THE SITES OR THE CONTENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT WE OR OUR AFFILIATES ARE ADVISED ON THE POSSIBLITY OF SUCH DAMAGES.</p>
+
+                                    <h4>9. Termination and Indemnity</h4>
+                                    <p>You agree that we may, at any time, and at our sole discretion, terminate your account or suspend or prohibit your access to the Services without prior notice to you for violating any of the Terms of Services or for any other reason whatsoever.</p>
+                                    <p>You agree to defend, indemnify, and hold us and our Affiliates harmless from and against any demands, loss, liability, claims or expenses (including attorney's fee) made against us by any third party due to or arising out of your use of the Services.</p>
+
+                                    <h4>10. User Submissions</h4>
+                                    <p>If you make any submission to us, you agree that you will not send or transmit any communication or content that: (i) is defamatory, indecent, harassing or otherwise objectionable; (ii) infringes or violates any rights of any party; or (iii) contains a virus or corrupted data.</p>
+                                    <p>All e-mail and other correspondence that you submit to us shall become our sole and exclusive property.</p>
+                                    <p>If you submit any business information, idea, concept or invention to us, such submission shall be considered: (i) non-confidential; and (ii) our sole and exclusive property. We will have no obligation of any kind with respect to the submission, and we will be free to use or further transmit such submission for any purpose.</p>
+
+                                    <h4>12. Notices</h4>
+                                    <p>We may send you notice with respect to the Sites by sending an email message to the email address listed in your account, by sending a letter via postal mail to the contact address listed in your account, or by posting on the Site. Any notices will be deemed delivered to the party receiving such communication: (i) one business days after deposit with an overnight carrier; (ii) three business days after mailing date if sent by postal mail; (iii) the date of transmittal if sent via email; or (iv) the date we post the notice to the Site.</p>
+
+                                    <h4>13. Governing Law, International Use</h4>
+                                    <p>The Terms of Service will be governed by and construed in accordance with the internal laws of the State of California, without regard to its conflicts of law provisions. You agree to the personal jurisdiction by and venue in the state and federal courts in Santa Clara, California, and waive any objection to such jurisdiction or venue.</p>
+                                    <p>Although the Services may be accessible worldwide, we make no representation that materials on the Services are appropriate or available for use in locations outside the United States. Accessing the Services from territories where its use is illegal is prohibited.</p>
+
+                                    <h4>14. Entire Agreement</h4>
+                                    <p>The Terms of Service represent the entire agreement between you and us with respect to the subject matter addressed herein and supersedes all prior to contemporaneous agreements or understandings, written or oral. The Terms of Service shall be binding upon and inure to the benefit of the parties hereto and their respective successors and lawful assigns.</p>
+
+                                    <h4>15. Waiver</h4>
+                                    <p>Any failure by us to enforce or exercise any provisions of the Terms of Service shall not constitute a waiver of that right or provision. Our failure to act with respect to a breach by you or others does not waive our rights to act with respect to subsequent or similar breaches.</p>
+
+                                    <h4>16. Attorneys' and Accountants' Fees</h4>
+                                    <p>In any action to enforce the Terms of Service, the prevailing party shall be entitled to attorneys' and accountants' fees and costs.</p>
+
+                                </section>
+                            </div>
+                            <div class="subscriptions-form-bottom" ng-class="{'disabled': addSubscriptionForm.$invalid || !agreedWithTerms}">
+                                <div class="label-holder">
+                                    <label><input type="checkbox" ng-model="agreedWithTerms" />Agree with terms</label>
+                                </div>
+                                <div class="btn-list">
+                                    <div class="btn btn-silver">
+                                        <input type="reset" value="" ng-click="cancel()" />
+                                        Cancel
+                                    </div>
+                                    <div class="btn btn-submit btn-green">
+                                        <input type="submit" value="" ng-disabled="addSubscriptionForm.$invalid || !agreedWithTerms" />
+                                        Finish
+                                    </div>
+                                </div>
+                                <p>* - Indicates required field</p>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- form end -->
+                    <cb-loader loader-if="isLoading"></cb-loader>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- fix-content end -->
+
+</script>

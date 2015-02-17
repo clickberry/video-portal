@@ -1,0 +1,39 @@
+﻿.social-share { list-style: none; }
+
+.social-share li a {
+    background: url("../images/social-networks-16.png") no-repeat;
+    float: left;
+    height: 16px;
+    margin-right: 5px;
+    width: 16px;
+}
+
+.social-share li:hover {
+    -ms-filter: "alpha(opacity=75)";
+    filter: alpha(opacity=75);
+    opacity: .75;
+}
+
+.social-share li:last-child { margin-right: 0; }
+
+.social-share li.facebook a { background-position: 0 0; }
+
+.social-share li.google-plus a { background-position: -16px 0; }
+
+.social-share li.twitter a { background-position: -32px 0; }
+
+.social-share li.livejournal a { background-position: -48px 0; }
+
+.social-share li.blogger a { background-position: -64px 0; }
+
+.social-share li.pinterest a { background-position: -80px 0; }
+
+.social-share li.linkedin a { background-position: -96px 0; }
+
+.social-share li.vk a { background-position: -112px 0; }
+
+.social-share li.tumblr a { background-position: -128px 0; }
+
+.social-share li.reddit a { background-position: -144px 0; }
+
+.social-share li.email a { background-position: -160px 0; }

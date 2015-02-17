@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+@using Asp.Infrastructure.Extensions
+@using Portal.DTO.Watch
+@using Portal.Web
+@using Portal.Resources.Web
+@model Portal.Web.Models.VideoModel
+@{
+    Layout = null;
+    ViewBag.Title = string.Format("{0} {1}", Model.Video.Name, InterfaceMessages.OnClickBerryStorage);
+}
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @Html.Partial("_MetaTags")
+        <style>
+            html, body {
+                background-color: black;
+                height: 100%;
+                margin: 0;
+                overflow: hidden;
+                padding: 0;
+                width: 100%;
+            }
+        </style>
+        @if (Model.Video.State != WatchState.Ready)
+        {
+            <meta http-equiv="refresh" content="10" />
+        }
+        else
+        {
+            <script>
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments);
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m);
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                ga('create', '@ViewBag.GoogleAnalyticsId', 'auto');
+                ga('send', 'pageview');
+            </script>
+        }
+    </head>
+    <body>
+        @switch (Model.Video.State)
+        {
+            case WatchState.Uploading:
+                @Html.Partial("_NotUploadedYet")
+                break;
+
+            case WatchState.Encoding:
+                <div style="text-align: center;">
+                    <div class="spinner"></div>
+                    <p style="font-size: large; margin-top: 1em;">@InterfaceMessages.VideoEncodingInProgress</p>
+                </div>
+                break;
+
+            case WatchState.Ready:
+                <div id="player" style="height: 100%; width: 100%;"></div>
+                break;
+        }
+        @if (Model.Video.State == WatchState.Ready)
+        {
+            @CdnResources.RenderScripts(
+                "~/cdn/scripts/jquery.js",
+                "~/cdn/scripts/video.js",
+                string.Format("{0}cbplayer.min.js", ViewBag.PlayerUrl))
+
+            <script type="text/javascript">
+                $("#player").cbplayer({
+                    avsx: "@Model.Video.Avsx",
+                    poster: "@Model.Video.Screenshots.GetScreenshot()",
+                    root: "@ViewBag.PlayerUrl",
+                    projectUrl: "@Model.Video.PublicUrl",
+                    external: @Model.Video.GetExternalVideo((string)ViewBag.JwFlashPlayerUrl, (string)ViewBag.YoutubeHtml5PlayerUrl),
+                    videos: @Html.GetVideosArray(Model.Video.Videos),
+                    autoplay: false
+                });
+            </script>
+        }
+    </body>
+</html>

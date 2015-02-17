@@ -1,0 +1,84 @@
+﻿<script type="text/ng-template" id="client.subscriptions.stats.html">
+    
+    <div ui-view class="slide-left"></div>
+
+</script>
+
+<script type="text/ng-template" id="client.subscriptions.stats.list.html">
+
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- static -->
+        <div class="static">
+            <div class="search-form">
+                <form action="" ng-submit="filterSubmit()">
+                    <div class="holder-submit"><input type="submit" value=""></div>
+                    <div class="text-input"><input type="text" placeholder="Find page URL" ng-model="redirectUrlFilter"></div>
+                </form>
+            </div>
+            <h1><span ng-show="subscription"><span ng-bind="subscription.siteName"></span> </span>Statistics</h1>
+            <cb-date-range ng-model="dateRange" ng-change="setDateRange" dateFormat="dd M yy"></cb-date-range>
+                <div class="chart" ng-if="dailyStats.length > 0">
+                    <cb-daily-chart items="dailyStats" items-name="Clicks"></cb-daily-chart>
+                </div>
+                <table class="table-green" infinite-scroll="nextPage()">
+                    <thead>
+                        <tr>
+                            <th class="col-link"><a href="" ng-click="setOrder('RedirectUrl')">Page URL on client site</a> <i ng-class="{'arrow-down': filter.orderBy == 'RedirectUrl' && !filter.orderByAsc, 'arrow-up': filter.orderBy == 'RedirectUrl' && filter.orderByAsc}"></i></th>
+                            <th class="col-id"><a href="" ng-click="setOrder('ProjectId')">Video ID on Portal</a> <i ng-class="{'arrow-down': filter.orderBy == 'ProjectId' && !filter.orderByAsc, 'arrow-up': filter.orderBy == 'ProjectId' && filter.orderByAsc}"></i></th>
+                            <th class="col-click"><a href="" ng-click="setOrder('Count')">Clicks</a> <i ng-class="{'arrow-down': filter.orderBy == 'Count' && !filter.orderByAsc, 'arrow-up': filter.orderBy == 'Count' && filter.orderByAsc}"></i></th>
+                            @*<th class="col-price">Spend</th>*@
+                            <th class="col-det"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="stat in stats" ng-class-even="'even'">
+                            <td class="col-link"><a href="{{stat.redirectUrl}}">{{stat.redirectUrl}}</a></td>
+                            <td class="col-id">{{stat.projectId}}</td>
+                            <td class="col-click">{{stat.count}}</td>
+                            @*<td class="col-price">$</td>*@
+                            <td class="col-det"><a href="" ui-sref="^.details({id: subscription.id, url: stat.redirectUrl})">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><span ng-show="!isLoading && total == 0">There are no statistics yet. Try to reload page later.</span></p>
+</div>
+        <!-- static end -->
+        <cb-loader loader-if="isLoading"></cb-loader>
+
+    </div>
+    <!-- fix-content end -->
+
+</script>
+
+<script type="text/ng-template" id="client.subscriptions.stats.details.html">
+    
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- static -->
+        <div class="static">
+            <h1>Statistics for <br/><span ng-bind="url" class="stat-url"></span></h1>
+            <cb-date-range ng-model="dateRange" ng-change="setDateRange" dateformat="dd M yy"></cb-date-range>
+            <div class="chart" ng-if="dailyStats.length > 0">
+                <cb-daily-chart items="dailyStats" items-name="Clicks" dateformat="dd M yy"></cb-daily-chart>
+            </div>
+            <table class="table-green" infinite-scroll="nextPage()">
+                <thead>
+                    <tr>
+                        <th class="col-date"><a href="" ng-click="setOrder('Date')">Date & time</a> <i ng-class="{'arrow-down': filter.orderBy == 'Date' && !filter.orderByAsc, 'arrow-up': filter.orderBy == 'Date' && filter.orderByAsc}"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="stat in stats" ng-class-even="'even'">
+                        <td class="col-date">{{stat.date | apiDate:'DD-MM-YYYY HH:mm:ss'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- static end -->
+        <cb-loader loader-if="isLoading"></cb-loader>
+    </div>
+    <!-- fix-content end -->
+
+
+</script>

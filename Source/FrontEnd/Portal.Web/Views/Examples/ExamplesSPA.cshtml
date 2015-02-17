@@ -1,0 +1,18 @@
+﻿@using Asp.Infrastructure.Extensions
+@section ScriptsBottom
+{
+    <script>
+        window.cb = window.cb || {};
+        window.cb.playerRoot = "@ViewBag.PlayerUrl";
+        window.cb.jwPlayerRoot = "@ViewBag.JwFlashPlayerUrl";
+    </script>
+    @CdnResources.RenderScripts(
+        "~/cdn/scripts/video.js",
+        "~/cdn/scripts/libs.js",
+        "~/cdn/scripts/examples.js",
+        string.Format("{0}cbplayer.min.js", ViewBag.PlayerUrl))
+}
+<div id="pages">
+    @Html.Partial("PageExample")
+    @Html.Partial("PageExamples")
+</div>

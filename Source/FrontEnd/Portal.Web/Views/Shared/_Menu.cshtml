@@ -1,0 +1,109 @@
+﻿@using Portal.Resources.Web
+@using Portal.Web.Constants
+@model Portal.Web.Models.MenuModel
+@{
+    var userSpaLinks = Model != null && Model.GenerateUserSpaLinks;
+}
+<script type="text/ng-template" id="portal.menu.html">
+    
+    <nav class="navigation">
+        <ul class="navigation-list">
+            @if (userSpaLinks)
+            {
+                <li ng-if="isAuthorized(userRoles.user) && currentUser"><a href="" ui-sref="portal.user.videos({userId: currentUser.id})" ng-class="{active: state.current.name == 'portal.user.videos' && stateParams.userId == currentUser.id}">@InterfaceMessages.MenuVideos</a></li>
+                <li ng-if="isAuthorized(userRoles.user)"><a href="" ui-sref="portal.user.likes" ng-class="{active: state.current.name == 'portal.user.likes'}">@InterfaceMessages.MenuLikes</a></li>
+                <li><a href="" ui-sref="portal.trends" ng-class="{active: state.current.name == 'portal.trends'}">@InterfaceMessages.MenuTrends</a></li>
+                <li><a href="" ui-sref="portal.latest" ng-class="{active: state.current.name == 'portal.latest'}">@InterfaceMessages.MenuLatest</a></li>
+            }
+            else
+            {
+                <li ng-if="isAuthorized(userRoles.user) && currentUser"><a href="@Url.RouteUrl(RouteNames.UserVideos, new { id = User.Identity.Name })" target="_self">@InterfaceMessages.MenuVideos</a></li>
+                <li ng-if="isAuthorized(userRoles.user)"><a href="@Url.RouteUrl(RouteNames.UserLikes, null)" target="_self">@InterfaceMessages.MenuLikes</a></li>
+                <li><a href="@Url.RouteUrl(RouteNames.Trends, null)" target="_self">@InterfaceMessages.MenuTrends</a></li>
+                <li><a href="@Url.RouteUrl(RouteNames.Latest, null)" target="_self">@InterfaceMessages.MenuLatest</a></li>
+            }
+            
+            <li ng-if="isAuthorized(userRoles.admin) || isAuthorized(userRoles.superAdmin)"><a href="@Url.RouteUrl(RouteNames.Admin, null)" target="_self">@InterfaceMessages.MenuAdministration</a></li>
+            <li ng-if="isAuthorized(userRoles.examplesManager)"><a href="@Url.RouteUrl(RouteNames.Examples, null)" target="_self">@InterfaceMessages.MenuExamples</a></li>
+            <li ng-if="isAuthorized(userRoles.client)"><a href="@Url.RouteUrl(RouteNames.ClientSubscriptions, null)" target="_self">@InterfaceMessages.MenuSubscriptions</a></li>
+            <li>
+                <!-- user -->
+                <div class="login-holder" ng-if="currentUser && !isAuthorized(userRoles.client)">
+                    <div class="login">
+                        <div class="login-top">
+                            <div class="login-img">
+                                @if (userSpaLinks)
+                                {
+                                    <a href="" ui-sref="portal.user.profile" ng-if="currentUser.avatarUrl"><img ng-src="{{currentUser.avatarUrl | schemeAgnostic}}" alt="" /></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.RouteUrl(RouteNames.Profile)" ng-if="currentUser.avatarUrl" target="_self"><img ng-src="{{currentUser.avatarUrl | schemeAgnostic}}" alt="" /></a>
+                                }
+                            </div>
+                            <div class="login-text">
+                                @if (userSpaLinks)
+                                {
+                                    <a href="" ui-sref="portal.user.profile"><div class="login-text-name">{{currentUser.userName}}</div><span class="icon-login"></span></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.RouteUrl(RouteNames.Profile)" target="_self"><div class="login-text-name">{{currentUser.userName}}</div><span class="icon-login"></span></a>
+                                }
+                            </div>
+                        </div>
+                        <div class="login-hover">
+                            <div class="login-progress-used">
+                                <div class="login-progress-field" cb-progressbar progressbar-value="currentUser.usedDiskSpace" progressbar-max-value="currentUser.maximumDiskSpace" progressbar-critical-value="currentUser.maximumDiskSpace * 0.9" progressbar-critical-class="progressbar-full"></div>
+                                <div class="login-progress-text">{{currentUser.usedDiskSpace / 1024 / 1024 | number:0}} MB of {{currentUser.maximumDiskSpace / 1024 / 1024 / 1024 | number:0}} GB used</div>
+                            </div>
+                            @if (userSpaLinks)
+                            {
+                                <a href="" class="btn btn-login" ng-click="signOut()">Sign out</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.RouteUrl(RouteNames.Logoff)" target="_self" class="btn btn-login">Sign out</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- user end -->
+                <!-- client -->
+                <div class="login-holder" ng-if="isAuthorized(userRoles.client)">
+                    <div class="login">
+                        <div class="login-top">
+                            <div class="login-text"><a href="@Url.RouteUrl(RouteNames.ClientProfile)" target="_self"><div class="login-text-name">Profile</div><span class="icon-login"></span></a></div>
+                        </div>
+                        <div class="login-hover">
+                            @if (userSpaLinks)
+                            {
+                                <a href="" class="btn btn-login" ng-click="signOut()">Sign out</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.RouteUrl(RouteNames.Logoff)" target="_self" class="btn btn-login">Sign out</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- client end -->
+                
+                <a href="" ng-click="signin()" class="popup-open" ng-if="!currentUser">
+                    <div class="login-holder">
+                        <div class="login">
+                            <!-- login-top -->
+                            <div class="login-top">
+                                <!-- login-name -->
+                                <div class="login-text">Sign in<span class="icon-signin"></span></div>
+                                <!-- login-name end -->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+
+</script>

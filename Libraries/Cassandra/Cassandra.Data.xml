@@ -1,0 +1,536 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cassandra.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Cassandra.Data.CqlDataAdapter">
+            <summary>
+            Implementation of the <see cref="T:System.Data.IDbDataAdapter"/> interface. Provides
+            strong typing, but inherit most of the functionality needed to fully implement a DataAdapter.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="T:Cassandra.Data.CqlCommand">
+            <summary>
+            Represents an CQL statement to execute against Cassandra
+            </summary>
+        </member>
+        <member name="P:Cassandra.Data.CqlCommand.CommandText">
+            <inheritdoc />
+        </member>
+        <member name="P:Cassandra.Data.CqlCommand.ConsistencyLevel">
+            <summary>
+            Gets or sets the ConsistencyLevel when executing the current <see cref="T:Cassandra.Data.CqlCommand"/>.
+            </summary>
+        </member>
+        <member name="P:Cassandra.Data.CqlCommand.IsPrepared">
+            <summary>
+            Gets whether this command has been prepared.
+            </summary>
+        </member>
+        <member name="P:Cassandra.Data.CqlCommand.Parameters">
+            <summary>
+            Gets the <see cref="T:Cassandra.Data.CqlParameter"/>s.
+            </summary>
+        </member>
+        <member name="T:Cassandra.Data.CqlConnection">
+            <summary>
+            Represents a CQL connection.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.#ctor">
+            <summary>
+            Initializes a <see cref="T:Cassandra.Data.CqlConnection"/>.
+            </summary>
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.#ctor(System.String)">
+            <summary>
+            Initializes a <see cref="T:Cassandra.Data.CqlConnection"/>.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.BeginDbTransaction(System.Data.IsolationLevel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.ChangeDatabase(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.CreateDbCommand">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.Open">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.OnBuildingCluster(Cassandra.Builder)">
+            <summary>
+            To be overridden in child classes to change the default <see cref="T:Cassandra.Builder"/> settings
+            for building a <see cref="T:Cassandra.Cluster"/>.
+            
+            For example, some clients might want to specify the <see cref="T:Cassandra.DCAwareRoundRobinPolicy"/>
+            when building the <see cref="T:Cassandra.Cluster"/> so that the clients could talk to only the hosts
+            in specified datacenter for better performance.
+            </summary>
+            <param name="builder">The <see cref="T:Cassandra.Builder"/> for building a <see cref="T:Cassandra.Cluster"/>.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.CreateCluster(Cassandra.CassandraConnectionStringBuilder)">
+            <summary>
+            Creates a <see cref="T:Cassandra.Cluster"/>. By default <see cref="T:Cassandra.Cluster"/>s are created and cached
+            by cluster name specified in connection string.
+            
+            To be overridden in child classes to change the default creation and caching behavior.
+            </summary>
+            <param name="connectionStringBuilder">The <see cref="T:Cassandra.CassandraConnectionStringBuilder"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.CreatedSession(System.String)">
+            <summary>
+            Creates a <see cref="T:Cassandra.ISession"/>.
+            
+            To be overridden in child classes if want to cache the <see cref="T:Cassandra.ISession"/> created.
+            </summary>
+            <param name="keyspace">The keyspace.</param>
+            <returns>Returns the created <see cref="T:Cassandra.ISession"/>.</returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlConnection.CreatePreparedStatement(System.String)">
+            <summary>
+            To be called by CqlCommand to creates a <see cref="T:Cassandra.PreparedStatement"/>
+            from <see cref="F:Cassandra.Data.CqlConnection.ManagedConnection"/>.
+            
+            To be overridden in child classes if want to cache the <see cref="T:Cassandra.PreparedStatement"/> created.
+            </summary>
+            <param name="cqlQuery">The CQL query string.</param>
+            <returns>Returns the created <see cref="T:Cassandra.PreparedStatement"/>.</returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlConnection.ConnectionString">
+            <inheritdoc />
+        </member>
+        <member name="P:Cassandra.Data.CqlConnection.DataSource">
+            <inheritdoc />
+        </member>
+        <member name="P:Cassandra.Data.CqlConnection.Database">
+            <summary>
+            Returns the Keyspace
+            </summary>
+        </member>
+        <member name="P:Cassandra.Data.CqlConnection.ServerVersion">
+            <inheritdoc />
+        </member>
+        <member name="P:Cassandra.Data.CqlConnection.State">
+            <inheritdoc />
+        </member>
+        <member name="T:Cassandra.Data.CqlParameter">
+            <summary>
+            Represents a Cql parameter.
+            </summary>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cassandra.Data.CqlParameter"/> class.
+            </summary>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameter.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cassandra.Data.CqlParameter"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameter.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cassandra.Data.CqlParameter"/> class.
+            The type of the parameter will be guessed from the value.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameter.ResetDbType">
+            <summary>
+            Resets the DbType property to its original settings.
+            </summary>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.DbType">
+            <summary>
+            Gets or sets the <see cref="T:System.Data.DbType" /> of the parameter.
+            </summary>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.Direction">
+            <summary>
+            Gets or sets a value indicating whether the parameter is 
+            input-only, output-only, bidirectional, or a stored procedure return value parameter.
+            </summary>
+            <returns>
+            One of the <see cref="T:System.Data.ParameterDirection"/> values.
+            The default is Input.
+            </returns>
+            <exception cref="T:System.NotSupportedException">Cql only supports input parameters</exception>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.IsNullable">
+            <summary>
+            Gets a value indicating whether the parameter accepts null values.
+            </summary>
+            <returns>true if null values are accepted; otherwise, false. The default is false. </returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.ParameterName">
+            <summary>
+            Gets or sets the name of the <see cref="T:System.Data.IDataParameter" />.
+            </summary>
+            <returns>
+            The name of the <see cref="T:System.Data.IDataParameter" />.
+            The default is an empty string.
+            </returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.SourceColumn">
+            <summary>
+            Gets or sets the name of the source column that is mapped
+            to the <see cref="T:System.Data.DataSet" /> and used for loading or 
+            returning the <see cref="P:System.Data.IDataParameter.Value" />.
+            </summary>
+            <returns>
+            The name of the source column that is mapped to the <see cref="T:System.Data.DataSet" />.
+            The default is an empty string.
+            </returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.SourceVersion">
+            <summary>
+            Gets or sets the <see cref="T:System.Data.DataRowVersion" />
+            to use when loading <see cref="P:System.Data.IDataParameter.Value" />.
+            </summary>
+            <returns>
+            One of the <see cref="T:System.Data.DataRowVersion" /> values.
+            The default is Current.
+            </returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.Value">
+            <summary>
+            Gets or sets the value of the parameter. 
+            If no type information was provided earlier, the type of the parameter will be
+            guessed from the value's type.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object" /> that is the value of the parameter.
+            The default value is null.
+            </returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.Size">
+            <summary>
+            The size of the parameter.
+            </summary>
+            <returns>Always returns 0.</returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameter.SourceColumnNullMapping">
+            <summary>
+            Sets or gets a value which indicates whether the source column is nullable.
+            This allows <see cref="T:System.Data.Common.DbCommandBuilder" /> 
+            to correctly generate Update statements for nullable columns.
+            </summary>
+            <returns>true if the source column is nullable; false if it is not. </returns>
+        </member>
+        <member name="T:Cassandra.Data.CqlParameterCollection">
+            <summary>
+            Represents a collection of <see cref="T:Cassandra.Data.CqlParameter"/>s.
+            </summary>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Add(System.Object)">
+            <summary>
+            Adds the specified <see cref="T:System.Data.Common.DbParameter" /> object
+            to the <see cref="T:System.Data.Common.DbParameterCollection" />.
+            </summary>
+            <param name="value">
+            The <see cref="P:System.Data.Common.DbParameter.Value" />
+            of the <see cref="T:System.Data.Common.DbParameter" /> to add to the collection.
+            </param>
+            <returns>
+            The index of the <see cref="T:System.Data.Common.DbParameter" /> object in the collection. 
+            </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Add(Cassandra.Data.CqlParameter)">
+            <summary>
+            Adds the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns> </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Add(System.String,System.Object)">
+            <summary>
+            Adds a new parameter with the specified name and value. The name will be
+            parsed to extract table and keyspace information (if any). The parameter type
+            will be guessed from the object value.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns>The created <see cref="T:Cassandra.Data.CqlParameter"/>.</returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Contains(System.Object)">
+            <summary>
+            Indicates whether a <see cref="T:System.Data.Common.DbParameter" /> 
+            with the specified <see cref="P:System.Data.Common.DbParameter.Value" /> 
+            is contained in the collection.
+            </summary>
+            <param name="value">
+            The <see cref="P:System.Data.Common.DbParameter.Value" /> 
+            of the <see cref="T:System.Data.Common.DbParameter" /> to look for in the collection.
+            </param>
+            <returns>
+            true if the <see cref="T:System.Data.Common.DbParameter" /> is in the collection; otherwise false.
+            </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Clear">
+            <summary>
+            Removes all <see cref="T:System.Data.Common.DbParameter" /> values
+            from the <see cref="T:System.Data.Common.DbParameterCollection" />.
+            </summary>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.IndexOf(System.Object)">
+            <summary>
+            Returns the index of the specified <see cref="T:System.Data.Common.DbParameter" /> object.
+            </summary>
+            <param name="value">The <see cref="T:System.Data.Common.DbParameter" /> object in the collection.</param>
+            <returns>The index of the specified <see cref="T:System.Data.Common.DbParameter" /> object.</returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Insert(System.Int32,System.Object)">
+            <summary>
+            Inserts the specified index of the <see cref="T:System.Data.Common.DbParameter" /> object
+            with the specified name into the collection at the specified index.
+            </summary>
+            <param name="index">The index at which to insert the <see cref="T:System.Data.Common.DbParameter" /> object.</param>
+            <param name="value">The <see cref="T:System.Data.Common.DbParameter" /> object to insert into the collection.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Remove(System.Object)">
+            <summary>
+            Removes the specified <see cref="T:System.Data.Common.DbParameter" /> object from the collection.
+            </summary>
+            <param name="value">The <see cref="T:System.Data.Common.DbParameter" /> object to remove.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Data.Common.DbParameter" /> object at the specified from the collection.
+            </summary>
+            <param name="index">
+            The index where the <see cref="T:System.Data.Common.DbParameter" /> object is located.
+            </param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.RemoveAt(System.String)">
+            <summary>
+            Removes the <see cref="T:System.Data.Common.DbParameter" /> object 
+            with the specified name from the collection.
+            </summary>
+            <param name="parameterName">
+            The name of the <see cref="T:System.Data.Common.DbParameter" /> object to remove.
+            </param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.SetParameter(System.Int32,System.Data.Common.DbParameter)">
+            <summary>
+            Sets the <see cref="T:System.Data.Common.DbParameter" /> object 
+            at the specified index to a new value.
+            </summary>
+            <param name="index">
+            The index where the <see cref="T:System.Data.Common.DbParameter" /> objectis located. 
+            </param>
+            <param name="value">The new <see cref="T:System.Data.Common.DbParameter" /> value.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.SetParameter(System.String,System.Data.Common.DbParameter)">
+            <summary>
+            Sets the <see cref="T:System.Data.Common.DbParameter" /> object
+            with the specified name to a new value.
+            </summary>
+            <param name="parameterName">
+            The name of the <see cref="T:System.Data.Common.DbParameter" /> object in the collection.
+            </param>
+            <param name="value">The new <see cref="T:System.Data.Common.DbParameter" /> value.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.IndexOf(System.String)">
+            <summary>
+            Returns the index of the <see cref="T:System.Data.Common.DbParameter" /> object with the specified name.
+            </summary>
+            <returns>
+            <param name="parameterName">
+            The name of the <see cref="T:System.Data.Common.DbParameter" /> object in the collection.
+            </param>
+            The index of the <see cref="T:System.Data.Common.DbParameter" /> object with the specified name.
+            </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.GetEnumerator">
+            <summary>
+            Exposes the <see cref="M:System.Collections.IEnumerable.GetEnumerator" /> method, 
+            which supports a simple iteration over a collection by a .NET Framework data provider.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> that can be used 
+            to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.GetParameter(System.Int32)">
+            <summary>
+            Returns the <see cref="T:System.Data.Common.DbParameter" /> object at the specified index in the collection.
+            </summary>
+            <param name="index">
+            The index of the <see cref="T:System.Data.Common.DbParameter" />in the collection.
+            </param>
+            <returns>
+            The <see cref="T:System.Data.Common.DbParameter" /> object 
+            at the specified index in the collection.
+            </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.GetParameter(System.String)">
+            <summary>
+            Returns <see cref="T:System.Data.Common.DbParameter" /> the object with the specified name.
+            </summary>
+            <param name="parameterName">
+            The name of the <see cref="T:System.Data.Common.DbParameter" /> in the collection.
+            </param>
+            <returns>The <see cref="T:System.Data.Common.DbParameter" /> the object with the specified name. </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.Contains(System.String)">
+            <summary>
+            Indicates whether a <see cref="T:System.Data.Common.DbParameter" />
+            with the specified name exists in the collection.
+            </summary>
+            <param name="value">
+            The name of the <see cref="T:System.Data.Common.DbParameter" /> 
+            to look for in the collection.
+            </param>
+            <returns>
+            true if the <see cref="T:System.Data.Common.DbParameter" /> is
+            in the collection; otherwise false.
+            </returns>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies an array of items to the collection starting at the specified index.
+            </summary>
+            <param name="array">The array of items to copy to the collection.</param>
+            <param name="index">The index in the collection to copy the items.</param>
+        </member>
+        <member name="M:Cassandra.Data.CqlParameterCollection.AddRange(System.Array)">
+            <summary>
+            Adds an array of items with the specified values 
+            to the <see cref="T:System.Data.Common.DbParameterCollection" />.
+            </summary>
+            <param name="values">
+            An array of values of type <see cref="T:System.Data.Common.DbParameter" /> 
+            to add to the collection. 
+            </param>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameterCollection.Count">
+            <summary>
+            Specifies the number of items in the collection.
+            </summary>
+            <returns>The number of items in the collection.</returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameterCollection.SyncRoot">
+            <summary>
+            Specifies the <see cref="T:System.Object" /> to be used to synchronize access to the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Object" /> to be used to synchronize access 
+            to the <see cref="T:System.Data.Common.DbParameterCollection" />.
+            </returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameterCollection.IsFixedSize">
+            <summary>
+            Specifies whether the collection is a fixed size.
+            </summary>
+            <returns>true if the collection is a fixed size; otherwise false.</returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameterCollection.IsReadOnly">
+            <summary>
+            Specifies whether the collection is read-only.
+            </summary>
+            <returns>true if the collection is read-only; otherwise false.</returns>
+        </member>
+        <member name="P:Cassandra.Data.CqlParameterCollection.IsSynchronized">
+            <summary>
+            Specifies whether the collection is synchronized.
+            </summary>
+            <returns>true if the collection is synchronized; otherwise false.</returns>
+        </member>
+        <member name="T:Cassandra.Data.CqlProviderFactory">
+            <summary>
+            Represents a set of methods for creating instances of a CQL ADO.NET implementation
+            of the data source classes.
+            </summary>
+        </member>
+        <member name="T:Cassandra.Data.CqlReader">
+            <summary>
+            Reads a forward-only stream of rows from Cassandra.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetBoolean(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetByte(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetChar(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetDataTypeName(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetDateTime(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetDecimal(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetDouble(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetFieldType(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetFloat(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetGuid(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetInt16(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetInt32(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetInt64(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetName(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetOrdinal(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetValue(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.GetValues(System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.IsDBNull(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.NextResult">
+            <inheritdoc />
+        </member>
+        <member name="M:Cassandra.Data.CqlReader.Read">
+            <inheritdoc />
+        </member>
+        <member name="P:Cassandra.Data.CqlReader.FieldCount">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

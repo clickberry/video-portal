@@ -1,0 +1,101 @@
+﻿/* date range */
+
+.daterange-main-container {
+    float:right;
+    width:230px;
+}
+
+.daterange-main-container .delimiter {
+    float:left;
+    width:10px;
+    font-size:30px;
+    margin-top: -4px;
+    padding-left: 5px;
+}
+
+.daterange-main-container input {
+    float:left;
+    width:87px;
+    background:url(../img/select-small.png) right no-repeat;
+    cursor:pointer;
+    text-align:right;
+    padding-right:15px;
+}
+
+/* Datepicker */
+
+.ui-datepicker.ui-widget-content {
+    height:225px;
+    width:230px;
+    background: #cccccc;
+}
+
+.ui-datepicker-header.ui-widget-header {
+    height:28px;
+    background: #00A847;
+}
+
+.ui-datepicker .ui-widget-header .ui-datepicker-title {
+    color: white;
+    font-weight:bold;
+}
+
+.ui-datepicker-header.ui-widget-header a {
+    color: white;
+}
+
+
+.ui-datepicker .ui-datepicker-prev ,
+.ui-datepicker .ui-datepicker-next  {
+    width: 40px;
+}
+
+
+.ui-datepicker .ui-datepicker-prev span, 
+.ui-datepicker .ui-datepicker-next span {
+    left: 0px;
+    margin-left:0px;
+}
+
+.ui-datepicker-calendar {
+    background: white;
+}
+
+.ui-datepicker a {
+   color:#222222;
+}
+
+.ui-datepicker td a {
+    background: #dddddd;
+}
+
+.ui-datepicker td.ui-datepicker-unselectable span {
+    background: #eeeeee;
+    color: #cccccc;
+}
+
+.ui-datepicker td.ui-datepicker-current-day a {
+    font-weight: bold;
+    background:#00A847;
+    color: white;
+}
+
+/*
+
+.ui-datepicker-header a.ui-datepicker-prev,
+.ui-datepicker-header a.ui-datepicker-next {
+    width: 60px;
+    padding:0px;
+    margin:0px;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev {
+    text-align:left;
+}
+.ui-datepicker-header a.ui-datepicker-next {
+    text-align:right;
+}
+    
+*/
+
+/* date range end */

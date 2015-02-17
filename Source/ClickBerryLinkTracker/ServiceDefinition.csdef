@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="ClickBerryLinkTracker" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
+  <WebRole name="LinkTracker.Api" vmsize="Medium">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="HttpIn" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="HttpIn" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="MongoConnectionString" />
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="PortalUri" />
+      <Setting name="JiraIssueCollectorUri" />
+      <Setting name="ProjectBaseUri" />
+      <Setting name="StripeApiKey" />
+      <Setting name="EmailSubjectErrors" />
+      <Setting name="EmailAddressErrors" />
+      <Setting name="EmailAddressAlerts" />
+      <Setting name="MailSettings" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+    <Runtime executionContext="elevated" />
+  </WebRole>
+  <WorkerRole name="LinkTracker.BillingSync" vmsize="Small">
+    <Imports>
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="MongoConnectionString" />
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="PortalUri" />
+      <Setting name="JiraIssueCollectorUri" />
+      <Setting name="SyncInterval" />
+      <Setting name="SubscriptionPlans" />
+      <Setting name="BillingInvoiceItemDescriptionTemplate" />
+      <Setting name="StripeApiKey" />
+      <Setting name="EmailSubjectErrors" />
+      <Setting name="EmailAddressErrors" />
+      <Setting name="EmailAddressAlerts" />
+      <Setting name="MailSettings" />
+    </ConfigurationSettings>
+    <Runtime executionContext="elevated" />
+  </WorkerRole>
+</ServiceDefinition>

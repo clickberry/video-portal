@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="AccountPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="AccountRememberMe" xml:space="preserve">
+    <value>Keep me logged in</value>
+  </data>
+  <data name="AccountUserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="AccountConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="VideoEncodingInProgress" xml:space="preserve">
+    <value>We are processing video...</value>
+  </data>
+  <data name="OnClickBerryStorage" xml:space="preserve">
+    <value>on Clickberry Storage</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Terms of Service</value>
+  </data>
+  <data name="LayoutCopyright" xml:space="preserve">
+    <value>2014 © Clickberry, Inc.&lt;br/&gt;
+All rights reserved.</value>
+  </data>
+  <data name="LayoutLicenseAgreement" xml:space="preserve">
+    <value>Terms</value>
+  </data>
+  <data name="LayoutLogoff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
+  <data name="LayoutLogon" xml:space="preserve">
+    <value>Log On</value>
+  </data>
+  <data name="LayoutSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="MenuProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="MenuStats" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="MenuVideos" xml:space="preserve">
+    <value>My snaps</value>
+  </data>
+  <data name="MenuWidgets" xml:space="preserve">
+    <value>Widgets</value>
+  </data>
+  <data name="ProfileUsedSpace" xml:space="preserve">
+    <value>Used space</value>
+  </data>
+  <data name="ProfileUsedSpaceOf" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="VideoCopyHtmlCode" xml:space="preserve">
+    <value>Copy HTML code</value>
+  </data>
+  <data name="VideoCopyHtmlCodeHint" xml:space="preserve">
+    <value>You can copy the HTML code below and publish your interactive video on your page, blog or on any place on the web.</value>
+  </data>
+  <data name="VideoDateUpload" xml:space="preserve">
+    <value>Date Upload</value>
+  </data>
+  <data name="VideoDelete" xml:space="preserve">
+    <value>Delete Video</value>
+  </data>
+  <data name="VideoPublicVisibility" xml:space="preserve">
+    <value>Make this video visible to others</value>
+  </data>
+  <data name="VideosSearch" xml:space="preserve">
+    <value>Search video</value>
+  </data>
+  <data name="VideosSearchNoResults" xml:space="preserve">
+    <value>No videos found.</value>
+  </data>
+  <data name="VideosShowMore" xml:space="preserve">
+    <value>Show more videos</value>
+  </data>
+  <data name="WelcomeCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="WelcomeCreateHint" xml:space="preserve">
+    <value>Making a video interactive is easy with Clickberry. Simply grab a video and pull it into Clickberry to use the drag-and-drop tools. It's fast, easy and fun.</value>
+  </data>
+  <data name="WelcomeForgotPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="WelcomeShare" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="WelcomeShareHint" xml:space="preserve">
+    <value>Then you can share your interactive video on the web in just a few seconds.</value>
+  </data>
+  <data name="WelcomeSocial" xml:space="preserve">
+    <value>or connect using</value>
+  </data>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>Clickberry Online Storage</value>
+  </data>
+  <data name="WelcomeUpload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="WelcomeUploadHint" xml:space="preserve">
+    <value>After you made your video interactive click “upload” and we'll host it for free on Clickberry Online Storage.</value>
+  </data>
+  <data name="MenuAllUsers" xml:space="preserve">
+    <value>All Users</value>
+  </data>
+  <data name="MenuAllVideos" xml:space="preserve">
+    <value>All Videos</value>
+  </data>
+  <data name="MenuExamples" xml:space="preserve">
+    <value>Examples</value>
+  </data>
+  <data name="ExamplesPushNotSent" xml:space="preserve">
+    <value>Not sent</value>
+  </data>
+  <data name="ExamplesPushSent" xml:space="preserve">
+    <value>Sent</value>
+  </data>
+  <data name="ExamplesVideoPrivate" xml:space="preserve">
+    <value>Private Video</value>
+  </data>
+  <data name="ExamplesVideoPublic" xml:space="preserve">
+    <value>Public Video</value>
+  </data>
+  <data name="VideoNotUploaded" xml:space="preserve">
+    <value>The video has not been uploaded yet.</value>
+  </data>
+  <data name="MenuAllRoles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="VideoExtensionAddonTooltip" xml:space="preserve">
+    <value>To create a video tag of your own, click {0} to download a new browser extension.</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="MenuAllClients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="CompleteRegistrationTitle" xml:space="preserve">
+    <value>Complete your registration - Clickberry</value>
+  </data>
+  <data name="AuthenticationFailed" xml:space="preserve">
+    <value>Authentication failed</value>
+  </data>
+  <data name="MenuEditorsPick" xml:space="preserve">
+    <value>Editor's pick</value>
+  </data>
+  <data name="MenuTrends" xml:space="preserve">
+    <value>Trends</value>
+  </data>
+  <data name="MenuAdministration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="MenuLatest" xml:space="preserve">
+    <value>Latest</value>
+  </data>
+  <data name="MenuLikes" xml:space="preserve">
+    <value>My likes</value>
+  </data>
+  <data name="MenuSubscriptions" xml:space="preserve">
+    <value>My Subscriptions</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About Clickberry</value>
+  </data>
+  <data name="UnsupportedBrowser" xml:space="preserve">
+    <value>Unsupported Browser</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="FeedbackEmail" xml:space="preserve">
+    <value>E-mail*</value>
+  </data>
+  <data name="FeedbackMessage" xml:space="preserve">
+    <value>Message...*</value>
+  </data>
+  <data name="FeedbackName" xml:space="preserve">
+    <value>Name*</value>
+  </data>
+  <data name="FeedbackPhone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="FeedbackSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="FeedbackError" xml:space="preserve">
+    <value>An error occured while sending your feedback message. Please, try again later.</value>
+  </data>
+  <data name="FeedbackSuccess" xml:space="preserve">
+    <value>Your feedback message has been successfully sent to administrator. Thank you!</value>
+  </data>
+  <data name="Sdk" xml:space="preserve">
+    <value>SDKs</value>
+  </data>
+</root>

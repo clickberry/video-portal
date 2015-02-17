@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2299080-8378-4E3F-A0AD-33EF5DA00DA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.Mappers.Tests</RootNamespace>
+    <AssemblyName>Portal.Mappers.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Analytics.NET, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Source\packages\Analytics.1.1.0\lib\Analytics.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\Source\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticsTests\SegmentioClientFactoryTest.cs" />
+    <Compile Include="StatisticsTests\StatEntityFactoryTest.cs" />
+    <Compile Include="StatisticsTests\TableValueConverterTest.cs" />
+    <Compile Include="StatisticsTests\ReportMapperTest.cs" />
+    <Compile Include="StatisticsTests\StatMapperTest.cs" />
+    <Compile Include="StatisticsTests\StatDomainFactoryTest.cs" />
+    <Compile Include="StatisticsTests\SegmentioFactoryTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\BLL\Portal.BLL\Portal.BLL.csproj">
+      <Project>{7DBEA20E-3095-4D37-B651-0C172D2A3598}</Project>
+      <Name>Portal.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Common\Configuration\Configuration.csproj">
+      <Project>{5A5BCFA5-7514-425C-B0D8-D9FDC8D4A3FB}</Project>
+      <Name>Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Common\Portal.Mappers\Portal.Mappers.csproj">
+      <Project>{2FB78B32-4790-4EA5-AF52-7A4AC4037987}</Project>
+      <Name>Portal.Mappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Common\Wrappers\Wrappers.csproj">
+      <Project>{9E8F2D2D-B074-4D22-A271-8BD911C3AF6A}</Project>
+      <Name>Wrappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\DAL\Portal.DAL.Infrastructure\Portal.DAL.Infrastructure.csproj">
+      <Project>{BF19381C-95A1-4B7B-8ECB-A0DABCB9B906}</Project>
+      <Name>Portal.DAL.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\DAL\Portal.DAL\Portal.DAL.csproj">
+      <Project>{9D7C61A2-BFDC-4638-8DA8-FF69526AA0CD}</Project>
+      <Name>Portal.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Entities\Portal.DAL.Entities\Portal.DAL.Entities.csproj">
+      <Project>{E65A1C84-D68D-4712-BBD2-9891EE95E481}</Project>
+      <Name>Portal.DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Entities\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Entities\Portal.DTO\Portal.DTO.csproj">
+      <Project>{A55EE877-C49A-49C1-8943-2FBD6061207E}</Project>
+      <Name>Portal.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.BLL.Tests\Portal.BLL.Tests.csproj">
+      <Project>{AE5D2F06-5E3C-4231-A735-F67607309CCC}</Project>
+      <Name>Portal.BLL.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestFake\TestFake.csproj">
+      <Project>{6D5D4140-094A-4729-9270-48274DAEEC30}</Project>
+      <Name>TestFake</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

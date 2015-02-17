@@ -1,0 +1,43 @@
+﻿@using Portal.Web.Constants
+<script type="text/ng-template" id="portal.signin.html">
+
+    <div class="popup popup-close" ng-show="signinVisible" cb-popup cb-popup-close="onClose">
+
+        <div class="popup-sign-in">
+
+            <h2>Sign in to continue</h2>
+            <form name="login" action="@Url.Action("Index", "Home")" target="iframe" method="post" ng-submit="submit(model)" novalidate form-autofill-fix>
+                <div ng-class="{'failed': loginFailed}">
+                    <div class="holder-input">
+                        <input type="text" placeholder="E-mail" ng-model="model.email" name="username" />
+                    </div>
+                    <div class="holder-input">
+                        <input type="password" placeholder="Password" ng-model="model.password" name="password" />
+                    </div>
+                </div>
+                <div class="btn btn-submit sign-in">
+                    <input type="submit" value="" ng-disabled="login.$invalid || isLoading" />Sign in<span class="icon"></span>
+                </div>
+                <div class="forgot-password-holder">
+                    <a href="@Url.RouteUrl(RouteNames.AccountRecovery)" class="forgot-password">Forgot your password?</a>
+                </div>
+            </form>
+            <!-- Fake frame to use as form target -->
+            <iframe name="iframe" id="iframe" style="display: none;"></iframe>
+
+            <cb-loader loader-if="isLoading"></cb-loader>
+
+            <div ng-hide="isLoading" ng-if="socials.length > 0">
+                <p>or connect using</p>
+                <ul class="soc-list">
+                    <li ng-repeat="social in socials" class="{{social.className}}"><a href="{{social.url}}" target="_self"></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</script>
+
+<div data-cb-sign-in></div>

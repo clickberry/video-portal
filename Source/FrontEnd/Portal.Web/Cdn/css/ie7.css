@@ -1,0 +1,40 @@
+﻿.btn.sign-in {
+    padding: 17px 20px 19px;
+}
+.btn.sign-in .icon{
+	margin-top:10px;
+}
+.btn.edit-profile-submit {
+	padding: 16px 54px 26px;
+}
+.navigation-list-count {
+    right: 8px;
+}
+.footer-navigation {
+    padding: 1px 0 0;
+}
+.footer-navigation-list {
+    margin: 0 0 0 40px;
+}
+.indicators-list-user .trash .icon,
+.indicators-list-user .publick .icon,
+.indicators-list-user .private .icon,
+.indicators-list-user .unlisted .icon {
+	margin: 3px 5px 0 0;
+}
+.login-top {
+	min-width:144px;
+}
+a.popup-open .login-top {
+	min-width:4px;
+}
+a.popup-open  .icon-signin {
+		margin-top:5px;
+}
+.popup-sign-in .btn.sign-in{
+	position:relative;
+	overflow:hidden;
+}
+.red input{
+	color:#d0240b;
+}

@@ -1,0 +1,46 @@
+﻿@model Portal.Domain.ProfileContext.TokenData
+
+@{
+    ViewBag.Title = "Complete your registration";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+<!-- fix-content -->
+<div class="fix-content">
+    <!-- registration-field -->
+    <div class="registration-field count-wrap">
+        <h1>@ViewBag.Title</h1>
+        
+        <div class="edit-profile">
+            
+            @using (Html.BeginForm("iplogin", "account"))
+            {
+                <div class="holder-input">
+                    @Html.TextBoxFor(model => model.Name, new { @placeholder = "Name*" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Name)
+
+                <div class="holder-input">
+                    @Html.TextBoxFor(model => model.Email, new { @placeholder = "E-mail*" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Email)
+
+                @Html.HiddenFor(model => model.IdentityProvider)
+                @Html.HiddenFor(model => model.UserIdentifier)
+                @Html.HiddenFor(model => model.Token)
+                @Html.HiddenFor(model => model.TokenSecret)
+
+                <div class="btn btn-submit edit-profile-submit">
+                    <input type="submit" value="" />Submit
+                </div>
+            }
+
+            <div class="indicates-field">* - Indicates required field</div>
+        </div>
+
+    </div>
+    <!-- registration-field end -->
+</div>
+<!-- fix-content end -->

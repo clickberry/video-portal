@@ -1,0 +1,13 @@
+﻿<script type="text/ng-template" id="select.html">
+    <div class="drop-select">
+        <div class="holder-country-text" ng-click="toggleOptions()">
+            <div class="select-img"></div>
+            <div class="selected-option">{{label}}</div><input type="hidden" value="" ng-model="model" ng-required="{{required}}" />
+        </div>
+        <div class="select-options " ng-class="{'active': optionsVisible}">
+            <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="50">
+                <div ng-repeat="(key, value) in options" ng-click="selectItem(key, value)" class="select-options-item" data-value="{{value}}">{{key}}</div>
+            </perfect-scrollbar>
+        </div>
+    </div>
+</script>

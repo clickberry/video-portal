@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <script type="text/javascript" src="@(ViewBag.ExtensionUri)intercom.min.js"></script>
+        <script>
+            function getCookie(name) {
+                var nameEq = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEq) == 0) return c.substring(nameEq.length, c.length);
+                }
+
+                return null;
+            }
+
+            var wresult = "@ViewBag.Token";
+
+            var data = { wresult: wresult };
+            var message = JSON.stringify(data);
+
+            // sending message
+            var intercom = Intercom.getInstance();
+            intercom.emit('notice', { message: message, cookie: getCookie('cbac') });
+
+            // closing tab
+            window.open('', '_parent', '');
+            window.close();
+        </script>
+    </head>
+    <body></body>
+</html>

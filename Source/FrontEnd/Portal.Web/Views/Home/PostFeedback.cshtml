@@ -1,0 +1,35 @@
+﻿@using Portal.Resources.Web
+@using Portal.Web.Models
+@model FeedbackResultModel
+
+@{
+    ViewBag.Title = InterfaceMessages.Feedback;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="fix-content">
+
+    <div class="edit-profile">
+
+        <div class="registration-field count-wrap">
+
+            <h1><i class="fa fa-envelope"></i> @ViewBag.Title</h1>
+
+            @switch (Model.Status)
+            {
+                case FeedbackStatus.Success:
+                    <div class="edit-profile">
+                        <p>@InterfaceMessages.FeedbackSuccess</p>
+                    </div>
+                    break;
+                case FeedbackStatus.Error:
+                    <div class="edit-profile">
+                        <p>@InterfaceMessages.FeedbackError</p>
+                    </div>
+                    break;
+            }
+
+        </div>
+    </div>
+
+</div>

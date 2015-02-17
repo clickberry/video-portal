@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="ClickBerryPortal" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
+  <WebRole name="Portal.Web" vmsize="Medium">
+    <Runtime executionContext="elevated" />
+    <Sites>
+      <Site name="Web">
+        <VirtualApplication name="api" physicalDirectory="..\..\..\FrontEnd\Portal.Api" />
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="HttpIn" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="HttpIn" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="StorageReadOnly" />
+      <Setting name="DataConnectionString" />
+      <Setting name="MongoConnectionString" />
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="LinkTrackerUri" />
+      <Setting name="PortalUri" />
+      <Setting name="CdnUri" />
+      <Setting name="JiraIssueCollectorUri" />
+      <Setting name="ExtensionUri" />
+      <Setting name="PlayerUrl" />
+      <Setting name="JwFlashPlayerUrl" />
+      <Setting name="EmailNotifications" />
+      <Setting name="EmailAddressAlerts" />
+      <Setting name="EmailAddressInfo" />
+      <Setting name="EmailAddressSupport" />
+      <Setting name="AcsNamespace" />
+      <Setting name="TwitterConsumerKey" />
+      <Setting name="TwitterConsumerSecret" />
+      <Setting name="FacebookApplicationId" />
+      <Setting name="FacebookApplicationSecret" />
+      <Setting name="VkApplicationId" />
+      <Setting name="VkApplicationSecret" />
+      <Setting name="OkApplicationId" />
+      <Setting name="OkApplicationSecret" />
+      <Setting name="OkApplicationPublic" />
+      <Setting name="PushServiceNamespace" />
+      <Setting name="PushServiceSAS" />
+      <Setting name="PushServiceHubname" />
+      <Setting name="NotificationHubName" />
+      <Setting name="NotificationHubConnectionString" />
+      <Setting name="PortalUIPackageUri" />
+      <Setting name="GoogleAnalyticsId" />
+      <Setting name="StripeApiKey" />
+      <Setting name="StripePublicKey" />
+      <Setting name="DefaultMaxUserCapacity" />
+      <Setting name="FacebookRegistrationMessage" />
+      <Setting name="AccountSetPasswordPath" />
+      <Setting name="EmailAddressErrors" />
+      <Setting name="EmailSubjectErrors" />
+      <Setting name="CassandraKeyspace" />
+      <Setting name="CassandraNodes" />
+      <Setting name="CassandraUsername" />
+      <Setting name="CassandraPassword" />
+      <Setting name="CassandraPrivateAddresses" />
+      <Setting name="FrontPageBanners" />
+      <Setting name="VideoViewBanner" />
+      <Setting name="ContentBannerLeft" />
+      <Setting name="ContentBannerRight" />
+      <Setting name="DefaultAvatarUri" />
+      <Setting name="EmailAddressAbuse" />
+      <Setting name="YoutubePlayerUrl" />
+      <Setting name="YoutubeHtml5PlayerUrl" />
+      <Setting name="DailymotionPlayerUrl" />
+      <Setting name="SocialNetworks" />
+      <Setting name="DownloadLinks" />
+      <Setting name="MailSettings" />
+    </ConfigurationSettings>
+    <LocalResources>
+      <LocalStorage name="LocalStorage" cleanOnRoleRecycle="true" sizeInMB="100000" />
+      <LocalStorage name="DiagnosticStore" sizeInMB="20000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Certificates>
+    </Certificates>
+  </WebRole>
+  <WorkerRole name="Portal.BackEnd.WorkerRole" vmsize="Medium">
+    <Imports>
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="DataConnectionString" />
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="BearerToken" />
+      <Setting name="BaseUrl" />
+      <Setting name="Period" />
+      <Setting name="FfmpegVersion" />
+      <Setting name="TaskTypes" />
+      <Setting name="BackendId" />
+      <Setting name="JiraIssueCollectorUri" />
+      <Setting name="PortalUri" />
+      <Setting name="MongoConnectionString" />
+      <Setting name="EmailAddressAlerts" />
+      <Setting name="EmailAddressErrors" />
+      <Setting name="EmailSubjectErrors" />
+      <Setting name="MailSettings" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+    <LocalResources>
+      <LocalStorage name="LocalStorage" cleanOnRoleRecycle="true" sizeInMB="100000" />
+    </LocalResources>
+    <Runtime executionContext="elevated" />
+  </WorkerRole>
+  <WebRole name="MiddleEnd.Api" vmsize="Small">
+    <Runtime executionContext="elevated" />
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="8080" />
+    </Endpoints>
+    <Imports>
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="BearerToken" />
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="DataConnectionString" />
+      <Setting name="PortalUri" />
+      <Setting name="JiraIssueCollectorUri" />
+      <Setting name="MongoConnectionString" />
+      <Setting name="MongoAutomigrationEnabled" />
+      <Setting name="EmailAddressAlerts" />
+      <Setting name="EmailAddressErrors" />
+      <Setting name="EmailSubjectErrors" />
+      <Setting name="DefaultAdministrator" />
+      <Setting name="MailSettings" />
+    </ConfigurationSettings>
+    <LocalResources>
+      <LocalStorage name="LocalStorage" cleanOnRoleRecycle="true" sizeInMB="1000" />
+    </LocalResources>
+    <Certificates>
+    </Certificates>
+  </WebRole>
+</ServiceDefinition>

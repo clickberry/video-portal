@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E7179DA-B026-465A-BD2F-A21EE2E4304C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PortalWebAPI.Domain.Test</RootNamespace>
+    <AssemblyName>PortalWebAPI.Domain.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProjectRepositoryGetListMethod.cs" />
+    <Compile Include="ProjectRepositoryTestConfig.cs" />
+    <Compile Include="ProjectRepositoryGetMethod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProjectRepositoryAddMethod.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\MediaInfoLibrary\MediaInfoLibrary.csproj">
+      <Project>{CE11B657-268A-4FBA-A110-2A92E4FE53C4}</Project>
+      <Name>MediaInfoLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\PortalDAL.Entities\PortalDAL.Entities.csproj">
+      <Project>{869D50A7-75F1-41E9-AFED-5B29A25B84AD}</Project>
+      <Name>PortalDAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\PortalDAL.Table\PortalDAL.Table.csproj">
+      <Project>{09579C8E-CD82-44FB-9DFB-13EA5B51F8EF}</Project>
+      <Name>PortalDAL.Table</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\PortalWebAPI.Entities\PortalWebAPI.Entities.csproj">
+      <Project>{EF63F973-4F6D-41C2-948B-F04BCD059A42}</Project>
+      <Name>PortalWebAPI.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\PortalWebAPI.Repository\PortalWebAPI.Repository.csproj">
+      <Project>{28603333-2464-438B-B2A4-E61D035F6C83}</Project>
+      <Name>PortalWebAPI.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

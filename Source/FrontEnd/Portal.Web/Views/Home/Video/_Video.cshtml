@@ -1,0 +1,162 @@
+﻿@using Portal.Resources.Web
+@using Portal.Web.Constants
+@model Portal.DTO.Watch.Watch
+
+<script type="text/ng-template" id="portal.video.html">
+    
+    <!-- popup with banner -->
+    <div class="popup popup-close" ng-show="showWatch" cb-popup cb-popup-close="onWatchClose">
+
+        <div class="video-open">
+            <div class="video-option" ng-if="watch">
+                <div class="video-open-left">
+                    <div class="video-info">
+                        <div class="img-user" ng-if="watch.userAvatarUrl"><img ng-src="{{watch.userAvatarUrl | schemeAgnostic}}" /></div>
+                        <div>
+                            <div class="user-title">
+                                <h2>
+                                    <span ng-show="!isTitleEditing"><span ng-bind-html="watch.name | hashTags: '/tag/'"></span> <a href="" class="btn-link" ng-click="editTitle()" ng-show="currentUser && currentUser.id == watch.userId"><i class="fa fa-pencil"></i></a></span>
+                                    <span ng-show="isTitleEditing"><input type="text" ng-model="watch.name" /> <a href="" class="btn-link show" ng-click="saveTitle(watch)"><i class="fa fa-check"></i></a></span>
+                                </h2>
+                            </div>
+                            <div class="user-bottom">
+                                <ul class="indicators-list">
+                                    <li><i class="fa fa-clock-o"></i> <span>{{watch.created | apiDate: 'MMMM Do YYYY, h:mm:ss a'}}</span></li>
+                                    <li><i class="fa fa-eye"></i> <span>{{watch.hitsCount}}</span></li>
+                                    <li class="like">
+                                        <a href="" ng-click="like(watch, $event)" ng-class="{'active': watch.isLiked}"><i class="fa fa-thumbs-up"></i> {{watch.likesCount}}</a>
+                                        &nbsp;&nbsp;
+                                        <a href="" ng-click="dislike(watch, $event)" ng-class="{'active': watch.isDisliked}"><i class="fa fa-thumbs-down"></i> {{watch.dislikesCount}}</a>
+                                    </li>
+                                </ul>
+                                <ul class="indicators-list-user" ng-if="watch.userId == currentUser.id">
+                                    <li><a href="" cb-confirm-click="deleteVideo(watch)" cb-confirmation="Do you really want to delete video?"><i class="fa fa-trash"></i> Delete video</a></li>
+                                    <li>
+                                        <a ng-click="togglePublic(watch)">
+                                            <span ng-show="watch.access == 0"><i class="fa fa-globe"></i> Public</span>
+                                            <span ng-show="watch.access == 1"><i class="fa fa-key"></i> Hidden</span>
+                                            <span ng-show="watch.access == 2"><i class="fa fa-lock"></i> Private</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="name-user"><a href="" ui-sref="portal.user.videos({userId: watch.userId})">{{watch.userName}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="holder-media">
+                        <div ng-if="watch.state == 0" class="media-stub">@InterfaceMessages.VideoNotUploaded</div>
+                        <div ng-if="watch.state == 1" class="media-stub">@InterfaceMessages.VideoEncodingInProgress</div>
+                        <div ng-if="watch.state == 2" data-cb-player data-player-model="watch" class="holder-media-contaner"></div>
+                    </div>
+                    @*<div class="description" ng-if="watch.description">
+                        <div ng-show="!isDescriptionEditing"><span ng-bind-html="watch.description | hashTags: '/tag/'"></span> <a href="" class="btn-link" ng-click="editDescription()" ng-show="currentUser && currentUser.id == watch.userId"><i class="fa fa-pencil"></i></a></div>
+                        <div ng-show="isDescriptionEditing"><input type="text" ng-model="watch.description" /> <a href="" class="btn-link show" ng-click="saveDescription(watch)"><i class="fa fa-check"></i></a></div>
+                    </div>*@
+                    <div class="share">
+                        <ul class="social-share" cb-social-share share-title="{{watch.name}}" share-media="{{screenshotUrl}}" share-url="{{watch.publicUrl}}" share-description="{{watch.description}}">
+                            <li class="facebook"></li>
+                            <li class="twitter"></li>
+                            <li class="google-plus"></li>
+                            <li class="vk"></li>
+                            <li class="pinterest"></li>
+                            <li class="blogger"></li>
+                            <li class="tumblr"></li>
+                            <li class="livejournal"></li>
+                            <li class="linkedin"></li>
+                            <li class="reddit"></li>
+                            <li class="email"></li>
+                        </ul>
+                        <div class="share-link" cb-copy>
+                            &lt;iframe src="@Url.RouteUrl(RouteNames.Embed, new { id = string.Empty }, "https")/{{watch.id}}" width="640" height="395" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen seamless&gt;&lt;/iframe&gt;
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(ViewBag.VideoViewBanner))
+                    {
+                    <div class="video-option-banner">
+                        @Html.Raw(ViewBag.VideoViewBanner)
+                    </div>
+                    }
+                </div>
+                <div class="video-open-right">
+                    <div class="video-controls">
+                        <div class="tab-controls">
+                            <ul class="tab-controls-list">
+                                <li class="like" ng-class="{'active': watch.isLiked}"><a href="" ng-click="like(watch, $event)" title="I like this"></a></li>
+                                <li class="dislike" ng-class="{'active': watch.isDisliked}"><a href="" ng-click="dislike(watch, $event)" title="I dislike this"></a></li>
+                                <li class="abuse right" ng-class="{'active': selectedTab == 1}"><a href="" ng-click="showAbuse($event)" title="Report an abuse"></a></li>
+                                <li class="comments right" ng-class="{'active': selectedTab == 0}"><a href="" ng-click="showComments($event)" title="Comments"></a></li>                                
+                            </ul>
+                        </div>
+                        <div class="tabs">
+                            <div class="tab active" ng-if="selectedTab == 0">
+                                <perfect-scrollbar class="comments-scrolling" wheel-propagation="true" wheel-speed="50" refresh-on-change="comments">
+                                    <ul class="comments-list">
+                                        <li>
+                                            <div class="img-user" ng-if="currentUser.avatarUrl"><img ng-src="{{currentUser.avatarUrl | schemeAgnostic}}" /></div>
+                                            <div class="comments-text">
+                                                <div class="comments-title">Comment:</div>
+                                                <form ng-submit="postComment(comment, $event)">
+                                                    <fieldset>
+                                                        <div class="holder-area">
+                                                            <div class="area">
+                                                                <div class="corner"></div>
+                                                                <textarea ng-model="comment.body" ng-readonly="!isAuthorized(userRoles.user)" msd-elastic></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="btn-list" ng-class="{'disabled': commentPosting}">
+                                                            <div class="btn btn-green btn-submit" ng-if="isAuthorized(userRoles.user) && comment.body">
+                                                                <span class="loading"><span class="icon icon-spin" ng-show="commentPosting"></span></span>
+                                                                <input type="submit" value="" /> Post
+                                                            </div>
+                                                        </div>
+                                                        <a href="" class="btn-green" ng-click="signin()" ng-if="!isAuthorized(userRoles.user)">Sign in to leave a comment</a>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </li>
+                                        <li ng-if="commentsLoading">
+                                            <cb-loader loader-if="commentsLoading"></cb-loader>
+                                        </li>
+                                        <li ng-repeat="comment in comments">
+                                            <div class="img-user" ng-if="comment.avatarUrl"><img ng-src="{{comment.avatarUrl | schemeAgnostic}}" /></div>
+                                            <div class="comments-text">
+                                                <div class="comments-title">
+                                                    <span class="delete-comment-button" ng-if="currentUser && currentUser.id == comment.userId"><a href="" cb-confirm-click="deleteComment(comment)" cb-confirmation="Do you really want to delete comment?"><span class="fa fa-trash"></span></a></span>
+                                                    <span class="name-user"><a href="" ui-sref="portal.user.videos({userId: comment.userId})">{{comment.userName}}</a> </span>
+                                                    {{comment.dateTime | apiDateFromNow }}
+                                                </div>
+                                                <p>{{comment.body}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </perfect-scrollbar>
+                            </div>                            
+                            <div class="tab active" ng-if="selectedTab == 1">
+                                <h2>Report an abuse</h2>
+                                <div ng-if="watch.$isAbuseReporting !== false">
+                                    <p>You can mark this video as inappropriate by reporting an abuse.</p>
+                                    <div class="btn-list">
+                                        <form ng-submit="reportAbuse(watch, $event)">
+                                            <div class="btn btn-red btn-submit">
+                                                <input type="submit" value="" ng-disabled="watch.$isAbuseReporting" />
+                                                Report
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <cb-loader loader-if="watch.$isAbuseReporting"></cb-loader>
+                                </div>
+                                <div ng-if="watch.$isAbuseReporting === false">
+                                    <p>Your report has been sent to administrator. Thank you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <cb-loader loader-if="isLoading"></cb-loader>
+        </div>
+
+    </div>
+
+</script>

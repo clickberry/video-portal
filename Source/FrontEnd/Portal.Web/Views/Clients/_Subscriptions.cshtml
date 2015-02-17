@@ -1,0 +1,92 @@
+﻿@using Portal.Web.Constants
+<script type="text/ng-template" id="client.subscriptions.html">
+    
+    <div ui-view></div>
+
+</script>
+
+<script type="text/ng-template" id="client.subscriptions.list.html">
+
+    <!-- fix-content -->
+    <div class="fix-content">
+        <div class="subscriptions">
+
+            <cb-client-balance-widget></cb-client-balance-widget>
+
+            <div class="subscriptions-title">
+                <h1>My subscriptions</h1>
+                <a href="" ui-sref="^.add.step1" class="subscriptions-add">
+                    <div class="subscriptions-icon"></div>
+                    Add subscription
+                </a>
+                <a class="how-to-integrate" href="@Url.RouteUrl(RouteNames.ClientIntegration)" target="_blank">
+                    How to integrate
+                </a>
+            </div>
+
+            <!-- subscriptions-content -->
+            <div class="subscriptions-content">
+                
+                <cb-loader loader-if="isLoading"></cb-loader>
+                
+                <p ng-if="!isLoading && noSubscriptions">You have no subscriptions. Start by creating one.</p>
+
+                <div class="menu-tabs">
+
+                    <div class="tab" ng-class="{active: currentTab == 0}">
+                        <a href="" ng-click="selectTab(0)">Free</a>
+                        <div class="tab-corner"></div>
+                    </div>
+                    <div class="tab" ng-class="{active: currentTab == 1}">
+                        <a href="" ng-click="selectTab(1)">Basic</a>
+                        <div class="tab-corner"></div>
+                    </div>
+                    <div class="tab" ng-class="{active: currentTab == 2}">
+                        <a href="" ng-click="selectTab(2)">Pro</a>
+                        <div class="tab-corner"></div>
+                    </div>
+                    <div class="tab" ng-class="{active: currentTab == 3}">
+                        <a href="" ng-click="selectTab(3)">Custom</a>
+                        <div class="tab-corner"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="subscriptions-item-holder" ng-show="subscriptions.free.length > 0 && currentTab == 0">
+                    <div class="subscriptions-item-layout" ng-repeat="subscription in subscriptions.free">
+                        <cb-subscription-item ng-model="subscription" on-delete="deleteSubscription" on-stats="showSubscriptionStats"></cb-subscription-item>
+                    </div>
+                </div>
+
+                <div class="subscriptions-item-holder partner-item" ng-show="subscriptions.basic.length > 0 && currentTab == 1">
+                    <div class="subscriptions-item-layout" ng-repeat="subscription in subscriptions.basic">
+                        <cb-subscription-item ng-model="subscription" on-delete="deleteSubscription" on-stats="showSubscriptionStats"></cb-subscription-item>
+                    </div>
+                </div>
+
+                <div class="subscriptions-item-holder premium-item" ng-show="subscriptions.pro.length > 0 && currentTab == 2">
+                    <div class="subscriptions-item-layout" ng-repeat="subscription in subscriptions.pro">
+                        <cb-subscription-item ng-model="subscription" on-delete="deleteSubscription" on-stats="showSubscriptionStats"></cb-subscription-item>
+                    </div>
+                </div>
+                
+                <div class="subscriptions-item-holder custom-item" ng-show="subscriptions.custom.length > 0 && currentTab == 3">
+                    <div class="subscriptions-item-layout" ng-repeat="subscription in subscriptions.custom">
+                        <cb-subscription-item ng-model="subscription" on-delete="deleteSubscription" on-stats="showSubscriptionStats"></cb-subscription-item>
+                    </div>
+                </div>
+
+            </div>
+            <!-- subscriptions-content end -->
+        </div>
+    </div>
+    <!-- fix-content end -->
+
+
+    
+</script>
+
+@Html.Partial("_SubscriptionItem")
+@Html.Partial("_SubscriptionsAdd")
+@Html.Partial("_SubscriptionStats")

@@ -1,0 +1,13 @@
+﻿<script type="text/ng-template" id="portal.connect-socials-notification.html">
+
+    <div class="content-notification" ng-if="showConnectSocialAccountsNotification && !allSocialAccountsConnected">
+        <div class="fix-content">
+            <h3 class="soc-list-heading"><i class="fa fa-exclamation-triangle"></i> Connect additional social profiles to your account: </h3>
+            <ul class="soc-list">
+                <li ng-repeat="social in socials" class="{{social.className}} inverse" ng-class="{disabled: social.disabled, active: !social.disabled}"><a href="{{social.url}}" target="_self"></a></li>
+            </ul>
+            <a href="" class="close-button" ng-click="closeSocialAccountsNotification()"><span class="icon"></span></a>
+        </div>
+    </div>
+
+</script>

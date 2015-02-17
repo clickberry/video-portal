@@ -1,0 +1,34 @@
+﻿<script type="text/ng-template" id="client.pay.html">
+
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- registration-field -->
+        <div class="registration-field count-wrap">
+            <h1>Add payment</h1>
+            <div class="add-payment">
+                <form action="" ng-submit="submit()" name="addPaymentForm">
+                    <div class="holder-input"><input type="text" placeholder="Amount, USD*" ng-model="model.amount" required cb-model-pos-int ></div>
+                    <div class="holder-input"><input type="text" placeholder="Card Number*" ng-model="model.cardNumber" required cb-model-card-number></div>
+                    <div class="holder-input">
+                        <input type="text" placeholder="MM/YY*" ng-model="model.cardExp" required cb-model-card-exp>
+                    </div>
+                    <div class="holder-input"><input type="text" placeholder="CVC*" ng-model="model.cardCVC" cb-model-card-cvc required></div>
+                    <div class="btn-list" ng-class="{'disabled': addPaymentForm.$invalid}">
+                        <div class="btn btn-silver">
+                            <input type="reset" value="" ng-click="cancel()" />
+                            Cancel
+                        </div>
+                        <div class="btn btn-submit btn-green">
+                            <input type="submit" value="" ng-disabled="addPaymentForm.$invalid" />Pay
+                        </div>
+                    </div>
+                </form>
+                <div class="indicates-field">* - Indicates required field</div>
+            </div>
+            <cb-loader loader-if="isLoading"></cb-loader>
+        </div>
+        <!-- registration-field end -->
+    </div>
+    <!-- fix-content end -->
+
+</script>

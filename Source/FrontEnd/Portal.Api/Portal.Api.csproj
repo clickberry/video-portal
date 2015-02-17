@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FCA69456-287E-4D31-B555-EB3D3D6D33B7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.Api</RootNamespace>
+    <AssemblyName>Portal.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Analytics.NET, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Analytics.1.1.0\lib\Analytics.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassandra">
+      <HintPath>..\..\..\Libraries\Cassandra\Cassandra.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cassandra.Data">
+      <HintPath>..\..\..\Libraries\Cassandra\Cassandra.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cassandra.Data.Linq">
+      <HintPath>..\..\..\Libraries\Cassandra\Cassandra.Data.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Crc32C.NET">
+      <HintPath>..\..\packages\Crc32C.NET.1.0.5.0\lib\net20\Crc32C.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client">
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=2.5.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SimpleInjector.2.7.1\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Diagnostics, Version=2.5.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SimpleInjector.2.7.1\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.2.7.1\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.2.7.1\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Snappy.NET">
+      <HintPath>..\..\packages\Snappy.NET.1.1.1.8\lib\net45\Snappy.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial">
+      <HintPath>..\..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.1.2\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Cors.5.1.2\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.OData.5.1.2\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\EventAggregatorConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="App_Start\TransferModeConfig.cs" />
+    <Compile Include="Controllers\Accounts\MembershipsController.cs" />
+    <Compile Include="Controllers\Accounts\NetworksController.cs" />
+    <Compile Include="Controllers\Admin\AdminClientsController.cs" />
+    <Compile Include="Controllers\Admin\AdminClientSubscriptionsController.cs" />
+    <Compile Include="Controllers\Admin\AdminUsersController.cs" />
+    <Compile Include="Controllers\Admin\AdminProjectsController.cs" />
+    <Compile Include="Controllers\ApiControllerBase.cs" />
+    <Compile Include="Controllers\DislikesController.cs" />
+    <Compile Include="Controllers\FollowersController.cs" />
+    <Compile Include="Controllers\Projects\AvsxController.cs" />
+    <Compile Include="Controllers\Clients\ClientsController.cs" />
+    <Compile Include="Controllers\Clients\ClientBalanceDetailsController.cs" />
+    <Compile Include="Controllers\Clients\ClientChargesController.cs" />
+    <Compile Include="Controllers\Clients\ClientSubscriptionGroupedByDateStatisticsController.cs" />
+    <Compile Include="Controllers\Clients\ClientSubscriptionUrlStatisticsController.cs" />
+    <Compile Include="Controllers\Clients\ClientSubscriptionStatisticsController.cs" />
+    <Compile Include="Controllers\Clients\ClientBalanceController.cs" />
+    <Compile Include="Controllers\Clients\ClientPaymentsController.cs" />
+    <Compile Include="Controllers\Clients\ClientSubscriptionsController.cs" />
+    <Compile Include="Controllers\Projects\CommentsController.cs" />
+    <Compile Include="Controllers\Roles\PortalRolesController.cs" />
+    <Compile Include="Controllers\Admin\AdminUserProjectsController.cs" />
+    <Compile Include="Controllers\Accounts\AccountRecoveryController.cs" />
+    <Compile Include="Controllers\Stripe\StripeWebhooksController.cs" />
+    <Compile Include="Controllers\Users\UsersController.cs" />
+    <Compile Include="Controllers\Roles\RoleUsersController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\ExamplesController.cs" />
+    <Compile Include="Controllers\Projects\ExternalController.cs" />
+    <Compile Include="Controllers\Accounts\EmailsController.cs" />
+    <Compile Include="Controllers\Social\FacebookExtendController.cs" />
+    <Compile Include="Controllers\Projects\HashController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\Projects\ProjectEntityControllerBase.cs" />
+    <Compile Include="Controllers\StandardReportController.cs" />
+    <Compile Include="Controllers\Social\TwitterProfileController.cs" />
+    <Compile Include="Controllers\Social\TwitterStatusController.cs" />
+    <Compile Include="Controllers\Users\UserRolesController.cs" />
+    <Compile Include="Controllers\Projects\VideoController.cs" />
+    <Compile Include="Controllers\Projects\ScreenshotController.cs" />
+    <Compile Include="Controllers\Accounts\IpSessionController.cs" />
+    <Compile Include="Controllers\Accounts\SessionController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\Accounts\ProfileController.cs" />
+    <Compile Include="Controllers\Projects\ProjectsController.cs" />
+    <Compile Include="Controllers\Projects\FileController.cs" />
+    <Compile Include="Controllers\TrendsController.cs" />
+    <Compile Include="Controllers\LikesController.cs" />
+    <Compile Include="Controllers\AbuseController.cs" />
+    <Compile Include="Controllers\ViewsController.cs" />
+    <Compile Include="Controllers\WatchController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Attributes\ClearFilesHttpAttribute.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\AnyOtherTypeFormFormatter.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\FormData\FormDataProvider.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\FormData\IFormDataProvider.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\HttpMultipartForm.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\FileModelFactory.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\IModelFactory.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\ExternalProjectFactory.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\ProjectAvsxFactory.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\ProjectScreenshotFactory.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\ModelFactories\ProjectVideoFactory.cs" />
+    <Compile Include="Infrastructure\MediaFormatters\MultipartFormFormatter.cs" />
+    <Compile Include="Infrastructure\RequestProcessing\CustomWebHostBufferPolicySelector.cs" />
+    <Compile Include="Models\AdminClientSubscriptionUpdateModel.cs" />
+    <Compile Include="Models\AdminClientUpdateModel.cs" />
+    <Compile Include="Models\AdminSetUserPasswordModel.cs" />
+    <Compile Include="Models\AuthenticationTokenModel.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\ClientSubscriptionStatUrlModel.cs" />
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\CreateSubscriptionModel.cs" />
+    <Compile Include="Models\FacebookTokenModel.cs" />
+    <Compile Include="Models\NotificationModel.cs" />
+    <Compile Include="Models\ExternalVideoModel.cs" />
+    <Compile Include="Models\PasswordRecoveryModel.cs" />
+    <Compile Include="Models\PortalRoleModel.cs" />
+    <Compile Include="Models\ProfileEmailModel.cs" />
+    <Compile Include="Models\ExternalProjectModel.cs" />
+    <Compile Include="Models\ProjectVideoHashModel.cs" />
+    <Compile Include="Models\ProjectScreenshotModel.cs" />
+    <Compile Include="Models\ProjectAvsxModel.cs" />
+    <Compile Include="Models\ProjectVideoModel.cs" />
+    <Compile Include="Models\RecoveryLinkModel.cs" />
+    <Compile Include="Models\RegisterClientModel.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
+    <Compile Include="Models\SendEmailModel.cs" />
+    <Compile Include="Models\SessionIpModel.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\RegisterUserModel.cs" />
+    <Compile Include="Models\SessionLoginModel.cs" />
+    <Compile Include="Models\StripeWebhookEvent.cs" />
+    <Compile Include="Models\SubscriptionModel.cs" />
+    <Compile Include="Models\ClientPaymentModel.cs" />
+    <Compile Include="Models\TwitterRequestModel.cs" />
+    <Compile Include="Models\TwitterStatusModel.cs" />
+    <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\UserProfileModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\Libraries\MediaInfo\MediaInfo.dll">
+      <Link>MediaInfo.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
+      <Link>AutoMapper.Net4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\Portal.BLL.Concrete\Portal.BLL.Concrete.csproj">
+      <Project>{2D195BC7-A964-440E-AA73-97343AEF49F8}</Project>
+      <Name>Portal.BLL.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BLL\Portal.BLL\Portal.BLL.csproj">
+      <Project>{7DBEA20E-3095-4D37-B651-0C172D2A3598}</Project>
+      <Name>Portal.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Asp.Infrastructure\Asp.Infrastructure.csproj">
+      <Project>{da03c85e-6bf2-4ec1-bd13-dbfc5a3b3018}</Project>
+      <Name>Asp.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Configuration.Azure\Configuration.Azure.csproj">
+      <Project>{4A796F62-28BC-4F45-A570-5C2CDC4A53A1}</Project>
+      <Name>Configuration.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Configuration\Configuration.csproj">
+      <Project>{5A5BCFA5-7514-425C-B0D8-D9FDC8D4A3FB}</Project>
+      <Name>Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\MediaInfoLibrary\MediaInfoLibrary.csproj">
+      <Project>{CE11B657-268A-4FBA-A110-2A92E4FE53C4}</Project>
+      <Name>MediaInfoLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Portal.Common\Portal.Common.csproj">
+      <Project>{C4B38E80-4E9C-45BC-8001-E1DE5B72CBA2}</Project>
+      <Name>Portal.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Portal.Mappers\Portal.Mappers.csproj">
+      <Project>{2FB78B32-4790-4EA5-AF52-7A4AC4037987}</Project>
+      <Name>Portal.Mappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Wrappers\Wrappers.csproj">
+      <Project>{9E8F2D2D-B074-4D22-A271-8BD911C3AF6A}</Project>
+      <Name>Wrappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\MongoRepository\MongoRepository.csproj">
+      <Project>{543D3FDE-4931-40B0-B5D3-A912D145E6E3}</Project>
+      <Name>MongoRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL.Azure\Portal.DAL.Azure.csproj">
+      <Project>{16C53383-42A7-4855-9E3A-5A473EA8716D}</Project>
+      <Name>Portal.DAL.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL.Infrastructure\Portal.DAL.Infrastructure.csproj">
+      <Project>{BF19381C-95A1-4B7B-8ECB-A0DABCB9B906}</Project>
+      <Name>Portal.DAL.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL\Portal.DAL.csproj">
+      <Project>{9D7C61A2-BFDC-4638-8DA8-FF69526AA0CD}</Project>
+      <Name>Portal.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.DAL.Entities\Portal.DAL.Entities.csproj">
+      <Project>{e65a1c84-d68d-4712-bbd2-9891ee95e481}</Project>
+      <Name>Portal.DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Portal.Exceptions\Portal.Exceptions.csproj">
+      <Project>{FA9ECF9A-ADA5-452A-B3D2-88D2DAEC61FD}</Project>
+      <Name>Portal.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.DTO\Portal.DTO.csproj">
+      <Project>{A55EE877-C49A-49C1-8943-2FBD6061207E}</Project>
+      <Name>Portal.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EventAggregator\EventAggregator.csproj">
+      <Project>{3FBA3F83-7C4E-4324-AA98-D77293744AB4}</Project>
+      <Name>EventAggregator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Resources\Portal.Resources.csproj">
+      <Project>{bc19beee-9f24-4de3-ac41-524ac046b2cf}</Project>
+      <Name>Portal.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>81</DevelopmentServerPort>
+          <DevelopmentServerVPath>/api</DevelopmentServerVPath>
+          <IISUrl>http://localhost/api</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

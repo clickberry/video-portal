@@ -1,0 +1,39 @@
+﻿<script type="text/ng-template" id="portal.example-card.html">
+    
+    <div class="tags-item">
+        <a href="" ui-sref=".video({ id: model.id })">
+            <div class="img">
+                <img ng-src="{{model.screenshotUri}}" alt="" />
+                <div class="tags-bg"></div>
+                <div class="corner"></div>
+            </div>
+        </a>
+        <div class="sharing-date">{{model.created | date : 'dd MMM'}} at {{model.created | date : 'hh:mm a'}}</div>
+        <div class="sharing-tags">
+            <h3 ng-bind-html="model.name | hashTags: '/tag/'"></h3>
+        </div>
+        <div class="tags-item-bottom">
+            <div class="like">
+                <div class="number"><i class="fa fa-thumbs-up"></i> {{model.likes}} &nbsp;<i class="fa fa-thumbs-down"></i> {{model.dislikes}}</div>
+            </div>
+            <div class="comment">
+                <div class="number"><i class="fa fa-comment"></i> {{model.comments}}</div>
+            </div>
+            <div class="view">
+                <div class="number"><i class="fa fa-eye"></i> {{model.views}}</div>
+            </div>
+        </div>
+        <ul class="tags-item-comments" ng-if="model.commentList.length > 0">
+            <li ng-repeat="comment in model.commentList">
+                <a href="" ui-sref="portal.user.videos({userId: comment.userId})" class="commenter-avatar">
+                    <span class="user-img" ng-if="comment.avatarUrl"><img ng-src="{{comment.avatarUrl | schemeAgnostic}}" /></span>
+                </a>
+                <div class="commenter-text">
+                    <a href="" ui-sref="portal.user.videos({userId: comment.userId})" class="commenter-name">{{comment.userName}}</a>
+                    <p>{{comment.body}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</script>

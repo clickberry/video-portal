@@ -1,0 +1,214 @@
+﻿@using System.Globalization
+@using Asp.Infrastructure.Extensions
+@using Portal.DTO.Watch
+@using Portal.Resources.Web
+@using Portal.Web.Constants
+@using Portal.Web.Infrastructure
+@using Portal.Web.Models
+@model VideoModel
+@{
+    ViewBag.Title = string.Format("{0} {1}", Model.Video.Name, InterfaceMessages.OnClickBerryStorage);
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@section Metadata
+{
+    @Html.Partial("_MetaTags")
+    @if (Model.Video.State != WatchState.Ready)
+    {
+        <meta http-equiv="refresh" content="10" />
+    }
+}
+    
+<!-- fix-content -->
+<div class="fix-content"></div>
+
+<div class="popup popup-close" cb-popup cb-popup-close="onWatchClose" ng-show="true" data-ui-view>
+    <div class="video-open video-option" ng-init="userId = '@Model.Video.UserId'; isLiked = @(Model.Video.IsLiked ? "true" : "false"); isDisliked = @(Model.Video.IsDisliked ? "true" : "false"); access = @((int)Model.Video.Access); likesCount = @Model.Video.LikesCount; dislikesCount = @Model.Video.DislikesCount;">
+        <div class="video-open-left">
+            <div class="video-info">
+                @if (!string.IsNullOrEmpty(Model.Video.UserAvatarUrl))
+                {
+                    <div class="img-user"><img src="@Model.Video.UserAvatarUrl" alt="" /></div>
+                }
+                <div>
+                    <div class="user-title"><h2>@Html.HashTags(Model.Video.Name, Url.RouteUrl(RouteNames.Tag))</h2></div>
+                    <div class="user-bottom">
+                        <ul class="indicators-list">
+                            <li><i class="fa fa-clock-o"></i> <span>@Model.Video.Created.ToUniversalTime().ToString("MMMM d yyyy, h:mm:ss tt", CultureInfo.InvariantCulture)</span></li>
+                            <li><i class="fa fa-eye"></i> <span>@Model.Video.HitsCount</span></li>
+                            <li class="like">
+                                <a href="" ng-click="like()" ng-class="{'active': isLiked}"><i class="fa fa-thumbs-up"></i> <span ng-bind="likesCount"></span></a>
+                                &nbsp;&nbsp;
+                                <a href="" ng-click="dislike()" ng-class="{'active': isDisliked}"><i class="fa fa-thumbs-down"></i> <span ng-bind="dislikesCount"></span></a>
+                            </li>
+                        </ul>
+                        <ul class="indicators-list-user" ng-if="userId == currentUser.id">
+                            <li><a href="" cb-confirm-click="deleteVideo()" cb-confirmation="Do you really want to delete video?"><i class="fa fa-trash"></i> Delete video</a></li>
+                            <li>
+                                <a ng-click="togglePublic()">
+                                    <span ng-show="access == 0"><i class="fa fa-globe"></i> Public</span>
+                                    <span ng-show="access == 1"><i class="fa fa-key"></i> Hidden</span>
+                                    <span ng-show="access == 2"><i class="fa fa-lock"></i> Private</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="name-user"><a href="@Url.RouteUrl(RouteNames.UserVideos, new { id = Model.Video.UserId })" target="_self">@Model.Video.UserName</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="holder-media">
+                @switch (Model.Video.State)
+                {
+                    case WatchState.Uploading:
+                    <div class="media-stub">@InterfaceMessages.VideoNotUploaded</div>
+                        break;
+
+                    case WatchState.Encoding:
+                    <div class="media-stub">@InterfaceMessages.VideoEncodingInProgress</div>
+                        break;
+
+                    case WatchState.Ready:
+                    <div class="holder-media-contaner" id="player"></div>
+                        break;
+                }
+            </div>
+            <div class="share">
+                <ul class="social-share" cb-social-share share-title="@Model.Video.Name" share-media="@Model.Video.ScreenshotUrl" share-url="@Url.RouteUrl(RouteNames.Video, new { id = Model.Video.Id }, "http")" share-description="@Model.Video.Description">
+                    <li class="facebook"></li>
+                    <li class="twitter"></li>
+                    <li class="google-plus"></li>
+                    <li class="vk"></li>
+                    <li class="pinterest"></li>
+                    <li class="blogger"></li>
+                    <li class="tumblr"></li>
+                    <li class="livejournal"></li>
+                    <li class="linkedin"></li>
+                    <li class="reddit"></li>
+                    <li class="email"></li>
+                </ul>
+                <div class="share-link" cb-copy>
+                    &lt;iframe src="@Url.RouteUrl(RouteNames.Embed, new { id = Model.Video.Id }, "https")" width="640" height="395" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen seamless&gt;&lt;/iframe&gt;
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(ViewBag.VideoViewBanner))
+            {
+                <div class="video-option-banner">
+                    @Html.Raw(ViewBag.VideoViewBanner)
+                </div>
+            }
+        </div>
+        <div class="video-open-right">
+            <div class="video-controls">
+                <div class="tab-controls">
+                    <ul class="tab-controls-list">
+                        <li class="like" ng-class="{'active': isLiked}"><a href="" ng-click="like()" title="I like this"></a></li>
+                        <li class="dislike" ng-class="{'active': isDisliked}"><a href="" ng-click="dislike()" title="I dislike this"></a></li>
+                        <li class="abuse right" ng-class="{'active': selectedTab == 1}"><a href="" ng-click="showAbuse($event)" title="Report an abuse"></a></li>
+                        <li class="comments right" ng-class="{'active': selectedTab == 0}"><a href="" ng-click="showComments($event)" title="Comments"></a></li>
+                    </ul>
+                </div>
+                <div class="tabs ng-cloak" ng-cloak>
+                    <div class="tab active" ng-if="selectedTab == 0">
+                        <div data-perfect-scrollbar class="comments-scrolling" wheel-propagation="true" wheel-speed="50" refresh-on-change="comments">
+                            <ul class="comments-list">
+                                <li>
+                                    @if (!string.IsNullOrEmpty(Model.UserAvatarUrl))
+                                    {
+                                        <div class="img-user"><img src="@Model.UserAvatarUrl" alt="" /></div>
+                                    }
+                                    <div class="comments-text">
+                                        <div class="comments-title">Comment:</div>
+                                        <form ng-submit="postComment(comment, $event)">
+                                            <fieldset>
+                                                <div class="holder-area">
+                                                    <div class="area">
+                                                        <div class="corner"></div>
+                                                        <textarea ng-model="comment.body" ng-readonly="!isAuthorized(userRoles.user)" msd-elastic></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-list" ng-class="{'disabled': commentPosting}">
+                                                    <div class="btn btn-green btn-submit" ng-if="isAuthorized(userRoles.user) && comment.body">
+                                                        <span class="loading"><span class="icon icon-spin" ng-show="commentPosting"></span></span>
+                                                        <input type="submit" value="" /> Post
+                                                    </div>
+                                                </div>
+                                                <a href="" class="btn-green" ng-click="signin()" ng-if="!isAuthorized(userRoles.user)">Sign in to leave a comment</a>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </li>
+                                <li ng-if="commentsLoading">
+                                    <div data-cb-loader data-loader-if="commentsLoading"></div>
+                                </li>
+                                <li ng-repeat="comment in comments">
+                                    <div class="img-user" ng-if="comment.avatarUrl"><img ng-src="{{comment.avatarUrl | schemeAgnostic}}" alt="" /></div>
+                                    <div class="comments-text">
+                                        <div class="comments-title">
+                                            <span class="delete-comment-button" ng-if="currentUser && currentUser.id == comment.userId"><a href="" cb-confirm-click="deleteComment(comment)" cb-confirmation="Do you really want to delete comment?"><span class="fa fa-trash"></span></a></span>
+                                            <span class="name-user"><a href="/user/{{comment.userId}}/videos" target="_self">{{comment.userName}}</a> </span> {{comment.dateTime | apiDateFromNow }}
+                                        </div>
+                                        <p>{{comment.body}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab active" ng-if="selectedTab == 1">
+                        <h2>Report an abuse</h2>
+                        <div ng-if="isAbuseReporting !== false">
+                            <p>You can mark this video as inappropriate by reporting an abuse.</p>
+                            <div class="btn-list">
+                                <form ng-submit="reportAbuse($event)">
+                                    <div class="btn btn-red btn-submit">
+                                        <input type="submit" value="" ng-disabled="isAbuseReporting" />
+                                        Report
+                                    </div>
+                                </form>
+                            </div>
+                            <div data-cb-loader data-loader-if="isAbuseReporting"></div>
+                        </div>
+                        <div ng-if="isAbuseReporting === false">
+                            <p>Your report has been sent to administrator. Thank you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- fix-content end -->
+
+@Html.Partial("_Menu", new MenuModel { GenerateUserSpaLinks = false })
+
+@section Menu {
+    <nav data-cb-menu></nav>
+}
+
+@section ScriptsBottom
+{
+    @CdnResources.RenderScripts("~/cdn/scripts/clickberry.js")
+    @CdnResources.RenderScripts("~/cdn/scripts/video-standalone.js")
+    @CdnResources.RenderScripts(string.Format("{0}cbplayer.min.js", ViewBag.PlayerUrl))
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#player").cbplayer({
+                avsx: "@Model.Video.Avsx",
+                poster: "@Model.Video.Screenshots.GetScreenshot()",
+                root: "@ViewBag.PlayerUrl",
+                projectUrl: "@Model.Video.PublicUrl",
+                external: @Model.Video.GetExternalVideo((string)ViewBag.JwFlashPlayerUrl, (string)ViewBag.YoutubeHtml5PlayerUrl),
+                videos: @Html.GetVideosArray(Model.Video.Videos)
+            });
+        });
+
+    </script>
+}
+
+@section Config {
+    <div data-cb-config
+         data-jira-issue-collector="@Html.Raw(ViewBag.JiraIssueCollector)">
+    </div>
+}

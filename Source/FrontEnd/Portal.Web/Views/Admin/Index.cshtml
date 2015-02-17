@@ -1,0 +1,23 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+
+@{
+    ViewBag.Title = InterfaceMessages.WelcomeTitle + " " + InterfaceMessages.Administration;
+}
+
+<section>
+    
+    @Html.Partial("_Admin")
+    <div ui-view></div>
+
+</section>    
+
+@section Styles {
+    @CdnResources.RenderStyles("~/cdn/css/ui.css")
+}
+
+@section ScriptsBottom
+{
+    @CdnResources.RenderScripts("~/cdn/scripts/clickberry.js")
+    @CdnResources.RenderScripts("~/cdn/scripts/admin.js")
+}

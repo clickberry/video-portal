@@ -1,0 +1,96 @@
+﻿@using Portal.Domain.PortalContext
+<script type="text/ng-template" id="admin.clients.list.layout.html">
+
+    <div ui-view="header"></div>
+
+    <div ui-view="filters"></div>
+    <div ui-view="table"></div>
+
+</script>
+
+<script type="text/ng-template" id="admin.clients.list.header.html">
+
+    <h2>All Clients</h2>
+
+</script>
+
+<script type="text/ng-template" id="admin.clients.list.filters.html">
+    
+    <div class="b_rt">
+        <a class="bt_green_def" ng-class="{'bt_dissabled': isCsvProcessing}" ng-click="downloadCsv()">
+            <span class="bt_rt" ng-if="!isCsvProcessing">Download Csv</span>
+            <span class="bt_rt" ng-if="isCsvProcessing">Preparing Csv...</span>
+        </a>
+    </div>
+
+    <form ng-submit="submitFilter()">
+        <select ng-model="filterType" ng-options="c.name for c in filterTypeOptions"></select>
+
+        <input ng-show="filterType.value == filterTypes.name" type="text" ng-model="formFilter.name">
+        <input ng-show="filterType.value == filterTypes.email" type="text" ng-model="formFilter.email">
+        <span ng-show="filterType.value == filterTypes.date">
+            <input ui-date="dateFromOptions" ng-model="dateFromStr" /> - <input ui-date="dateToOptions" ng-model="dateToStr" />
+        </span>
+
+        <button type="submit">Search</button>
+
+    </form>
+
+
+</script>
+
+<script type="text/ng-template" id="admin.clients.list.table.html">
+
+    <div class="spinner" ng-show="isLoading"></div>
+
+    <div class="wrap_table statisticsTable users">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>E-mail</th>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'Name' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'Name' && filter.orderByAsc}"><a href="" ng-click="setOrder('Name')">Name</a></th>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'Created' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'Created' && filter.orderByAsc}"><a href="" ng-click="setOrder('Created')">Created</a></th>
+                    <th>Balance</th>
+                    <th>State</th>
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <th>Action</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="client in clients">
+                    <td><a ng-click="gotoClientSubscriptions(client)">{{client.email}}</a></td>
+                    <td>{{client.name}}</td>
+                    <td><span>{{client.created | apiDate:'DD-MM-YYYY HH:mm:ss'}}</span></td>
+                    <td><span>${{client.balance/100 | number : 2}}</span></td>
+                    
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <td><select ng-model="client.state" ng-options="s.value as s.name for s in resourceStates"></select></td>
+                    }
+                    else
+                    {
+                        <td><span>{{getStateName(client.state)}}</span></td>
+                    }
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <td><button cb-confirm-click="setState(client)" cb-confirmation="Do you really want to change client state?">Change</button></td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+        <div ng-show="clients.length > 0">
+            <div class="dataTables_info" id="dataTable_info">Showing {{filter.skip + 1}} to {{filter.skip + clients.length}} of {{clientsCount}}</div>
+            <div class="dataTables_paginate paging_two_button">
+                <a ng-class="{paginate_disabled_previous: filter.skip == 0}" role="button" id="dataTable_previous" aria-controls="dataTable" ng-click="prevPage()">Previous</a>
+                <a ng-class="{paginate_disabled_next: isAllLoaded}" role="button" id="dataTable_next" aria-controls="dataTable" ng-click="nextPage()">Next</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</script>

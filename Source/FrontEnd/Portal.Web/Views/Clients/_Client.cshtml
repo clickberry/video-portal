@@ -1,0 +1,28 @@
+﻿<script type="text/ng-template" id="client.html">
+
+    <div ui-view>
+        
+        <!-- fix-content -->
+        <div class="fix-content">
+            <!-- registration-field -->
+            <div class="registration-field count-wrap">
+                <h1>Clickberry Partner Program</h1>
+                <div class="edit-profile">
+                    <p>For more information email us to support@clickberry.com</p>
+                </div>
+            </div>
+            <!-- registration-field end -->
+        </div>
+        <!-- fix-content end -->
+
+    </div>
+
+</script>
+
+@Html.Partial("_Menu")
+@Html.Partial("_Signup")
+@Html.Partial("_Profile")
+@Html.Partial("_Subscriptions")
+@Html.Partial("_Balance")
+@Html.Partial("_BalanceWidget")
+@Html.Partial("_Pay")

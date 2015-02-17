@@ -1,0 +1,37 @@
+/**
+ * import components to builds angular-ui.css
+ */
+
+/* ui-reset */
+
+.ui-resetwrap {
+    display: inline-block;
+    position: relative;
+}
+
+.ui-reset {
+    cursor: pointer;
+    display: none;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.ui-resetwrap:hover .ui-reset { display: block; }
+
+/* ui-currency */
+
+.ui-currency-pos { color: green; }
+
+.ui-currency-neg { color: red; }
+
+.ui-currency-zero { color: blue; }
+
+.ui-currency-pos.ui-bignum,
+.ui-currency-neg.ui-smallnum { font-size: 110%; }
+
+/* highlight */
+
+.ui-match { background: yellow; }

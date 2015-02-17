@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<avsx version="4.1" author="" description="" generator="1" projectId="f3d03ce6f2fe410f80b05713fb72bb18" firstPlayVideoId="1" objectMarkerId="16" objectMarkerUrl="">
+  <activeObjects>
+    <hotspot id="1" name="Hotspot1" title="1" hiddenObject="0" locked="0" hideMarker="0" hideTooltip="1" markerId="0" markerUrl="" cursorUrl="" zindex="0" pause="1">
+      <sidebar id="2" name="Sidebar2" showType="0" size="3000" location="0" color="#11821d" textColor="#000000" sizeScalable="1" closeButton="1" sideButton="1" opacity="6745" displayTime="0" zindex="1">&lt;html&gt;
+&lt;body&gt;
+&lt;font color="#ffffff"&gt;&lt;widget type="form" name="qatanya001@yopmail.com_2" kind=""&gt;http://clickberry.tv//services/service/form/06afebb65063044d38681b59cc6e6ba9&lt;/widget&gt;&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</sidebar>
+    </hotspot>
+    <hotspot id="3" name="Hotspot2" title="3" hiddenObject="0" locked="0" hideMarker="0" hideTooltip="1" markerId="0" markerUrl="" cursorUrl="" zindex="2" pause="1">
+      <sidebar id="4" name="Sidebar4" showType="0" size="3000" location="1" color="#11821d" textColor="#000000" sizeScalable="1" closeButton="1" sideButton="1" opacity="6745" displayTime="0" zindex="3">&lt;html&gt;
+&lt;body&gt;
+&lt;font color="white"&gt;rghkknglnldbnkdlnfblbd&lt;br /&gt;&lt;br /&gt;
+&lt;form method="post" action="http://clickberry.tv/widget/index.php?type=form&amp;id=06afebb65063044d38681b59cc6e6ba9"&gt;dfdsfsf &lt;br /&gt;&lt;input name="field0" size="60" /&gt;&lt;br /&gt;&lt;br /&gt;sdfdfe &lt;br /&gt;&lt;input name="field1" size="60" /&gt;&lt;br /&gt;&lt;br /&gt;&lt;input name="hidden" value="3950ed1cd00c635e89689927f4078a63" size="60" type="hidden" /&gt;&lt;input value="Submit" type="submit" /&gt;&lt;/form&gt;&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</sidebar>
+    </hotspot>
+  </activeObjects>
+  <scenarios>
+    <s id="1" title="" startVideoId="1" startFrame="0" />
+  </scenarios>
+  <videos>
+    <v id="1" url="Video\flv\Nightwish - Bless The Child.flv" frames="6101" fps="25" width="640" height="336">
+      <f index="0" length="1">
+        <marking refId="1">
+          <points>1951,2940;3906,2940;3906,5362;1951,5362;</points>
+        </marking>
+        <marking refId="3">
+          <points>4018,6202;6332,6202;6332,8272;4018,8272;</points>
+        </marking>
+      </f>
+      <f index="1" length="5836">
+        <marking refId="1">
+          <move fromFrame="0">0,0</move>
+        </marking>
+        <marking refId="3">
+          <move fromFrame="0">-2027,0</move>
+        </marking>
+      </f>
+    </v>
+  </videos>
+</avsx>

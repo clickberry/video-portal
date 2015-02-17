@@ -1,0 +1,59 @@
+﻿<script type="text/ng-template" id="portal.watch-card.html">
+    
+    <div class="tags-item">
+        <a href="" ui-sref=".video({ id: model.id })">
+            <div class="img">
+                <img ng-src="{{model | watchScreenshotUrl}}" alt="" />
+                <div class="tags-bg"></div>
+                <div class="corner"></div>
+            </div>
+        </a>
+        <div class="user">
+            <a href="" ui-sref="portal.user.videos({userId: model.userId})" class="user-name"><div class="user-img" ng-if="model.userAvatarUrl"><img ng-src="{{model.userAvatarUrl | schemeAgnostic}}" /></div>{{model.userName}}</a>
+        </div>
+        <div class="sharing-date">{{model.created | date : 'dd MMM'}} at {{model.created | date : 'hh:mm a'}}</div>
+        <div class="sharing-tags" ng-if="isOwner">
+            <ul class="indicators-list-user">
+                <li class="trash">
+                    <a href="" cb-confirm-click="onDelete(model)" cb-confirmation="Do you really want to delete video?"><i class="fa fa-trash"></i> Delete video</a>
+                </li>
+                <li ng-class="{public: model.access == 0, private: model.access > 0}">
+                    <a href="" ng-click="onTogglePublic(model)">
+                        <i class="fa fa-globe" ng-show="model.access == 0"></i>
+                        <i class="fa fa-key" ng-show="model.access == 1"></i>
+                        <i class="fa fa-lock" ng-show="model.access == 2"></i>
+                        <span ng-show="model.access == 0">Public</span>
+                        <span ng-show="model.access == 1">Hidden</span>
+                        <span ng-show="model.access == 2">Private</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sharing-tags">
+            <h3><span ng-bind-html="model.name | hashTags: '/tag/'"></span></h3>
+        </div>
+        <div class="tags-item-bottom">
+            <div class="like">
+                <div class="number"><i class="fa fa-thumbs-up"></i> {{model.likesCount}} &nbsp;<i class="fa fa-thumbs-down"></i> {{model.dislikesCount}}</div>
+            </div>
+            <div class="comment">
+                <div class="number"><i class="fa fa-comments"></i> {{model.commentsCount}}</div>
+            </div>
+            <div class="view">
+                <div class="number"><i class="fa fa-eye"></i> {{model.hitsCount}}</div>
+            </div>
+        </div>
+        <ul class="tags-item-comments" ng-if="model.comments.length > 0">
+            <li ng-repeat="comment in model.comments">
+                <a href="" ui-sref="portal.user.videos({userId: comment.userId})" class="commenter-avatar">
+                    <span class="user-img" ng-if="comment.avatarUrl"><img ng-src="{{comment.avatarUrl | schemeAgnostic}}" /></span>
+                </a>
+                <div class="commenter-text">
+                    <a href="" ui-sref="portal.user.videos({userId: comment.userId})" class="commenter-name">{{comment.userName}}</a>
+                    <p>{{comment.body}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</script>

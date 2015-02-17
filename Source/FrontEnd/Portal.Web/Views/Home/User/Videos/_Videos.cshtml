@@ -1,0 +1,125 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+@using Portal.Web.Constants
+<script type="text/ng-template" id="user.videos.html">
+@{
+    var leftBanner = ViewBag.ContentBannerLeft;
+    var rightBanner = ViewBag.ContentBannerRight;
+}   
+
+    <!-- fix-content -->
+    <div class="fix-content">
+
+        <div class="search-form">
+            <form ng-submit="submitSearch(nameFilter)">
+                <div class="holder-submit"><input type="submit" value=""></div><div class="text-input"><input type="text" ng-model="nameFilter" placeholder="Search"></div>
+            </form>
+        </div>
+
+
+        <div class="user-title">
+            <span class="img-title img-title-user" ng-if="user.avatarUrl"><img ng-src="{{user.avatarUrl | schemeAgnostic}}" width="102" height="102" alt="" /></span>
+            <h1>{{user.userName}}</h1>
+            <div class="user-title-from" ng-if="user.country">from {{user.country}}</div>
+        </div>
+
+        <div class="list-tags-holder ng-cloak" infinite-scroll="nextPage()" ng-cloak>
+            <div class="list-tags" ng-if="watches.length > 0" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="watches">
+                <div class="tags-item" ng-repeat="watch in watches" cb-watch-card ng-model="watch" is-owner="watch.userId == currentUser.id" on-delete="deleteVideo" on-toggle-public="togglePublic">
+                </div>
+            </div>
+            <p ng-if="watches.length == 0 && !isLoading">There are no videos.</p>
+            @if (!string.IsNullOrEmpty(leftBanner))
+            {
+                <div class="content-banner-left banner">
+                    @Html.Raw(leftBanner)
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(rightBanner))
+            {
+                <div class="content-banner-right banner">
+                    @Html.Raw(rightBanner)
+                </div>
+            }
+        </div>
+        <!-- list end -->
+
+        
+
+        <div class="ng-cloak" ng-controller="HomeCtrl" ng-if="watches.length <= 10 && !isLoading" ng-cloak>
+
+            <hr />
+
+            <div class="menu-tabs">
+
+                <div class="tab" ng-class="{active: currentTab == 0}">
+                    <a href="" ng-click="selectTab(0)">@InterfaceMessages.MenuTrends</a>
+                    <div class="tab-corner"></div>
+                </div>
+                <div class="tab" ng-class="{active: currentTab == 1}">
+                    <a href="" ng-click="selectTab(1)">@InterfaceMessages.MenuLatest</a>
+                    <div class="tab-corner"></div>
+                </div>
+                <div class="tab" ng-class="{active: currentTab == 2}">
+                    <a href="" ng-click="selectTab(2)">How it works</a>
+                    <div class="tab-corner"></div>
+                </div>
+
+            </div>
+
+            <div ng-if="currentTab == 0">
+                <div class="list-tags-holder">
+                    <div class="list-tags" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="trends">
+                        <div class="tags-item" ng-repeat="trend in trends" cb-watch-card ng-model="trend">
+                        </div>
+
+                    </div>
+                </div>
+
+                <cb-loader loader-if="isTrendsLoading"></cb-loader>
+
+                <div class="btn-more-wrapper">
+
+                    <div class="btn btn-green btn-submit" ng-show="!isTrendsLoading && !isTrendsAllLoaded">
+                        <input type="submit" value="" ng-click="moreTrends()">
+                        More from @InterfaceMessages.MenuTrends
+                    </div>
+
+                </div>
+
+            </div>
+            <div ng-if="currentTab == 1">
+                <div class="list-tags-holder">
+                    <div class="list-tags" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="latest">
+                        <div class="tags-item" ng-repeat="watch in latest" cb-watch-card ng-model="watch">
+                        </div>
+
+                    </div>
+                </div>
+
+                <cb-loader loader-if="isLatestLoading"></cb-loader>
+
+                <div class="btn-more-wrapper">
+
+                    <div class="btn btn-green btn-submit" ng-show="!isLatestLoading && !isLatestAllLoaded">
+                        <input type="submit" value="" ng-click="moreLatest()">
+                        More from @InterfaceMessages.MenuLatest
+                    </div>
+
+                </div>
+
+            </div>
+            <div ng-if="currentTab == 2">
+                @Html.Partial("_HowTo")
+            </div>
+
+        </div>
+
+        <cb-loader loader-if="isLoading"></cb-loader>
+
+    </div>
+    <!-- fix-content end -->
+    
+    <div ui-view="video"></div>
+
+</script>

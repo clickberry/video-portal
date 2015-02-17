@@ -1,0 +1,29 @@
+﻿@using Portal.Domain.PortalContext
+@using Portal.Resources.Web
+@using Portal.Web.Constants
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="b_menu">
+        <ul>
+            @if (User.IsInRole(DomainRoles.User))
+            {
+                <li><a href="@Url.RouteUrl(RouteNames.Profile)" target="_self"><span>@InterfaceMessages.MenuProfile</span></a></li>
+                <li><a href="@Url.RouteUrl(RouteNames.UserVideos, new { id = User.Identity.Name })" target="_self"><span>@InterfaceMessages.MenuVideos</span></a></li>
+            }
+            @if (User.IsInRole(DomainRoles.Administrator) || User.IsInRole(DomainRoles.SuperAdministrator))
+            {
+                <li><a href="@Url.RouteUrl(RouteNames.AdminVideos)" ui-sref="admin.videos.list.table" ui-sref-active="active" target="_self"><span>@InterfaceMessages.MenuAllVideos</span></a></li>
+                <li><a href="@Url.RouteUrl(RouteNames.AdminUsers)" ui-sref="admin.users.list.table" ui-sref-active="active" target="_self"><span>@InterfaceMessages.MenuAllUsers</span></a></li>
+                <li><a href="@Url.RouteUrl(RouteNames.AdminClients)" ui-sref="admin.clients.list.table" ui-sref-active="active" target="_self"><span>@InterfaceMessages.MenuAllClients</span></a></li>
+            }
+            @if (User.IsInRole(DomainRoles.SuperAdministrator))
+            {
+                <li><a href="@Url.RouteUrl(RouteNames.Roles)" target="_self"><span>@InterfaceMessages.MenuAllRoles</span></a></li>
+            }
+            @if (User.IsInRole(DomainRoles.ExamplesManager))
+            {
+                <li><a href="@Url.RouteUrl(RouteNames.Examples)" target="_self"><span>@InterfaceMessages.MenuExamples</span></a></li>
+            }
+        </ul>
+    </div>
+}

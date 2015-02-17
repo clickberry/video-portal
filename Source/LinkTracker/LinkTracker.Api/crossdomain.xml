@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
+  <site-control permitted-cross-domain-policies="all" />
+  <allow-access-from domain="*" />
+  <allow-http-request-headers-from domain="*" headers="*" />
+</cross-domain-policy>

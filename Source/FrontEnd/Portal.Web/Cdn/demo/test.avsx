@@ -1,0 +1,1936 @@
+<avsx description="" author="" firstPlayVideoId="1" generator="3" version="4.1.0" projectId="8c3eb0344f444ffca397bcefb3fc9070" objectMarkerId="0" objectMarkerUrl="">
+  <scenarios>
+    <s description="" title="" startFrame="0" id="1" startVideoId="1"/>
+  </scenarios>
+  <videos>
+    <v fps="25" width="640" id="1" height="352" rotation="0" frames="2468" url="C:\REP\trunk\Frankenstein Player\bin\test_converted.flv">
+      <f length="1" index="79">
+        <marking refId="1">
+          <points>543,2854;7744,2854;7744,9484;543,9484;</points>
+        </marking>
+      </f>
+      <f length="28" index="80">
+        <marking refId="1">
+          <move fromFrame="79">0,0</move>
+        </marking>
+      </f>
+      <f length="25" index="108">
+        <marking refId="1">
+          <move fromFrame="79">-23,-21</move>
+        </marking>
+      </f>
+      <f length="55" index="140">
+        <marking refId="2">
+          <points>2644,4163;7024,4163;7024,6223;2644,6223;</points>
+        </marking>
+      </f>
+      <f length="1" index="217">
+        <marking refId="3">
+          <points>4073,2725;8229,2725;8229,8969;4073,8969;</points>
+        </marking>
+      </f>
+      <f length="1" index="218">
+        <marking refId="3">
+          <move fromFrame="217">47,64</move>
+        </marking>
+      </f>
+      <f length="1" index="219">
+        <marking refId="3">
+          <move fromFrame="217">47,107</move>
+        </marking>
+      </f>
+      <f length="16" index="220">
+        <marking refId="3">
+          <move fromFrame="217">59,171</move>
+        </marking>
+      </f>
+      <f length="1" index="236">
+        <marking refId="3">
+          <move fromFrame="217">59,236</move>
+        </marking>
+      </f>
+      <f length="1" index="237">
+        <marking refId="3">
+          <move fromFrame="217">59,343</move>
+        </marking>
+      </f>
+      <f length="4" index="238">
+        <marking refId="3">
+          <move fromFrame="217">59,364</move>
+        </marking>
+      </f>
+      <f length="3" index="242">
+        <marking refId="3">
+          <move fromFrame="217">59,386</move>
+        </marking>
+      </f>
+      <f length="2" index="245">
+        <marking refId="3">
+          <move fromFrame="217">70,386</move>
+        </marking>
+      </f>
+      <f length="1" index="247">
+        <marking refId="3">
+          <move fromFrame="217">82,407</move>
+        </marking>
+      </f>
+      <f length="1" index="248">
+        <marking refId="3">
+          <move fromFrame="217">82,429</move>
+        </marking>
+      </f>
+      <f length="4" index="249">
+        <marking refId="3">
+          <move fromFrame="217">94,429</move>
+        </marking>
+      </f>
+      <f length="1" index="253">
+        <marking refId="3">
+          <points>4167,3154;8323,3154;8323,9399;4167,9399;</points>
+        </marking>
+      </f>
+      <f length="2" index="254">
+        <marking refId="3">
+          <move fromFrame="253">0,-21</move>
+        </marking>
+      </f>
+      <f length="1" index="256">
+        <marking refId="3">
+          <move fromFrame="253">0,-42</move>
+        </marking>
+      </f>
+      <f length="1" index="257">
+        <marking refId="3">
+          <move fromFrame="253">35,-257</move>
+        </marking>
+      </f>
+      <f length="1" index="258">
+        <marking refId="3">
+          <move fromFrame="253">141,-622</move>
+        </marking>
+      </f>
+      <f length="1" index="259">
+        <marking refId="3">
+          <move fromFrame="253">247,-987</move>
+        </marking>
+      </f>
+      <f length="1" index="260">
+        <marking refId="3">
+          <move fromFrame="253">354,-1351</move>
+        </marking>
+      </f>
+      <f length="1" index="261">
+        <marking refId="3">
+          <move fromFrame="253">425,-1609</move>
+        </marking>
+      </f>
+      <f length="1" index="262">
+        <marking refId="3">
+          <move fromFrame="253">460,-1824</move>
+        </marking>
+      </f>
+      <f length="1" index="263">
+        <marking refId="3">
+          <move fromFrame="253">495,-2060</move>
+        </marking>
+      </f>
+      <f length="1" index="264">
+        <marking refId="3">
+          <move fromFrame="253">519,-2253</move>
+        </marking>
+      </f>
+      <f length="4" index="265">
+        <marking refId="3">
+          <move fromFrame="253">531,-2274</move>
+        </marking>
+      </f>
+      <f length="4" index="269">
+        <marking refId="3">
+          <move fromFrame="253">531,-2253</move>
+        </marking>
+      </f>
+      <f length="2" index="273">
+        <marking refId="3">
+          <move fromFrame="253">519,-2231</move>
+        </marking>
+      </f>
+      <f length="2" index="275">
+        <marking refId="3">
+          <move fromFrame="253">507,-2231</move>
+        </marking>
+      </f>
+      <f length="6" index="277">
+        <marking refId="3">
+          <move fromFrame="253">507,-2210</move>
+        </marking>
+      </f>
+      <f length="1" index="283">
+        <marking refId="3">
+          <move fromFrame="253">495,-2210</move>
+        </marking>
+      </f>
+      <f length="1" index="284">
+        <marking refId="3">
+          <move fromFrame="253">484,-2210</move>
+        </marking>
+      </f>
+      <f length="1" index="285">
+        <marking refId="3">
+          <move fromFrame="253">472,-2167</move>
+        </marking>
+      </f>
+      <f length="1" index="286">
+        <marking refId="3">
+          <move fromFrame="253">436,-2103</move>
+        </marking>
+      </f>
+      <f length="1" index="287">
+        <marking refId="3">
+          <move fromFrame="253">425,-2060</move>
+        </marking>
+      </f>
+      <f length="2" index="288">
+        <marking refId="3">
+          <move fromFrame="253">401,-1974</move>
+        </marking>
+      </f>
+      <f length="1" index="290">
+        <marking refId="3">
+          <points>4557,1266;8713,1266;8713,7510;4557,7510;</points>
+        </marking>
+      </f>
+      <f length="1" index="291">
+        <marking refId="3">
+          <move fromFrame="290">0,128</move>
+        </marking>
+      </f>
+      <f length="1" index="292">
+        <marking refId="3">
+          <move fromFrame="290">-82,450</move>
+        </marking>
+      </f>
+      <f length="1" index="293">
+        <marking refId="3">
+          <move fromFrame="290">-224,686</move>
+        </marking>
+      </f>
+      <f length="1" index="294">
+        <marking refId="3">
+          <move fromFrame="290">-247,708</move>
+        </marking>
+      </f>
+      <f length="1" index="295">
+        <marking refId="3">
+          <move fromFrame="290">-283,708</move>
+        </marking>
+      </f>
+      <f length="2" index="296">
+        <marking refId="3">
+          <move fromFrame="290">-342,686</move>
+        </marking>
+      </f>
+      <f length="1" index="298">
+        <marking refId="3">
+          <move fromFrame="290">-448,665</move>
+        </marking>
+      </f>
+      <f length="1" index="299">
+        <marking refId="3">
+          <move fromFrame="290">-531,643</move>
+        </marking>
+      </f>
+      <f length="1" index="300">
+        <marking refId="3">
+          <move fromFrame="290">-566,643</move>
+        </marking>
+      </f>
+      <f length="1" index="301">
+        <marking refId="3">
+          <move fromFrame="290">-708,622</move>
+        </marking>
+      </f>
+      <f length="2" index="302">
+        <marking refId="3">
+          <move fromFrame="290">-1109,622</move>
+        </marking>
+      </f>
+      <f length="1" index="304">
+        <marking refId="3">
+          <move fromFrame="290">-1416,622</move>
+        </marking>
+      </f>
+      <f length="1" index="305">
+        <marking refId="3">
+          <move fromFrame="290">-1829,622</move>
+        </marking>
+      </f>
+      <f length="1" index="306">
+        <marking refId="3">
+          <move fromFrame="290">-2030,622</move>
+        </marking>
+      </f>
+      <f length="2" index="307">
+        <marking refId="3">
+          <move fromFrame="290">-2148,622</move>
+        </marking>
+      </f>
+      <f length="2" index="309">
+        <marking refId="3">
+          <move fromFrame="290">-2219,622</move>
+        </marking>
+      </f>
+      <f length="1" index="311">
+        <marking refId="3">
+          <move fromFrame="290">-2231,622</move>
+        </marking>
+      </f>
+      <f length="2" index="312">
+        <marking refId="3">
+          <move fromFrame="290">-2349,600</move>
+        </marking>
+      </f>
+      <f length="1" index="314">
+        <marking refId="3">
+          <move fromFrame="290">-2408,600</move>
+        </marking>
+      </f>
+      <f length="1" index="315">
+        <marking refId="3">
+          <move fromFrame="290">-2502,557</move>
+        </marking>
+      </f>
+      <f length="1" index="316">
+        <marking refId="3">
+          <move fromFrame="290">-2585,536</move>
+        </marking>
+      </f>
+      <f length="1" index="317">
+        <marking refId="3">
+          <move fromFrame="290">-2680,536</move>
+        </marking>
+      </f>
+      <f length="2" index="318">
+        <marking refId="3">
+          <move fromFrame="290">-2809,536</move>
+        </marking>
+      </f>
+      <f length="1" index="320">
+        <marking refId="3">
+          <move fromFrame="290">-2975,557</move>
+        </marking>
+      </f>
+      <f length="1" index="321">
+        <marking refId="3">
+          <move fromFrame="290">-3093,600</move>
+        </marking>
+      </f>
+      <f length="1" index="322">
+        <marking refId="3">
+          <move fromFrame="290">-3211,686</move>
+        </marking>
+      </f>
+      <f length="1" index="323">
+        <marking refId="3">
+          <move fromFrame="290">-3305,751</move>
+        </marking>
+      </f>
+      <f length="1" index="324">
+        <marking refId="3">
+          <move fromFrame="290">-3376,836</move>
+        </marking>
+      </f>
+      <f length="1" index="325">
+        <marking refId="3">
+          <move fromFrame="290">-3435,965</move>
+        </marking>
+      </f>
+      <f length="2" index="326">
+        <marking refId="3">
+          <move fromFrame="290">-3471,1158</move>
+        </marking>
+      </f>
+      <f length="1" index="328">
+        <marking refId="3">
+          <move fromFrame="290">-3471,1309</move>
+        </marking>
+      </f>
+      <f length="1" index="329">
+        <marking refId="3">
+          <move fromFrame="290">-3471,1394</move>
+        </marking>
+      </f>
+      <f length="1" index="330">
+        <marking refId="3">
+          <move fromFrame="290">-3459,1394</move>
+        </marking>
+      </f>
+      <f length="2" index="331">
+        <marking refId="3">
+          <move fromFrame="290">-3400,1416</move>
+        </marking>
+      </f>
+      <f length="1" index="333">
+        <marking refId="3">
+          <move fromFrame="290">-3305,1416</move>
+        </marking>
+      </f>
+      <f length="1" index="334">
+        <marking refId="3">
+          <move fromFrame="290">-3010,1416</move>
+        </marking>
+      </f>
+      <f length="1" index="335">
+        <marking refId="3">
+          <move fromFrame="290">-2821,1416</move>
+        </marking>
+      </f>
+      <f length="2" index="336">
+        <marking refId="3">
+          <move fromFrame="290">-2715,1416</move>
+        </marking>
+      </f>
+      <f length="1" index="338">
+        <marking refId="3">
+          <move fromFrame="290">-2668,1351</move>
+        </marking>
+      </f>
+      <f length="1" index="339">
+        <marking refId="3">
+          <move fromFrame="290">-2656,1287</move>
+        </marking>
+      </f>
+      <f length="1" index="340">
+        <marking refId="3">
+          <move fromFrame="290">-2656,1223</move>
+        </marking>
+      </f>
+      <f length="1" index="341">
+        <marking refId="3">
+          <move fromFrame="290">-2632,1051</move>
+        </marking>
+      </f>
+      <f length="1" index="342">
+        <marking refId="3">
+          <move fromFrame="290">-2621,965</move>
+        </marking>
+      </f>
+      <f length="1" index="343">
+        <marking refId="3">
+          <move fromFrame="290">-2585,858</move>
+        </marking>
+      </f>
+      <f length="2" index="344">
+        <marking refId="3">
+          <move fromFrame="290">-2443,772</move>
+        </marking>
+      </f>
+      <f length="1" index="346">
+        <marking refId="3">
+          <move fromFrame="290">-2266,665</move>
+        </marking>
+      </f>
+      <f length="1" index="347">
+        <marking refId="3">
+          <move fromFrame="290">-2101,600</move>
+        </marking>
+      </f>
+      <f length="1" index="348">
+        <marking refId="3">
+          <move fromFrame="290">-1924,557</move>
+        </marking>
+      </f>
+      <f length="2" index="349">
+        <marking refId="3">
+          <move fromFrame="290">-1558,557</move>
+        </marking>
+      </f>
+      <f length="1" index="351">
+        <marking refId="3">
+          <move fromFrame="290">-1345,557</move>
+        </marking>
+      </f>
+      <f length="1" index="352">
+        <marking refId="3">
+          <move fromFrame="290">-1204,643</move>
+        </marking>
+      </f>
+      <f length="2" index="353">
+        <marking refId="3">
+          <move fromFrame="290">-1027,836</move>
+        </marking>
+      </f>
+      <f length="1" index="355">
+        <marking refId="3">
+          <points>3612,2274;7768,2274;7768,8519;3612,8519;</points>
+        </marking>
+      </f>
+      <f length="1" index="356">
+        <marking refId="3">
+          <move fromFrame="290">-897,1287</move>
+        </marking>
+      </f>
+      <f length="1" index="357">
+        <marking refId="3">
+          <move fromFrame="290">-885,1502</move>
+        </marking>
+      </f>
+      <f length="1" index="358">
+        <marking refId="3">
+          <move fromFrame="290">-885,1673</move>
+        </marking>
+      </f>
+      <f length="2" index="359">
+        <marking refId="3">
+          <move fromFrame="290">-944,1716</move>
+        </marking>
+      </f>
+      <f length="1" index="361">
+        <marking refId="3">
+          <move fromFrame="290">-1050,1716</move>
+        </marking>
+      </f>
+      <f length="1" index="362">
+        <marking refId="3">
+          <move fromFrame="290">-1239,1738</move>
+        </marking>
+      </f>
+      <f length="1" index="363">
+        <marking refId="3">
+          <move fromFrame="290">-1357,1738</move>
+        </marking>
+      </f>
+      <f length="2" index="364">
+        <marking refId="3">
+          <move fromFrame="290">-1475,1716</move>
+        </marking>
+      </f>
+      <f length="1" index="366">
+        <marking refId="3">
+          <move fromFrame="290">-1558,1652</move>
+        </marking>
+      </f>
+      <f length="1" index="367">
+        <marking refId="3">
+          <move fromFrame="290">-1582,1652</move>
+        </marking>
+      </f>
+      <f length="2" index="368">
+        <marking refId="3">
+          <move fromFrame="290">-1582,1630</move>
+        </marking>
+      </f>
+      <f length="1" index="370">
+        <marking refId="3">
+          <move fromFrame="290">-1593,1587</move>
+        </marking>
+      </f>
+      <f length="1" index="424">
+        <marking refId="5">
+          <points>2597,1180;4238,1180;4238,5686;2597,5686;</points>
+        </marking>
+      </f>
+      <f length="6" index="425">
+        <marking refId="5">
+          <move fromFrame="424">-23,21</move>
+        </marking>
+      </f>
+      <f length="3" index="431">
+        <marking refId="5">
+          <move fromFrame="424">-247,128</move>
+        </marking>
+      </f>
+      <f length="6" index="434">
+        <marking refId="5">
+          <move fromFrame="424">-259,128</move>
+        </marking>
+      </f>
+      <f length="3" index="440">
+        <marking refId="5">
+          <move fromFrame="424">-259,107</move>
+        </marking>
+      </f>
+      <f length="25" index="443">
+        <marking refId="5">
+          <move fromFrame="424">-259,85</move>
+        </marking>
+      </f>
+      <f length="2" index="468">
+        <marking refId="5">
+          <move fromFrame="424">-271,85</move>
+        </marking>
+      </f>
+      <f length="1" index="470">
+        <marking refId="5">
+          <move fromFrame="424">-507,64</move>
+        </marking>
+      </f>
+      <f length="1" index="471">
+        <marking refId="5">
+          <move fromFrame="424">-909,64</move>
+        </marking>
+      </f>
+      <f length="1" index="472">
+        <marking refId="5">
+          <move fromFrame="424">-1168,64</move>
+        </marking>
+      </f>
+      <f length="4" index="473">
+        <marking refId="5">
+          <move fromFrame="424">-1310,64</move>
+        </marking>
+      </f>
+      <f length="49" index="477">
+        <marking refId="5">
+          <move fromFrame="424">-1298,42</move>
+        </marking>
+      </f>
+      <f length="1" index="580">
+        <marking refId="4">
+          <points>3719,1716;9008,1716;9008,8605;3719,8605;</points>
+        </marking>
+      </f>
+      <f length="3" index="581">
+        <marking refId="4">
+          <move fromFrame="580">0,0</move>
+        </marking>
+      </f>
+      <f length="1" index="584">
+        <marking refId="4">
+          <move fromFrame="580">0,-64</move>
+        </marking>
+      </f>
+      <f length="1" index="585">
+        <marking refId="4">
+          <move fromFrame="580">0,-214</move>
+        </marking>
+      </f>
+      <f length="2" index="586">
+        <marking refId="4">
+          <move fromFrame="580">0,-364</move>
+        </marking>
+      </f>
+      <f length="3" index="588">
+        <marking refId="4">
+          <move fromFrame="580">0,-429</move>
+        </marking>
+      </f>
+      <f length="1" index="591">
+        <marking refId="4">
+          <move fromFrame="580">0,-450</move>
+        </marking>
+      </f>
+      <f length="2" index="592">
+        <marking refId="4">
+          <move fromFrame="580">82,-579</move>
+        </marking>
+      </f>
+      <f length="1" index="594">
+        <marking refId="4">
+          <move fromFrame="580">141,-665</move>
+        </marking>
+      </f>
+      <f length="5" index="595">
+        <marking refId="4">
+          <move fromFrame="580">153,-708</move>
+        </marking>
+      </f>
+      <f length="1" index="600">
+        <marking refId="4">
+          <move fromFrame="580">177,-858</move>
+        </marking>
+      </f>
+      <f length="1" index="601">
+        <marking refId="4">
+          <move fromFrame="580">200,-944</move>
+        </marking>
+      </f>
+      <f length="2" index="602">
+        <marking refId="4">
+          <move fromFrame="580">200,-987</move>
+        </marking>
+      </f>
+      <f length="1" index="604">
+        <marking refId="4">
+          <move fromFrame="580">247,-1051</move>
+        </marking>
+      </f>
+      <f length="1" index="605">
+        <marking refId="4">
+          <move fromFrame="580">295,-1115</move>
+        </marking>
+      </f>
+      <f length="4" index="606">
+        <marking refId="4">
+          <move fromFrame="580">318,-1137</move>
+        </marking>
+      </f>
+      <f length="1" index="610">
+        <marking refId="4">
+          <move fromFrame="580">413,-1244</move>
+        </marking>
+      </f>
+      <f length="3" index="611">
+        <marking refId="4">
+          <move fromFrame="580">425,-1244</move>
+        </marking>
+      </f>
+      <f length="1" index="614">
+        <marking refId="4">
+          <move fromFrame="580">436,-1244</move>
+        </marking>
+      </f>
+      <f length="1" index="615">
+        <marking refId="4">
+          <move fromFrame="580">495,-1223</move>
+        </marking>
+      </f>
+      <f length="1" index="616">
+        <marking refId="4">
+          <move fromFrame="580">566,-1180</move>
+        </marking>
+      </f>
+      <f length="1" index="617">
+        <marking refId="4">
+          <move fromFrame="580">613,-1158</move>
+        </marking>
+      </f>
+      <f length="1" index="618">
+        <marking refId="4">
+          <move fromFrame="580">625,-1158</move>
+        </marking>
+      </f>
+      <f length="4" index="619">
+        <marking refId="4">
+          <move fromFrame="580">637,-1158</move>
+        </marking>
+      </f>
+      <f length="1" index="623">
+        <marking refId="4">
+          <move fromFrame="580">637,-1094</move>
+        </marking>
+      </f>
+      <f length="1" index="624">
+        <marking refId="4">
+          <move fromFrame="580">613,-965</move>
+        </marking>
+      </f>
+      <f length="1" index="625">
+        <marking refId="4">
+          <move fromFrame="580">495,-729</move>
+        </marking>
+      </f>
+      <f length="1" index="626">
+        <marking refId="4">
+          <move fromFrame="580">271,-472</move>
+        </marking>
+      </f>
+      <f length="2" index="627">
+        <marking refId="4">
+          <move fromFrame="580">-11,-278</move>
+        </marking>
+      </f>
+      <f length="1" index="629">
+        <marking refId="4">
+          <move fromFrame="580">-153,-257</move>
+        </marking>
+      </f>
+      <f length="1" index="630">
+        <marking refId="4">
+          <move fromFrame="580">-224,-214</move>
+        </marking>
+      </f>
+      <f length="1" index="631">
+        <marking refId="4">
+          <move fromFrame="580">-342,-150</move>
+        </marking>
+      </f>
+      <f length="1" index="632">
+        <marking refId="4">
+          <move fromFrame="580">-460,-85</move>
+        </marking>
+      </f>
+      <f length="2" index="633">
+        <marking refId="4">
+          <move fromFrame="580">-507,-42</move>
+        </marking>
+      </f>
+      <f length="2" index="635">
+        <marking refId="4">
+          <move fromFrame="580">-519,-21</move>
+        </marking>
+      </f>
+      <f length="1" index="637">
+        <marking refId="4">
+          <move fromFrame="580">-531,64</move>
+        </marking>
+      </f>
+      <f length="2" index="638">
+        <marking refId="4">
+          <move fromFrame="580">-543,107</move>
+        </marking>
+      </f>
+      <f length="1" index="640">
+        <marking refId="4">
+          <move fromFrame="580">-543,128</move>
+        </marking>
+      </f>
+      <f length="1" index="641">
+        <marking refId="4">
+          <move fromFrame="580">-543,171</move>
+        </marking>
+      </f>
+      <f length="1" index="642">
+        <marking refId="4">
+          <move fromFrame="580">-543,193</move>
+        </marking>
+      </f>
+      <f length="2" index="643">
+        <marking refId="4">
+          <move fromFrame="580">-543,214</move>
+        </marking>
+      </f>
+      <f length="2" index="645">
+        <marking refId="4">
+          <move fromFrame="580">-554,236</move>
+        </marking>
+      </f>
+      <f length="1" index="647">
+        <marking refId="4">
+          <move fromFrame="580">-590,236</move>
+        </marking>
+      </f>
+      <f length="2" index="648">
+        <marking refId="4">
+          <move fromFrame="580">-613,236</move>
+        </marking>
+      </f>
+      <f length="3" index="650">
+        <marking refId="4">
+          <move fromFrame="580">-625,257</move>
+        </marking>
+      </f>
+      <f length="1" index="653">
+        <marking refId="4">
+          <move fromFrame="580">-637,257</move>
+        </marking>
+      </f>
+      <f length="1" index="654">
+        <marking refId="4">
+          <move fromFrame="580">-661,257</move>
+        </marking>
+      </f>
+      <f length="1" index="655">
+        <marking refId="4">
+          <move fromFrame="580">-684,257</move>
+        </marking>
+      </f>
+      <f length="1" index="656">
+        <marking refId="4">
+          <move fromFrame="580">-696,257</move>
+        </marking>
+      </f>
+      <f length="1" index="657">
+        <marking refId="4">
+          <move fromFrame="580">-708,257</move>
+        </marking>
+      </f>
+      <f length="2" index="658">
+        <marking refId="4">
+          <move fromFrame="580">-720,257</move>
+        </marking>
+      </f>
+      <f length="1" index="660">
+        <marking refId="4">
+          <move fromFrame="580">-731,236</move>
+        </marking>
+      </f>
+      <f length="1" index="661">
+        <marking refId="4">
+          <move fromFrame="580">-743,236</move>
+        </marking>
+      </f>
+      <f length="3" index="662">
+        <marking refId="4">
+          <move fromFrame="580">-767,214</move>
+        </marking>
+      </f>
+      <f length="2" index="665">
+        <marking refId="4">
+          <move fromFrame="580">-791,193</move>
+        </marking>
+      </f>
+      <f length="1" index="667">
+        <marking refId="4">
+          <move fromFrame="580">-814,193</move>
+        </marking>
+      </f>
+      <f length="1" index="668">
+        <marking refId="4">
+          <move fromFrame="580">-826,193</move>
+        </marking>
+      </f>
+      <f length="1" index="669">
+        <marking refId="4">
+          <move fromFrame="580">-850,171</move>
+        </marking>
+      </f>
+      <f length="1" index="670">
+        <marking refId="4">
+          <move fromFrame="580">-873,150</move>
+        </marking>
+      </f>
+      <f length="1" index="671">
+        <marking refId="4">
+          <move fromFrame="580">-897,150</move>
+        </marking>
+      </f>
+      <f length="1" index="672">
+        <marking refId="4">
+          <move fromFrame="580">-920,107</move>
+        </marking>
+      </f>
+      <f length="1" index="673">
+        <marking refId="4">
+          <move fromFrame="580">-932,107</move>
+        </marking>
+      </f>
+      <f length="1" index="674">
+        <marking refId="4">
+          <move fromFrame="580">-944,85</move>
+        </marking>
+      </f>
+      <f length="2" index="675">
+        <marking refId="4">
+          <move fromFrame="580">-968,64</move>
+        </marking>
+      </f>
+      <f length="2" index="677">
+        <marking refId="4">
+          <move fromFrame="580">-979,64</move>
+        </marking>
+      </f>
+      <f length="2" index="679">
+        <marking refId="4">
+          <move fromFrame="580">-991,64</move>
+        </marking>
+      </f>
+      <f length="1" index="681">
+        <marking refId="4">
+          <move fromFrame="580">-1003,64</move>
+        </marking>
+      </f>
+      <f length="1" index="682">
+        <marking refId="4">
+          <move fromFrame="580">-1027,64</move>
+        </marking>
+      </f>
+      <f length="1" index="683">
+        <marking refId="4">
+          <move fromFrame="580">-1050,64</move>
+        </marking>
+      </f>
+      <f length="1" index="684">
+        <marking refId="4">
+          <move fromFrame="580">-1062,64</move>
+        </marking>
+      </f>
+      <f length="2" index="685">
+        <marking refId="4">
+          <move fromFrame="580">-1074,64</move>
+        </marking>
+      </f>
+      <f length="2" index="687">
+        <marking refId="4">
+          <move fromFrame="580">-1097,64</move>
+        </marking>
+      </f>
+      <f length="2" index="689">
+        <marking refId="4">
+          <move fromFrame="580">-1109,42</move>
+        </marking>
+      </f>
+      <f length="7" index="691">
+        <marking refId="4">
+          <move fromFrame="580">-1121,42</move>
+        </marking>
+      </f>
+      <f length="1" index="698">
+        <marking refId="4">
+          <move fromFrame="580">-1133,21</move>
+        </marking>
+      </f>
+      <f length="2" index="699">
+        <marking refId="4">
+          <move fromFrame="580">-1145,0</move>
+        </marking>
+      </f>
+      <f length="2" index="701">
+        <marking refId="4">
+          <move fromFrame="580">-1180,-64</move>
+        </marking>
+      </f>
+      <f length="2" index="703">
+        <marking refId="4">
+          <move fromFrame="580">-1192,-85</move>
+        </marking>
+      </f>
+      <f length="3" index="705">
+        <marking refId="4">
+          <move fromFrame="580">-1204,-85</move>
+        </marking>
+      </f>
+      <f length="3" index="708">
+        <marking refId="4">
+          <move fromFrame="580">-1204,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="711">
+        <marking refId="4">
+          <move fromFrame="580">-1192,-128</move>
+        </marking>
+      </f>
+      <f length="1" index="712">
+        <marking refId="4">
+          <move fromFrame="580">-1157,-128</move>
+        </marking>
+      </f>
+      <f length="2" index="713">
+        <marking refId="4">
+          <move fromFrame="580">-1121,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="715">
+        <marking refId="4">
+          <move fromFrame="580">-1097,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="716">
+        <marking refId="4">
+          <move fromFrame="580">-1086,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="717">
+        <marking refId="4">
+          <move fromFrame="580">-1074,-85</move>
+        </marking>
+      </f>
+      <f length="1" index="718">
+        <marking refId="4">
+          <move fromFrame="580">-1050,-85</move>
+        </marking>
+      </f>
+      <f length="1" index="719">
+        <marking refId="4">
+          <move fromFrame="580">-991,-85</move>
+        </marking>
+      </f>
+      <f length="1" index="720">
+        <marking refId="4">
+          <move fromFrame="580">-979,-85</move>
+        </marking>
+      </f>
+      <f length="1" index="721">
+        <marking refId="4">
+          <move fromFrame="580">-968,-85</move>
+        </marking>
+      </f>
+      <f length="2" index="722">
+        <marking refId="4">
+          <move fromFrame="580">-956,-85</move>
+        </marking>
+      </f>
+      <f length="1" index="724">
+        <marking refId="4">
+          <move fromFrame="580">-944,-64</move>
+        </marking>
+      </f>
+      <f length="1" index="725">
+        <marking refId="4">
+          <move fromFrame="580">-932,-42</move>
+        </marking>
+      </f>
+      <f length="1" index="726">
+        <marking refId="4">
+          <move fromFrame="580">-920,-42</move>
+        </marking>
+      </f>
+      <f length="1" index="727">
+        <marking refId="4">
+          <move fromFrame="580">-897,0</move>
+        </marking>
+      </f>
+      <f length="2" index="728">
+        <marking refId="4">
+          <move fromFrame="580">-897,42</move>
+        </marking>
+      </f>
+      <f length="1" index="730">
+        <marking refId="4">
+          <move fromFrame="580">-885,64</move>
+        </marking>
+      </f>
+      <f length="1" index="731">
+        <marking refId="4">
+          <move fromFrame="580">-873,85</move>
+        </marking>
+      </f>
+      <f length="1" index="732">
+        <marking refId="4">
+          <move fromFrame="580">-861,128</move>
+        </marking>
+      </f>
+      <f length="1" index="733">
+        <marking refId="4">
+          <move fromFrame="580">-861,150</move>
+        </marking>
+      </f>
+      <f length="1" index="734">
+        <marking refId="4">
+          <move fromFrame="580">-850,193</move>
+        </marking>
+      </f>
+      <f length="1" index="735">
+        <marking refId="4">
+          <move fromFrame="580">-897,364</move>
+        </marking>
+      </f>
+      <f length="1" index="736">
+        <marking refId="4">
+          <move fromFrame="580">-1015,472</move>
+        </marking>
+      </f>
+      <f length="1" index="737">
+        <marking refId="4">
+          <move fromFrame="580">-1121,579</move>
+        </marking>
+      </f>
+      <f length="2" index="738">
+        <marking refId="4">
+          <move fromFrame="580">-1216,622</move>
+        </marking>
+      </f>
+      <f length="1" index="740">
+        <marking refId="4">
+          <move fromFrame="580">-1381,643</move>
+        </marking>
+      </f>
+      <f length="1" index="741">
+        <marking refId="4">
+          <move fromFrame="580">-1617,622</move>
+        </marking>
+      </f>
+      <f length="1" index="742">
+        <marking refId="4">
+          <move fromFrame="580">-1806,557</move>
+        </marking>
+      </f>
+      <f length="1" index="743">
+        <marking refId="4">
+          <move fromFrame="580">-1877,450</move>
+        </marking>
+      </f>
+      <f length="1" index="744">
+        <marking refId="4">
+          <move fromFrame="580">-1983,300</move>
+        </marking>
+      </f>
+      <f length="1" index="745">
+        <marking refId="4">
+          <move fromFrame="580">-2018,214</move>
+        </marking>
+      </f>
+      <f length="1" index="746">
+        <marking refId="4">
+          <move fromFrame="580">-2054,150</move>
+        </marking>
+      </f>
+      <f length="1" index="747">
+        <marking refId="4">
+          <move fromFrame="580">-2089,42</move>
+        </marking>
+      </f>
+      <f length="1" index="748">
+        <marking refId="4">
+          <move fromFrame="580">-2113,-21</move>
+        </marking>
+      </f>
+      <f length="2" index="749">
+        <marking refId="4">
+          <move fromFrame="580">-2148,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="751">
+        <marking refId="4">
+          <move fromFrame="580">-2160,-171</move>
+        </marking>
+      </f>
+      <f length="1" index="752">
+        <marking refId="4">
+          <move fromFrame="580">-2160,-236</move>
+        </marking>
+      </f>
+      <f length="1" index="753">
+        <marking refId="4">
+          <move fromFrame="580">-2101,-364</move>
+        </marking>
+      </f>
+      <f length="1" index="754">
+        <marking refId="4">
+          <move fromFrame="580">-1995,-407</move>
+        </marking>
+      </f>
+      <f length="1" index="755">
+        <marking refId="4">
+          <move fromFrame="580">-1818,-429</move>
+        </marking>
+      </f>
+      <f length="1" index="756">
+        <marking refId="4">
+          <move fromFrame="580">-1688,-429</move>
+        </marking>
+      </f>
+      <f length="1" index="757">
+        <marking refId="4">
+          <move fromFrame="580">-1463,-321</move>
+        </marking>
+      </f>
+      <f length="2" index="758">
+        <marking refId="4">
+          <move fromFrame="580">-1121,-236</move>
+        </marking>
+      </f>
+      <f length="1" index="760">
+        <marking refId="4">
+          <move fromFrame="580">-873,-236</move>
+        </marking>
+      </f>
+      <f length="1" index="761">
+        <marking refId="4">
+          <move fromFrame="580">-625,-236</move>
+        </marking>
+      </f>
+      <f length="1" index="762">
+        <marking refId="4">
+          <move fromFrame="580">-413,-214</move>
+        </marking>
+      </f>
+      <f length="1" index="763">
+        <marking refId="4">
+          <move fromFrame="580">-200,-214</move>
+        </marking>
+      </f>
+      <f length="1" index="764">
+        <marking refId="4">
+          <move fromFrame="580">47,-236</move>
+        </marking>
+      </f>
+      <f length="1" index="765">
+        <marking refId="4">
+          <move fromFrame="580">236,-300</move>
+        </marking>
+      </f>
+      <f length="1" index="766">
+        <marking refId="4">
+          <move fromFrame="580">365,-343</move>
+        </marking>
+      </f>
+      <f length="2" index="767">
+        <marking refId="4">
+          <move fromFrame="580">507,-407</move>
+        </marking>
+      </f>
+      <f length="1" index="769">
+        <marking refId="4">
+          <move fromFrame="580">649,-493</move>
+        </marking>
+      </f>
+      <f length="1" index="770">
+        <marking refId="4">
+          <move fromFrame="580">755,-515</move>
+        </marking>
+      </f>
+      <f length="1" index="771">
+        <marking refId="4">
+          <move fromFrame="580">873,-536</move>
+        </marking>
+      </f>
+      <f length="1" index="772">
+        <marking refId="4">
+          <move fromFrame="580">991,-536</move>
+        </marking>
+      </f>
+      <f length="3" index="773">
+        <marking refId="4">
+          <move fromFrame="580">991,-557</move>
+        </marking>
+      </f>
+      <f length="1" index="776">
+        <marking refId="4">
+          <move fromFrame="580">991,-515</move>
+        </marking>
+      </f>
+      <f length="1" index="777">
+        <marking refId="4">
+          <move fromFrame="580">991,-472</move>
+        </marking>
+      </f>
+      <f length="1" index="778">
+        <marking refId="4">
+          <move fromFrame="580">991,-429</move>
+        </marking>
+      </f>
+      <f length="1" index="779">
+        <marking refId="4">
+          <move fromFrame="580">991,-300</move>
+        </marking>
+      </f>
+      <f length="1" index="780">
+        <marking refId="4">
+          <move fromFrame="580">991,-171</move>
+        </marking>
+      </f>
+      <f length="1" index="781">
+        <marking refId="4">
+          <move fromFrame="580">991,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="782">
+        <marking refId="4">
+          <move fromFrame="580">991,-42</move>
+        </marking>
+      </f>
+      <f length="1" index="783">
+        <marking refId="4">
+          <move fromFrame="580">991,42</move>
+        </marking>
+      </f>
+      <f length="1" index="784">
+        <marking refId="4">
+          <move fromFrame="580">991,150</move>
+        </marking>
+      </f>
+      <f length="3" index="785">
+        <marking refId="4">
+          <move fromFrame="580">991,171</move>
+        </marking>
+      </f>
+      <f length="1" index="788">
+        <marking refId="4">
+          <move fromFrame="580">991,-171</move>
+        </marking>
+      </f>
+      <f length="1" index="789">
+        <marking refId="4">
+          <move fromFrame="580">590,-579</move>
+        </marking>
+      </f>
+      <f length="1" index="790">
+        <marking refId="4">
+          <move fromFrame="580">35,-858</move>
+        </marking>
+      </f>
+      <f length="1" index="791">
+        <marking refId="4">
+          <move fromFrame="580">-224,-987</move>
+        </marking>
+      </f>
+      <f length="1" index="792">
+        <marking refId="4">
+          <move fromFrame="580">-425,-1051</move>
+        </marking>
+      </f>
+      <f length="2" index="793">
+        <marking refId="4">
+          <move fromFrame="580">-613,-1094</move>
+        </marking>
+      </f>
+      <f length="1" index="795">
+        <marking refId="4">
+          <move fromFrame="580">-791,-1137</move>
+        </marking>
+      </f>
+      <f length="1" index="796">
+        <marking refId="4">
+          <move fromFrame="580">-932,-1223</move>
+        </marking>
+      </f>
+      <f length="1" index="797">
+        <marking refId="4">
+          <move fromFrame="580">-1097,-1266</move>
+        </marking>
+      </f>
+      <f length="1" index="798">
+        <marking refId="4">
+          <move fromFrame="580">-1180,-1287</move>
+        </marking>
+      </f>
+      <f length="1" index="799">
+        <marking refId="4">
+          <move fromFrame="580">-1310,-1309</move>
+        </marking>
+      </f>
+      <f length="1" index="800">
+        <marking refId="4">
+          <move fromFrame="580">-1428,-1309</move>
+        </marking>
+      </f>
+      <f length="1" index="801">
+        <marking refId="4">
+          <move fromFrame="580">-1534,-1309</move>
+        </marking>
+      </f>
+      <f length="1" index="802">
+        <marking refId="4">
+          <move fromFrame="580">-1629,-1309</move>
+        </marking>
+      </f>
+      <f length="1" index="803">
+        <marking refId="4">
+          <move fromFrame="580">-1711,-1309</move>
+        </marking>
+      </f>
+      <f length="1" index="804">
+        <marking refId="4">
+          <move fromFrame="580">-1829,-1266</move>
+        </marking>
+      </f>
+      <f length="2" index="805">
+        <marking refId="4">
+          <move fromFrame="580">-1959,-1223</move>
+        </marking>
+      </f>
+      <f length="1" index="807">
+        <marking refId="4">
+          <move fromFrame="580">-2030,-1137</move>
+        </marking>
+      </f>
+      <f length="1" index="808">
+        <marking refId="4">
+          <move fromFrame="580">-2030,-836</move>
+        </marking>
+      </f>
+      <f length="1" index="809">
+        <marking refId="4">
+          <move fromFrame="580">-1936,-557</move>
+        </marking>
+      </f>
+      <f length="1" index="810">
+        <marking refId="4">
+          <move fromFrame="580">-1676,-343</move>
+        </marking>
+      </f>
+      <f length="1" index="811">
+        <marking refId="4">
+          <move fromFrame="580">-1452,-343</move>
+        </marking>
+      </f>
+      <f length="1" index="812">
+        <marking refId="4">
+          <move fromFrame="580">-1275,-343</move>
+        </marking>
+      </f>
+      <f length="1" index="813">
+        <marking refId="4">
+          <move fromFrame="580">-1133,-343</move>
+        </marking>
+      </f>
+      <f length="1" index="814">
+        <marking refId="4">
+          <move fromFrame="580">-920,-343</move>
+        </marking>
+      </f>
+      <f length="1" index="815">
+        <marking refId="4">
+          <move fromFrame="580">-767,-429</move>
+        </marking>
+      </f>
+      <f length="1" index="816">
+        <marking refId="4">
+          <move fromFrame="580">-649,-557</move>
+        </marking>
+      </f>
+      <f length="2" index="817">
+        <marking refId="4">
+          <move fromFrame="580">-578,-622</move>
+        </marking>
+      </f>
+      <f length="1" index="819">
+        <marking refId="4">
+          <move fromFrame="580">-495,-665</move>
+        </marking>
+      </f>
+      <f length="1" index="820">
+        <marking refId="4">
+          <move fromFrame="580">-448,-708</move>
+        </marking>
+      </f>
+      <f length="1" index="821">
+        <marking refId="4">
+          <move fromFrame="580">-413,-751</move>
+        </marking>
+      </f>
+      <f length="1" index="822">
+        <marking refId="4">
+          <move fromFrame="580">-401,-751</move>
+        </marking>
+      </f>
+      <f length="1" index="823">
+        <marking refId="4">
+          <move fromFrame="580">-389,-793</move>
+        </marking>
+      </f>
+      <f length="3" index="824">
+        <marking refId="4">
+          <move fromFrame="580">-365,-815</move>
+        </marking>
+      </f>
+      <f length="1" index="827">
+        <marking refId="4">
+          <move fromFrame="580">-365,-836</move>
+        </marking>
+      </f>
+      <f length="1" index="828">
+        <marking refId="4">
+          <move fromFrame="580">-306,-815</move>
+        </marking>
+      </f>
+      <f length="1" index="829">
+        <marking refId="4">
+          <move fromFrame="580">-259,-793</move>
+        </marking>
+      </f>
+      <f length="1" index="830">
+        <marking refId="4">
+          <move fromFrame="580">-212,-772</move>
+        </marking>
+      </f>
+      <f length="1" index="831">
+        <marking refId="4">
+          <move fromFrame="580">-141,-729</move>
+        </marking>
+      </f>
+      <f length="2" index="832">
+        <marking refId="4">
+          <move fromFrame="580">-82,-686</move>
+        </marking>
+      </f>
+      <f length="1" index="834">
+        <marking refId="4">
+          <move fromFrame="580">-82,-622</move>
+        </marking>
+      </f>
+      <f length="2" index="835">
+        <marking refId="4">
+          <move fromFrame="580">-129,-472</move>
+        </marking>
+      </f>
+      <f length="1" index="837">
+        <marking refId="4">
+          <move fromFrame="580">-342,-321</move>
+        </marking>
+      </f>
+      <f length="1" index="838">
+        <marking refId="4">
+          <move fromFrame="580">-672,-193</move>
+        </marking>
+      </f>
+      <f length="1" index="839">
+        <marking refId="4">
+          <move fromFrame="580">-932,-128</move>
+        </marking>
+      </f>
+      <f length="2" index="840">
+        <marking refId="4">
+          <move fromFrame="580">-1121,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="842">
+        <marking refId="4">
+          <move fromFrame="580">-1357,-171</move>
+        </marking>
+      </f>
+      <f length="1" index="843">
+        <marking refId="4">
+          <move fromFrame="580">-1747,-278</move>
+        </marking>
+      </f>
+      <f length="1" index="844">
+        <marking refId="4">
+          <move fromFrame="580">-1971,-343</move>
+        </marking>
+      </f>
+      <f length="1" index="845">
+        <marking refId="4">
+          <move fromFrame="580">-2184,-472</move>
+        </marking>
+      </f>
+      <f length="1" index="846">
+        <marking refId="4">
+          <move fromFrame="580">-2314,-579</move>
+        </marking>
+      </f>
+      <f length="2" index="847">
+        <marking refId="4">
+          <move fromFrame="580">-2396,-643</move>
+        </marking>
+      </f>
+      <f length="1" index="849">
+        <marking refId="4">
+          <move fromFrame="580">-2467,-729</move>
+        </marking>
+      </f>
+      <f length="1" index="850">
+        <marking refId="4">
+          <move fromFrame="580">-2561,-858</move>
+        </marking>
+      </f>
+      <f length="1" index="851">
+        <marking refId="4">
+          <move fromFrame="580">-2597,-922</move>
+        </marking>
+      </f>
+      <f length="2" index="852">
+        <marking refId="4">
+          <move fromFrame="580">-2609,-944</move>
+        </marking>
+      </f>
+      <f length="2" index="854">
+        <marking refId="4">
+          <move fromFrame="580">-2621,-965</move>
+        </marking>
+      </f>
+      <f length="1" index="856">
+        <marking refId="4">
+          <move fromFrame="580">-2621,-987</move>
+        </marking>
+      </f>
+      <f length="1" index="857">
+        <marking refId="4">
+          <move fromFrame="580">-2621,-1072</move>
+        </marking>
+      </f>
+      <f length="3" index="858">
+        <marking refId="4">
+          <move fromFrame="580">-2609,-1137</move>
+        </marking>
+      </f>
+      <f length="1" index="861">
+        <marking refId="4">
+          <move fromFrame="580">-2514,-1244</move>
+        </marking>
+      </f>
+      <f length="1" index="862">
+        <marking refId="4">
+          <move fromFrame="580">-2491,-1266</move>
+        </marking>
+      </f>
+      <f length="1" index="863">
+        <marking refId="4">
+          <move fromFrame="580">-2479,-1266</move>
+        </marking>
+      </f>
+      <f length="2" index="864">
+        <marking refId="4">
+          <move fromFrame="580">-2467,-1266</move>
+        </marking>
+      </f>
+      <f length="1" index="866">
+        <marking refId="4">
+          <move fromFrame="580">-2396,-1201</move>
+        </marking>
+      </f>
+      <f length="1" index="867">
+        <marking refId="4">
+          <move fromFrame="580">-2349,-1115</move>
+        </marking>
+      </f>
+      <f length="6" index="868">
+        <marking refId="4">
+          <move fromFrame="580">-2337,-1094</move>
+        </marking>
+      </f>
+      <f length="3" index="874">
+        <marking refId="4">
+          <move fromFrame="580">-2325,-1072</move>
+        </marking>
+      </f>
+      <f length="2" index="877">
+        <marking refId="4">
+          <move fromFrame="580">-2302,-1072</move>
+        </marking>
+      </f>
+      <f length="1" index="879">
+        <marking refId="4">
+          <move fromFrame="580">-2290,-1072</move>
+        </marking>
+      </f>
+      <f length="1" index="880">
+        <marking refId="4">
+          <move fromFrame="580">-2219,-1072</move>
+        </marking>
+      </f>
+      <f length="1" index="881">
+        <marking refId="4">
+          <move fromFrame="580">-2030,-1072</move>
+        </marking>
+      </f>
+      <f length="1" index="882">
+        <marking refId="4">
+          <move fromFrame="580">-1900,-1072</move>
+        </marking>
+      </f>
+      <f length="1" index="883">
+        <marking refId="4">
+          <move fromFrame="580">-1806,-1072</move>
+        </marking>
+      </f>
+      <f length="16" index="884">
+        <marking refId="4">
+          <move fromFrame="580">-1770,-1094</move>
+        </marking>
+      </f>
+      <f length="1" index="900">
+        <marking refId="4">
+          <move fromFrame="580">-1711,-1051</move>
+        </marking>
+      </f>
+      <f length="1" index="901">
+        <marking refId="4">
+          <move fromFrame="580">-1605,-965</move>
+        </marking>
+      </f>
+      <f length="1" index="902">
+        <marking refId="4">
+          <move fromFrame="580">-1286,-793</move>
+        </marking>
+      </f>
+      <f length="2" index="903">
+        <marking refId="4">
+          <move fromFrame="580">-743,-536</move>
+        </marking>
+      </f>
+      <f length="2" index="905">
+        <marking refId="4">
+          <move fromFrame="580">-460,-407</move>
+        </marking>
+      </f>
+      <f length="2" index="907">
+        <marking refId="4">
+          <move fromFrame="580">-82,-214</move>
+        </marking>
+      </f>
+      <f length="2" index="909">
+        <marking refId="4">
+          <move fromFrame="580">141,-107</move>
+        </marking>
+      </f>
+      <f length="1" index="911">
+        <marking refId="4">
+          <move fromFrame="580">188,-64</move>
+        </marking>
+      </f>
+      <f length="3" index="912">
+        <marking refId="4">
+          <move fromFrame="580">200,-42</move>
+        </marking>
+      </f>
+      <f length="1" index="915">
+        <marking refId="4">
+          <move fromFrame="580">212,0</move>
+        </marking>
+      </f>
+      <f length="1" index="916">
+        <marking refId="4">
+          <move fromFrame="580">212,42</move>
+        </marking>
+      </f>
+      <f length="1" index="917">
+        <marking refId="4">
+          <move fromFrame="580">236,107</move>
+        </marking>
+      </f>
+      <f length="2" index="918">
+        <marking refId="4">
+          <move fromFrame="580">247,150</move>
+        </marking>
+      </f>
+      <f length="1" index="920">
+        <marking refId="4">
+          <move fromFrame="580">259,193</move>
+        </marking>
+      </f>
+      <f length="1" index="921">
+        <marking refId="4">
+          <move fromFrame="580">271,257</move>
+        </marking>
+      </f>
+      <f length="1" index="922">
+        <marking refId="4">
+          <move fromFrame="580">271,278</move>
+        </marking>
+      </f>
+      <f length="1" index="923">
+        <marking refId="4">
+          <move fromFrame="580">271,300</move>
+        </marking>
+      </f>
+      <f length="1" index="924">
+        <marking refId="4">
+          <move fromFrame="580">188,278</move>
+        </marking>
+      </f>
+      <f length="1" index="925">
+        <marking refId="4">
+          <move fromFrame="580">-129,42</move>
+        </marking>
+      </f>
+      <f length="1" index="926">
+        <marking refId="4">
+          <move fromFrame="580">-436,-21</move>
+        </marking>
+      </f>
+      <f length="1" index="927">
+        <marking refId="4">
+          <move fromFrame="580">-590,-64</move>
+        </marking>
+      </f>
+      <f length="1" index="928">
+        <marking refId="4">
+          <move fromFrame="580">-708,-64</move>
+        </marking>
+      </f>
+      <f length="1" index="929">
+        <marking refId="4">
+          <move fromFrame="580">-920,-128</move>
+        </marking>
+      </f>
+      <f length="1" index="930">
+        <marking refId="4">
+          <move fromFrame="580">-1180,-257</move>
+        </marking>
+      </f>
+      <f length="1" index="931">
+        <marking refId="4">
+          <move fromFrame="580">-1570,-472</move>
+        </marking>
+      </f>
+      <f length="1" index="932">
+        <marking refId="4">
+          <move fromFrame="580">-1829,-665</move>
+        </marking>
+      </f>
+      <f length="1" index="933">
+        <marking refId="4">
+          <move fromFrame="580">-2101,-793</move>
+        </marking>
+      </f>
+      <f length="1" index="934">
+        <marking refId="4">
+          <move fromFrame="580">-2349,-858</move>
+        </marking>
+      </f>
+      <f length="1" index="935">
+        <marking refId="4">
+          <move fromFrame="580">-2514,-922</move>
+        </marking>
+      </f>
+      <f length="1" index="936">
+        <marking refId="4">
+          <move fromFrame="580">-2573,-922</move>
+        </marking>
+      </f>
+      <f length="2" index="937">
+        <marking refId="4">
+          <move fromFrame="580">-2621,-987</move>
+        </marking>
+      </f>
+      <f length="1" index="939">
+        <marking refId="4">
+          <move fromFrame="580">-2739,-1137</move>
+        </marking>
+      </f>
+      <f length="1" index="940">
+        <marking refId="4">
+          <move fromFrame="580">-2845,-1266</move>
+        </marking>
+      </f>
+      <f length="1" index="941">
+        <marking refId="4">
+          <move fromFrame="580">-2868,-1309</move>
+        </marking>
+      </f>
+      <f length="4" index="942">
+        <marking refId="4">
+          <move fromFrame="580">-2880,-1309</move>
+        </marking>
+      </f>
+      <f length="1" index="946">
+        <marking refId="4">
+          <move fromFrame="580">-2880,-1330</move>
+        </marking>
+      </f>
+      <f length="2" index="947">
+        <marking refId="4">
+          <move fromFrame="580">-2868,-1394</move>
+        </marking>
+      </f>
+      <f length="1" index="949">
+        <marking refId="4">
+          <move fromFrame="580">-2833,-1545</move>
+        </marking>
+      </f>
+      <f length="1" index="950">
+        <marking refId="4">
+          <move fromFrame="580">-2833,-1566</move>
+        </marking>
+      </f>
+      <f length="1" index="951">
+        <marking refId="4">
+          <move fromFrame="580">-2821,-1566</move>
+        </marking>
+      </f>
+      <f length="1" index="952">
+        <marking refId="4">
+          <move fromFrame="580">-2809,-1566</move>
+        </marking>
+      </f>
+      <f length="1" index="953">
+        <marking refId="4">
+          <move fromFrame="580">-2798,-1566</move>
+        </marking>
+      </f>
+      <f length="4" index="954">
+        <marking refId="4">
+          <move fromFrame="580">-2774,-1523</move>
+        </marking>
+      </f>
+      <f length="2" index="958">
+        <marking refId="4">
+          <move fromFrame="580">-2762,-1523</move>
+        </marking>
+      </f>
+      <f length="1" index="960">
+        <marking refId="4">
+          <points>979,193;6269,193;6269,7081;979,7081;</points>
+        </marking>
+      </f>
+    </v>
+  </videos>
+  <activeObjects>
+    <hotspot hideTooltip="1" markerId="16" markerUrl="" markerType="image" locked="0" pause="1" zindex="0" hiddenObject="0" description="" id="1" cursorUrl="" title="Hotspot 1" hideMarker="0">
+      <popup startX="" closeButton="1" width="2361" startY="" height="2575" color="#ededed" opacity="8000" zindex="1" showType="0" x="714" displayTime="0" y="4860" textColor="#333333" type="0">&lt;html&gt;&lt;body&gt;KINEPOLIS CINEMA&lt;/body&gt;&lt;/html&gt;</popup>
+    </hotspot>
+    <hotspot hideTooltip="1" markerId="16" markerUrl="" markerType="image" locked="0" pause="0" zindex="0" hiddenObject="0" description="" id="2" cursorUrl="" title="Video Link 2" hideMarker="0">
+      <link urlTarget="_blank" linkType="4" linkValue="2346"/>
+    </hotspot>
+    <hotspot hideTooltip="1" markerId="16" markerUrl="" markerType="image" locked="0" pause="0" zindex="0" hiddenObject="0" description="" id="3" cursorUrl="" title="Hotspot 3" hideMarker="0">
+      <socialtag snId="1" y="3388" userId="100000268746797" x="3321"/>
+    </hotspot>
+    <hotspot hideTooltip="1" markerId="16" markerUrl="" markerType="image" locked="0" pause="1" zindex="1" hiddenObject="0" description="" id="4" cursorUrl="" title="Hotspot 4" hideMarker="0">
+      <popup startX="" closeButton="0" width="2125" startY="" height="5665" color="#ffffff" opacity="0" zindex="4" showType="0" x="6493" displayTime="0" y="804" textColor="#ffffff" type="0">&lt;html&gt;&lt;body&gt;&lt;widget type="cart" name="Cinema ticket" price="10$" img="null" href="http://kinopoisk.ru" /&gt;&lt;/body&gt;&lt;/html&gt;</popup>
+    </hotspot>
+    <hotspot hideTooltip="1" markerId="16" markerUrl="" markerType="image" locked="0" pause="0" zindex="0" hiddenObject="0" description="" id="5" cursorUrl="" title="Hotspot 5" hideMarker="0">
+      <socialtag snId="1" y="2476" userId="100000282974794" x="3176"/>
+    </hotspot>
+  </activeObjects>
+</avsx>

@@ -1,0 +1,136 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+@using Portal.Web.Constants
+<!DOCTYPE html>
+<html ng-app="ngClickberry" ng-controller="AppCtrl">
+<head @RenderSection("Namespaces", false)>
+    <title ng-bind="pageTitle">@ViewBag.Title</title>
+
+    <!--[if IE]><script src="@CdnResources.RenderUrl("~/cdn/js/shared/html5.js")"></script><![endif]-->
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @RenderSection("Metadata", false)
+
+    @CdnResources.RenderStyles("~/cdn/css/clickberry.css")
+    <!--[if lte IE 7]><link rel="stylesheet" href="@CdnResources.RenderUrl("~/cdn/css/ie7.css")" media="screen, projection"><![endif]-->
+    @RenderSection("Styles", false)
+
+    @RenderSection("Scripts", false)
+</head>
+<body disable-hover-onscroll>
+    
+    @Html.Partial("_Stats")
+
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <header class="header">
+            <!-- fix-content -->
+            <div class="fix-content">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="@Url.RouteUrl(RouteNames.Home)" target="_self"><img src="@CdnResources.RenderUrl("~/cdn/img/logo.png")" width="163" height="36" alt="" /></a>
+                </div>
+                <!-- logo end -->
+                <!-- navigation -->
+                @RenderSection("Menu", false)
+                <!-- navigation end -->
+            </div>
+            <!-- fix-content end -->
+        </header>
+        <!-- header end -->
+        <!-- content -->
+        <div class="content">
+
+            @RenderBody()
+
+        </div>
+        <!-- content end -->
+    </div>
+    <!-- wrapper end -->
+    <!-- footer -->
+    <footer class="footer">
+        <div class="fix-content">
+            <div class="right-footer-column">
+                <div class="press">
+                    @*<h4>Press</h4>
+                    <div class="press-date">11 Sep 2013</div>
+                    <div class="press-logo"><a href=""><img src="@CdnResources.RenderUrl("~/cdn/img/press-logo.png")" width="81" height="26" alt="" /></a></div>
+                    <p>
+                        Clickberry: This mobile video app lets you
+                        tag friends in real-time as you record
+                    </p>
+                    <a href="@Url.RouteUrl(RouteNames.About)" class="press-more">
+                        More...
+                    </a>*@
+                </div>
+                <div class="footer-navigation">
+                    <ul class="footer-navigation-list">
+                        <li><h4>Company</h4></li>
+                        <li><a href="@Url.RouteUrl(RouteNames.About)" target="_self">@InterfaceMessages.About</a></li>
+                        <li><a href="@Url.RouteUrl(RouteNames.Terms)" target="_self">@InterfaceMessages.Terms</a></li>
+                        @*<li><a href="">Logos and assets</a></li>
+                        <li><a href="">Careers</a></li>*@
+                    </ul>
+                    <ul class="footer-navigation-list">
+                        <li><h4>Portal</h4></li>
+
+                        <li ng-if="client" class="ng-cloak" ng-cloak><a href="/clients/subscriptions" target="_self">My subscriptions</a></li>
+                        <li ng-if="currentUser" class="ng-cloak" ng-cloak><a href="/user/{{currentUser.id}}/videos" target="_self">@InterfaceMessages.MenuVideos</a></li>
+
+                        <li><a href="@Url.RouteUrl(RouteNames.Trends, null)" target="_self">@InterfaceMessages.MenuTrends</a></li>
+                        <li><a href="@Url.RouteUrl(RouteNames.Latest, null)" target="_self">@InterfaceMessages.MenuLatest</a></li>
+
+                        <li ng-if="currentUser" class="ng-cloak" ng-cloak><a href="@Url.RouteUrl(RouteNames.Profile)" target="_self">@InterfaceMessages.MenuProfile</a></li>
+                        <li ng-if="client" class="ng-cloak" ng-cloak><a href="@Url.RouteUrl(RouteNames.ClientProfile)" target="_self">@InterfaceMessages.MenuProfile</a></li>
+
+                    </ul>
+                    <ul class="footer-navigation-list">
+                        <li><h4>Products</h4></li>
+                        <li><a href="@Url.RouteUrl(RouteNames.DownloadAddon)" target="_blank">Browser extensions</a></li>
+                        @*<li><a href="https://itunes.apple.com/app/tagger/id599496280" target="_blank">iPhone app</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.clickberry" target="_blank">Android app</a></li>*@
+                        <li><a href="@Url.RouteUrl(RouteNames.DownloadCicPc)" target="_self">Desktop apps</a></li>
+                    </ul>
+                    <ul class="footer-navigation-list">
+                        <li><h4>For developers</h4></li>
+                        @*<li><a href="" target="_blank">Tech & features</a></li>*@
+                        <li><a href="@Url.RouteUrl(RouteNames.Sdk)" target="_self">@InterfaceMessages.Sdk</a></li>
+                        @*<li><a href="" target="_blank">Pricing</a></li>
+                        <li><a href="" target="_blank">Documentation</a></li>
+                        <li><a href="" target="_blank">Support</a></li>*@
+                    </ul>
+                    <ul class="footer-navigation-list">
+                        <li><h4>Contacts</h4></li>
+                        <li><a href="@Url.RouteUrl(RouteNames.Contacts)" target="_self">@InterfaceMessages.Feedback</a></li>
+                        @*<li><a href="" target="_blank">Support</a></li>*@
+                        <li><a href="http://www.twitter.com/clickberry" target="_blank">Twitter</a></li>
+                        <li><a href="http://facebook.com/clickberry" target="_blank">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="left-footer-column">
+                <div class="logo-footer">
+                    <a href="/"><img src="@CdnResources.RenderUrl("~/cdn/img/logo-footer.png")" width="110" height="24" alt="" /></a>
+                </div>
+                <div class="copyright">
+                    <p>@Html.Raw(InterfaceMessages.LayoutCopyright)</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <!-- sign-in -->
+    @Html.Partial("_Signin")
+    <!-- sign-in end -->
+    <!-- config -->
+    @RenderSection("Config", false)
+    <!-- config end -->
+    
+    @RenderSection("ScriptsBottom", false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<script type="text/ng-template" id="tag.html">
+@{
+    var leftBanner = ViewBag.ContentBannerLeft;
+    var rightBanner = ViewBag.ContentBannerRight;
+}   
+
+    <!-- fix-content -->
+    <div class="fix-content">
+
+        <h1>Videos for #{{tagName}}</h1>
+
+        <div class="list-tags-holder" infinite-scroll="nextPage()">
+            <div class="list-tags" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="watches">
+                <div class="tags-item" ng-repeat="watch in watches" cb-watch-card ng-model="watch">
+                </div>
+            </div>
+            <p ng-if="watches.length == 0 && !isLoading">There are no videos.</p>
+            @if (!string.IsNullOrEmpty(leftBanner))
+            {
+                <div class="content-banner-left banner">
+                    @Html.Raw(leftBanner)
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(rightBanner))
+            {
+                <div class="content-banner-right banner">
+                    @Html.Raw(rightBanner)
+                </div>
+            }
+        </div>
+
+        <!-- list end -->
+        <cb-loader loader-if="isLoading"></cb-loader>
+    </div>
+    <!-- fix-content end -->
+    
+    <div ui-view="video"></div>
+
+</script>

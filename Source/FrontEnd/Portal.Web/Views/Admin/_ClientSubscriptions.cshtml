@@ -1,0 +1,66 @@
+﻿@using Portal.Domain.PortalContext
+<script type="text/ng-template" id="admin.clients.subscriptions.layout.html">
+
+    <div ui-view="header"></div>
+
+    <div ui-view="filters"></div>
+    <div ui-view="table"></div>
+
+</script>
+
+<script type="text/ng-template" id="admin.clients.subscriptions.header.html">
+
+    <h2>{{client.name}} Subscriptions</h2>
+
+</script>
+
+<script type="text/ng-template" id="admin.clients.subscriptions.filters.html">
+
+</script>
+
+<script type="text/ng-template" id="admin.clients.subscriptions.table.html">
+
+    <div class="wrap_table statisticsTable">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Hostname</th>
+                    <th>Created</th>
+                    <th>Type</th>
+                    <th>Manually enabled</th>
+                    <th>State</th>
+                    @if (User.IsInRole(DomainRoles.Administrator) || User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <th>Action</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="subscription in subscriptions">
+                    <td><span>{{subscription.siteName}}</span></td>
+                    <td><span>{{subscription.siteHostname}}</span></td>
+                    <td><span>{{subscription.created | apiDate:'DD-MM-YYYY HH:mm:ss'}}</span></td>
+                    <td><span>{{subscriptionTypes[subscription.type]}}</span></td>
+                    <td><input type="checkbox" ng-model="subscription.isManuallyEnabled"></td>
+                    <td><select ng-model="subscription.state" ng-options="s.value as s.name for s in resourceStates"></select></td>
+                    @if (User.IsInRole(DomainRoles.Administrator) || User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <td><button cb-confirm-click="setState(subscription)" cb-confirmation="Do you really want to change subscription?">Change</button></td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+        <div ng-show="videos.length > 0">
+            <div class="dataTables_info" id="dataTable_info">Showing {{filter.skip + 1}} to {{filter.skip + videos.length}} of {{videosCount}}</div>
+            <div class="dataTables_paginate paging_two_button">
+                <a ng-class="{paginate_disabled_previous: filter.skip == 0}" role="button" id="dataTable_previous" aria-controls="dataTable" ng-click="prevPage()">Previous</a>
+                <a ng-class="{paginate_disabled_next: isAllLoaded}" role="button" id="dataTable_next" aria-controls="dataTable" ng-click="nextPage()">Next</a>
+            </div>
+        </div>
+
+    </div>
+
+</script>

@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountsInvalidEmail" xml:space="preserve">
+    <value>Invalid e-mail format.</value>
+  </data>
+  <data name="AccountsInvalidUserNameOrPassword" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad request.</value>
+  </data>
+  <data name="FileInvalidFile" xml:space="preserve">
+    <value>Invalid file.</value>
+  </data>
+  <data name="FileInvalidFormat" xml:space="preserve">
+    <value>Invalid file format.</value>
+  </data>
+  <data name="FileInvalidName" xml:space="preserve">
+    <value>Invalid file name.</value>
+  </data>
+  <data name="Forbidden" xml:space="preserve">
+    <value>Forbidden access to this resource.</value>
+  </data>
+  <data name="InvalidMultipartBody" xml:space="preserve">
+    <value>Invalid request body. Required multipart/form-data.</value>
+  </data>
+  <data name="ProjectInvalidAvsxFile" xml:space="preserve">
+    <value>Invalid avsx file.</value>
+  </data>
+  <data name="ProjectInvalidDescription" xml:space="preserve">
+    <value>Invalid project description.</value>
+  </data>
+  <data name="ProjectInvalidId" xml:space="preserve">
+    <value>Invalid project identifier.</value>
+  </data>
+  <data name="ProjectInvalidName" xml:space="preserve">
+    <value>Invalid project name.</value>
+  </data>
+  <data name="ProjectInvalidPublicValue" xml:space="preserve">
+    <value>Invalid public property value.</value>
+  </data>
+  <data name="ProjectInvalidVideoFile" xml:space="preserve">
+    <value>Invalid video file.</value>
+  </data>
+  <data name="ResourceNotFound" xml:space="preserve">
+    <value>The requested resource is not found.</value>
+  </data>
+  <data name="UnathorizedRequest" xml:space="preserve">
+    <value>The requested resource requires user authentication.</value>
+  </data>
+  <data name="ValidationValueMustBeInRange" xml:space="preserve">
+    <value>Value must be between {2} and {1} characters long.</value>
+  </data>
+  <data name="ValidationValueMustNotBeGreaterThan" xml:space="preserve">
+    <value>Value must not be greater than {1} characters long.</value>
+  </data>
+  <data name="WidgetInvalidId" xml:space="preserve">
+    <value>Invalid widget identifier.</value>
+  </data>
+  <data name="WidgetItemInvalidContent" xml:space="preserve">
+    <value>Invalid widget data.</value>
+  </data>
+  <data name="WidgetItemInvalidId" xml:space="preserve">
+    <value>Invalid widget item id.</value>
+  </data>
+  <data name="WidgetItemInvalidName" xml:space="preserve">
+    <value>Invalid widget name.</value>
+  </data>
+  <data name="AccountsPasswordsDoesNotMatch" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="InternalServerError" xml:space="preserve">
+    <value>An internal server error occurred. Please try again later.</value>
+  </data>
+  <data name="AccountsEmailAlreadyExists" xml:space="preserve">
+    <value>E-mail already exists. Please enter a different e-mail.</value>
+  </data>
+  <data name="ProfileInvalidAvatarFile" xml:space="preserve">
+    <value>Invalid image file.</value>
+  </data>
+  <data name="ProfileInvalidCity" xml:space="preserve">
+    <value>Invalid city.</value>
+  </data>
+  <data name="ProfileInvalidCountry" xml:space="preserve">
+    <value>Invalid country.</value>
+  </data>
+  <data name="ProfileInvalidTimeZone" xml:space="preserve">
+    <value>Invalid time zone.</value>
+  </data>
+  <data name="ProfileInvalidUserName" xml:space="preserve">
+    <value>Invalid username.</value>
+  </data>
+  <data name="AccountsInvalidToken" xml:space="preserve">
+    <value>Invalid security token.</value>
+  </data>
+  <data name="ProjectInvalidScreenshotFile" xml:space="preserve">
+    <value>Invalid screenshot file.</value>
+  </data>
+  <data name="ProjectInvalidVideoHash" xml:space="preserve">
+    <value>Invalid video hash.</value>
+  </data>
+  <data name="EntityAlreadyExists" xml:space="preserve">
+    <value>The specified entity already exists.</value>
+  </data>
+  <data name="InvalidAudioBitrate" xml:space="preserve">
+    <value>Invalid audio bitrate.</value>
+  </data>
+  <data name="InvalidAudioChannels" xml:space="preserve">
+    <value>Invalid audio channels count.</value>
+  </data>
+  <data name="InvalidAudioCodec" xml:space="preserve">
+    <value>Invalid audio codec.</value>
+  </data>
+  <data name="InvalidAudioStreamsCount" xml:space="preserve">
+    <value>Invalid audio streams count.</value>
+  </data>
+  <data name="InvalidMediaContainer" xml:space="preserve">
+    <value>Invalid media container.</value>
+  </data>
+  <data name="InvalidVideoBitrate" xml:space="preserve">
+    <value>Invalid video bitrate.</value>
+  </data>
+  <data name="InvalidVideoCodec" xml:space="preserve">
+    <value>Invalid video codec.</value>
+  </data>
+  <data name="InvalidVideoFrameRate" xml:space="preserve">
+    <value>Invalid video frame rate.</value>
+  </data>
+  <data name="InvalidVideoHeight" xml:space="preserve">
+    <value>Invalid video height.</value>
+  </data>
+  <data name="InvalidVideoStreamsCount" xml:space="preserve">
+    <value>Invalid video streams count.</value>
+  </data>
+  <data name="InvalidVideoWidth" xml:space="preserve">
+    <value>Invalid video width.</value>
+  </data>
+  <data name="InvalidMedia" xml:space="preserve">
+    <value>Invalid media.</value>
+  </data>
+  <data name="MethodNotAllowed" xml:space="preserve">
+    <value>Method Not Allowed</value>
+  </data>
+  <data name="EntityTooLarge" xml:space="preserve">
+    <value>Request entity too large.</value>
+  </data>
+  <data name="ExternalVideoInvalidProduct" xml:space="preserve">
+    <value>Invalid product name.</value>
+  </data>
+  <data name="ExternalVideoInvalidVideoUri" xml:space="preserve">
+    <value>Invalid video URI.</value>
+  </data>
+  <data name="RequestTimeout" xml:space="preserve">
+    <value>The request has timed out.</value>
+  </data>
+  <data name="ServiceUnavailable" xml:space="preserve">
+    <value>Service is currently under maintenance.</value>
+  </data>
+  <data name="NotificationInvalidProjectId" xml:space="preserve">
+    <value>Invalid poject identifier.</value>
+  </data>
+  <data name="AccountsInvalidTokenSecret" xml:space="preserve">
+    <value>Invalid security token secret.</value>
+  </data>
+  <data name="TwitterInvalidStatus" xml:space="preserve">
+    <value>Invalid status message.</value>
+  </data>
+  <data name="TwitterInvalidToken" xml:space="preserve">
+    <value>Invalid token.</value>
+  </data>
+  <data name="TwitterInvalidTokenSecret" xml:space="preserve">
+    <value>Invalid token secret.</value>
+  </data>
+  <data name="TooManyRequests" xml:space="preserve">
+    <value>Too many requests.</value>
+  </data>
+  <data name="BadGateway" xml:space="preserve">
+    <value>Bad gateway.</value>
+  </data>
+  <data name="NotAcceptable" xml:space="preserve">
+    <value>Not acceptable format.</value>
+  </data>
+  <data name="InvalidQueryOptions" xml:space="preserve">
+    <value>Invalid query options.</value>
+  </data>
+  <data name="ProfileInvalidCompanyName" xml:space="preserve">
+    <value>Invalid company name.</value>
+  </data>
+  <data name="ProfileInvalidContactAddress" xml:space="preserve">
+    <value>Invalid contact address.</value>
+  </data>
+  <data name="ProfileInvalidPhoneNumber" xml:space="preserve">
+    <value>Invalid phone number.</value>
+  </data>
+  <data name="ProfileInvalidZipCode" xml:space="preserve">
+    <value>Invalid zip code.</value>
+  </data>
+  <data name="SubscriptionInvalidSiteHostname" xml:space="preserve">
+    <value>Invalid hostname.</value>
+  </data>
+  <data name="ProfileInvalidEin" xml:space="preserve">
+    <value>Invalid Employer Identification Number.</value>
+  </data>
+  <data name="SubscriptionInvalidSiteName" xml:space="preserve">
+    <value>Invalid site name.</value>
+  </data>
+  <data name="SubscriptionPaymentInvalidAmount" xml:space="preserve">
+    <value>Invalid payment amount.</value>
+  </data>
+  <data name="AccountsEmailsDoesNotMatch" xml:space="preserve">
+    <value>The email and confirmation email do not match.</value>
+  </data>
+  <data name="AccountsInvalidContactPerson" xml:space="preserve">
+    <value>Invalid contact person name.</value>
+  </data>
+  <data name="InvalidSubscriptionType" xml:space="preserve">
+    <value>Invalid subscription type.</value>
+  </data>
+  <data name="ProjectInvalidSubtype" xml:space="preserve">
+    <value>Invalid project subtype.</value>
+  </data>
+  <data name="ProjectInvalidType" xml:space="preserve">
+    <value>Invalid project type.</value>
+  </data>
+  <data name="InvalidResourceState" xml:space="preserve">
+    <value>Invalid resource state.</value>
+  </data>
+  <data name="AccountsAccessDenied" xml:space="preserve">
+    <value>Access Denied.</value>
+  </data>
+  <data name="AccountsUserWithEmailNotFound" xml:space="preserve">
+    <value>There is no user with this email address.</value>
+  </data>
+  <data name="AccountsInvalidOldPassword" xml:space="preserve">
+    <value>Invalid old password.</value>
+  </data>
+  <data name="ResourceGone" xml:space="preserve">
+    <value>The requested resource is no longer available.</value>
+  </data>
+  <data name="PaymentRequired" xml:space="preserve">
+    <value>Payment required.</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Invalid phone number.</value>
+  </data>
+  <data name="InvalidAddress" xml:space="preserve">
+    <value>Invalid address.</value>
+  </data>
+  <data name="InvalidCompanyName" xml:space="preserve">
+    <value>Invalid company name.</value>
+  </data>
+  <data name="FeedbackEmailRequired" xml:space="preserve">
+    <value>E-mail address required.</value>
+  </data>
+  <data name="FeedbackInvalidEmail" xml:space="preserve">
+    <value>Invalid e-mail format.</value>
+  </data>
+  <data name="FeedbackMessageRequired" xml:space="preserve">
+    <value>Feedback message required.</value>
+  </data>
+  <data name="FeedbackNameRequired" xml:space="preserve">
+    <value>Your name required.</value>
+  </data>
+  <data name="ProjectInvalidAccess" xml:space="preserve">
+    <value>Invalid project access value.</value>
+  </data>
+</root>

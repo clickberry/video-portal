@@ -1,0 +1,40 @@
+﻿<script type="text/ng-template" id="user.likes.html">
+@{
+    var leftBanner = ViewBag.ContentBannerLeft;
+    var rightBanner = ViewBag.ContentBannerRight;
+}   
+
+    <!-- fix-content -->
+    <div class="fix-content">
+
+        <h1>My Likes</h1>
+
+        <div class="list-tags-holder" infinite-scroll="nextPage()">
+            <div class="list-tags" ng-if="likes.length > 0" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="likes">
+                <div class="tags-item" ng-repeat="like in likes" cb-watch-card ng-model="like">
+                </div>
+            </div>
+            <p ng-if="likes.length == 0 && !isLoading">There are no likes.</p>
+            @if (!string.IsNullOrEmpty(leftBanner))
+            {
+                <div class="content-banner-left banner">
+                    @Html.Raw(leftBanner)
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(rightBanner))
+            {
+                <div class="content-banner-right banner">
+                    @Html.Raw(rightBanner)
+                </div>
+            }
+        </div>
+        <!-- list end -->
+
+        <cb-loader loader-if="isLoading"></cb-loader>
+
+    </div>
+    <!-- fix-content end -->
+    
+    <div ui-view="video"></div>
+
+</script>

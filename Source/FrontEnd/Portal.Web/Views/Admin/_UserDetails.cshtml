@@ -1,0 +1,65 @@
+﻿@using Portal.Domain.PortalContext
+
+<script type="text/ng-template" id="admin.users.details.layout.html">
+
+    <div ui-view="header"></div>
+
+    <div ui-view="filters"></div>
+    <div ui-view="table"></div>
+
+</script>
+
+<script type="text/ng-template" id="admin.users.details.header.html">
+
+    <h2>{{user.userName}} videos</h2>
+
+</script>
+
+<script type="text/ng-template" id="admin.users.details.filters.html">
+
+    <form>
+        <label>Search: <input type="text" ng-model="videoName"></label>
+    </form>
+
+</script>
+
+<script type="text/ng-template" id="admin.users.details.table.html">
+
+    <div class="wrap_table statisticsTable videos">
+
+        <table>
+            <thead>
+                <tr>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'Name' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'Name' && filter.orderByAsc}"><a href="" ng-click="setOrder('Name')">Title</a></th>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'Created' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'Created' && filter.orderByAsc}"><a href="" ng-click="setOrder('Created')">Created</a></th>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'ProductType' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'ProductType' && filter.orderByAsc}"><a href="" ng-click="setOrder('ProductType')">Product</a></th>
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <th>Action</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="video in videos">
+                    <td><a href="" target="_self" ng-href="{{videoUrl}}/{{video.id}}">{{video.name}}</a></td>
+                    <td><span>{{video.created | apiDate:'DD-MM-YYYY HH:mm:ss'}}</span></td>
+                    <td><span>{{video.product}}</span></td>
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <td><a cb-confirm-click="delete(video)" cb-confirmation="Do you really want to delete project?">Delete</a></td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+        <div ng-show="videos.length > 0">
+            <div class="dataTables_info" id="dataTable_info">Showing {{filter.skip + 1}} to {{filter.skip + videos.length}} of {{videosCount}}</div>
+            <div class="dataTables_paginate paging_two_button">
+                <a ng-class="{paginate_disabled_previous: filter.skip == 0}" role="button" id="dataTable_previous" aria-controls="dataTable" ng-click="prevPage()">Previous</a>
+                <a ng-class="{paginate_disabled_next: isAllLoaded}" role="button" id="dataTable_next" aria-controls="dataTable" ng-click="nextPage()">Next</a>
+            </div>
+        </div>
+
+    </div>
+
+</script>

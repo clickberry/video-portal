@@ -1,0 +1,38 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+@model Portal.Web.Models.LogOnModel
+@{
+    ViewBag.Title = InterfaceMessages.WelcomeTitle;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@section Metadata { 
+    <meta name="description" content="Clickberry changes the game for the way we watch and share video. Clickberry allows viewers to share the very best pieces of video – whether it’s top highlights, tagged friends, interesting things worth buying, or memorable moments." />
+}
+
+<section>
+
+    @Html.Partial("_Portal")
+    <div data-ui-view></div>
+
+</section>
+
+@section Menu {
+    <nav data-cb-menu></nav>
+}
+
+@section Config {
+    <div data-cb-config
+         data-player-url="@Html.Raw(ViewBag.PlayerUrl)"
+         data-jw-flash-player-url="@Html.Raw(ViewBag.JwFlashPlayerUrl)"
+         data-youtube-html5-player-url="@Html.Raw(ViewBag.YoutubeHtml5PlayerUrl)"
+         data-jira-issue-collector="@Html.Raw(ViewBag.JiraIssueCollector)">
+    </div>
+}
+
+@section ScriptsBottom
+{
+    @CdnResources.RenderScripts("~/cdn/scripts/clickberry.js")
+    @CdnResources.RenderScripts("~/cdn/scripts/portal.js")
+    @CdnResources.RenderScripts(string.Format("{0}cbplayer.min.js", ViewBag.PlayerUrl))
+}

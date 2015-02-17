@@ -1,0 +1,16 @@
+﻿@using Portal.Web.Infrastructure
+@using Portal.Resources.Web
+@if (!ViewContext.IsAuthenticationPage())
+{
+    <div class="b_authoriz">
+        @Url.ContentLink(
+            string.Format("<span class='bt_rt'>{0}</span>",
+                Request.IsAuthenticated
+                    ? @InterfaceMessages.LayoutLogoff
+                    : @InterfaceMessages.LayoutLogon),
+            Request.IsAuthenticated ? "logoff" : "index",
+            Request.IsAuthenticated ? "account" : "home",
+            new { returnUrl = Request.RawUrl },
+            htmlAttributes: new Dictionary<string, object> { { "class", "bt_gray_med" }, { "target", "_self" } })
+    </div>
+}

@@ -1,0 +1,11 @@
+﻿<script type="text/ng-template" id="client.balance.widget.html">
+    
+    <div class="balance" ng-if="balance != null">
+        <div class="balance-title">Balance</div>
+        <div class="balance-price">$<span ng-bind="balance / 100 | number : 2"></span></div>
+        <a href="" class="btn btn-payment" ui-sref="client.pay">Add payment</a>
+        <p><a class="payment-history" href="" ui-sref="client.balance">Balance details</a></p>
+    </div>
+
+
+</script>

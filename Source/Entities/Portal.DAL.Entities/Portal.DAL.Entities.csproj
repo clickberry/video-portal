@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E65A1C84-D68D-4712-BBD2-9891EE95E481}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.DAL.Entities</RootNamespace>
+    <AssemblyName>Portal.DAL.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cassandra">
+      <HintPath>..\..\..\Libraries\Cassandra\Cassandra.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cassandra.Data">
+      <HintPath>..\..\..\Libraries\Cassandra\Cassandra.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cassandra.Data.Linq">
+      <HintPath>..\..\..\Libraries\Cassandra\Cassandra.Data.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client">
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial">
+      <HintPath>..\..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregateObject\CommentsAggregation.cs" />
+    <Compile Include="QueryObject\ReportQueryObject.cs" />
+    <Compile Include="QueryObject\StatQueryObject.cs" />
+    <Compile Include="Statistics\AffinityGroupCountsEntity.cs" />
+    <Compile Include="Statistics\AffinityGroupItemCountsEntity.cs" />
+    <Compile Include="Statistics\AffinityGroupMostSignaledEntity.cs" />
+    <Compile Include="Statistics\AffinityGroupMostSignaledInsertOptions.cs" />
+    <Compile Include="Statistics\AffinityGroupMostSignaledVersionEntity.cs" />
+    <Compile Include="Statistics\ItemCountsEntity.cs" />
+    <Compile Include="Statistics\ItemSignalsEntity.cs" />
+    <Compile Include="Statistics\TimeSeriesRollupsInsertOptions.cs" />
+    <Compile Include="Statistics\TimeSeriesRawInsertOptions.cs" />
+    <Compile Include="Statistics\UserSignalsInsertDeleteOptions.cs" />
+    <Compile Include="Statistics\ItemSignalsInsertDeleteOptions.cs" />
+    <Compile Include="Statistics\SignalType.cs" />
+    <Compile Include="Statistics\TimeSeriesRawEntity.cs" />
+    <Compile Include="Statistics\TimeSeriesRollupsDayEntity.cs" />
+    <Compile Include="Statistics\TimeSeriesRollupsHourEntity.cs" />
+    <Compile Include="Statistics\TimeSeriesRollupsMinuteEntity.cs" />
+    <Compile Include="Statistics\UserCountsEntity.cs" />
+    <Compile Include="Statistics\UserSignalsUnorderedEntity.cs" />
+    <Compile Include="Statistics\UserSignalsEntity.cs" />
+    <Compile Include="Storage\StorageFile.cs" />
+    <Compile Include="Table\BalanceHistoryEntity.cs" />
+    <Compile Include="Table\CommentEntity.cs" />
+    <Compile Include="Table\FollowerEntity.cs" />
+    <Compile Include="Table\PendingClientEntity.cs" />
+    <Compile Include="Table\CompanyEntity.cs" />
+    <Compile Include="Table\FileEntity.cs" />
+    <Compile Include="Table\StatEntity.cs" />
+    <Compile Include="Table\ProjectEntity.cs" />
+    <Compile Include="Table\PasswordRecoveryEntity.cs" />
+    <Compile Include="Table\ProcessedScreenshotEntity.cs" />
+    <Compile Include="Table\ProcessedVideoEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table\PushNotificationEntity.cs" />
+    <Compile Include="Table\ReportEntity.cs" />
+    <Compile Include="Table\SendEmailEntity.cs" />
+    <Compile Include="Table\StandardReportV3Entity.cs" />
+    <Compile Include="Table\IStatEntity.cs" />
+    <Compile Include="Table\StatProjectDeletionV2Entity.cs" />
+    <Compile Include="Table\StatProjectStateV3Entity.cs" />
+    <Compile Include="Table\StatProjectUploadingV2Entity.cs" />
+    <Compile Include="Table\StatUserLoginV2Entity.cs" />
+    <Compile Include="Table\StatUserRegistrationV2Entity.cs" />
+    <Compile Include="Table\StatWatchingV2Entity.cs" />
+    <Compile Include="Table\BillingEventEntity.cs" />
+    <Compile Include="Table\SubscriptionEntity.cs" />
+    <Compile Include="Table\DataResultEntity.cs" />
+    <Compile Include="Table\TrackingStatPerDateEntity.cs" />
+    <Compile Include="Table\TrackingStatPerUrlEntity.cs" />
+    <Compile Include="Table\UserAuthentication.cs" />
+    <Compile Include="Table\UserEntity.cs" />
+    <Compile Include="Table\UserMembershipEntity.cs" />
+    <Compile Include="Table\VideoQueueEntity.cs" />
+    <Compile Include="Table\TrackingStatEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DAL\MongoRepository\MongoRepository.csproj">
+      <Project>{543d3fde-4931-40b0-b5d3-a912d145e6e3}</Project>
+      <Name>MongoRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,72 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Web.Constants
+<div class="how-to">
+    <h1>How to use Clickberry for Youtube?</h1>
+    <p>
+        Clickberry is a best way to enjoy Youtube videos with friends.<br />
+        Sharing videos now have a totally different meaning. Don't share the whole video, share what's important.
+    </p>
+
+    <ol class="how-to-list">
+        <li>
+            <a href="@Url.RouteUrl(RouteNames.DownloadAddon)" class="illustration" target="_blank"><img src="@CdnResources.RenderUrl("~/Cdn/pic/how/extension-button.png")" alt="Download Clickberry extension" /></a>
+            <p>Start with installing Chrome extension</p>
+            <div class="icon one"></div>
+        </li>
+        <li>
+            <p>Go to Youtube and open any video</p>
+            <div class="img">
+                <p>&nbsp;</p>
+                <img src="@CdnResources.RenderUrl("~/Cdn/pic/how/youtube.jpg")" alt="Clickberry on Youtube" />
+            </div>
+            <div class="icon two"></div>
+        </li>
+        <li>
+            <p>Click green snap button <img src="@CdnResources.RenderUrl("~/Cdn/pic/how/snap-button.png")" alt="Clickberry snap button" /> in any video</p>
+            <div class="icon three"></div>
+        </li>
+        <li>
+            <p>New interface will be launched and you can start adding your creatives</p>
+            <div class="img">
+                <img src="@CdnResources.RenderUrl("~/Cdn/pic/how/editing.jpg")" alt="Clickberry video editing" />
+            </div>
+            <div class="icon four"></div>
+        </li>
+        <li>
+            <p>Now you can share your snap to Facebook, Twitter or save as a bookmark</p>
+            <div class="img">
+                <img src="@CdnResources.RenderUrl("~/Cdn/pic/how/share.jpg")" alt="Clickberry video sharing" />
+            </div>
+            <p>Сheck the box &laquo;Make this snap hidden&raquo; if you want to make your snap hidden (invisible to others) except when you share the direct link to it.</p>
+            <div class="img">
+                <img src="@CdnResources.RenderUrl("~/Cdn/pic/how/private.jpg")" alt="Hidden Clickberry video snap" />
+            </div>
+            <p>
+                You can always change the visibility settings of your snaps in your Clickberry account. Just click on “hidden” to toggle between “hidden”
+                (invisible to others, except direct link), “private” (invisible to anyone, without possibility to share it) and “public” (visible to anyone).
+            </p>
+            <div class="img">
+                <img src="@CdnResources.RenderUrl("~/Cdn/pic/how/hidden.jpg")" alt="Hidden Clickberry video snap" />
+                <p>&nbsp;</p>
+            </div>
+            <div class="icon five"></div>
+        </li>
+        <li>
+            <p>You can see all the snaps you created by logging in at your account at <a href="//clickberry.tv">Clickberry.tv</a></p>
+            <div class="icon six"></div>
+        </li>
+    </ol>
+
+    <p>
+        With a simple and easy to use extension for Chrome and Firefox you can unlock super features for Youtube
+        and get all the advantages of sharing in a new way. All the snaps you share will be saved to your account at
+        Clickberry where you can access them any time. With an extension installed you can easily see what other people
+        highlight in Youtube videos and find the most interesting moments in a click.
+    </p>
+
+    <div class="img">
+        <p><a href="@Url.RouteUrl(RouteNames.DownloadAddon)" class="get-extension" target="_blank">Get extension!</a></p>
+        <a href="@Url.RouteUrl(RouteNames.DownloadAddon)" target="_blank"><img src="@CdnResources.RenderUrl("~/Cdn/pic/how/extension-button.png")" alt="Download Clickberry extension" /></a>
+    </div>
+
+</div>

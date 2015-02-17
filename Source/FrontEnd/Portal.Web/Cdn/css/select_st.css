@@ -1,0 +1,180 @@
+/*-------------------------------------------jquery.ui.selectmenu.css-------------------------------------*/
+.ui-selectmenu { }
+
+.ui-selectmenu:hover { text-decoration: none !important; }
+
+.ui-selectmenu-icon {
+    background: url("../images/sprite1_ico.png") no-repeat 0 -120px;
+    height: 24px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 24px;
+}
+
+.ui-selectmenu-menu {
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    z-index: 3005 !important;
+}
+
+/* z-index: 1005 to make selectmenu work with dialog */
+
+.ui-selectmenu-menu ul {
+    background: #fff;
+    /*min-width:372px;*/
+    border-width: 0;
+    margin: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    position: relative;	
+}
+
+.ui-selectmenu-open { display: block; }
+
+.ui-selectmenu-menu-popup { margin-top: -1px; }
+
+.ui-selectmenu-menu-dropdown { }
+
+.ui-selectmenu-menu li { }
+
+.ui-selectmenu-menu li a, .ui-selectmenu-status { }
+
+.ui-selectmenu-menu li a:hover { text-decoration: none; }
+
+.ui-selectmenu-menu a:hover { text-decoration: none !important; }
+
+.ui-selectmenu-menu li.ui-state-disabled a, .ui-state-disabled { cursor: default; }
+
+.ui-selectmenu-menu li.ui-selectmenu-hasIcon a,
+.ui-selectmenu-hasIcon .ui-selectmenu-status { position: relative; }
+
+.ui-selectmenu-menu li .ui-icon, .ui-selectmenu-status .ui-icon {
+    left: 0;
+    position: absolute;
+    top: 1em;
+}
+
+.ui-selectmenu-status { }
+
+.ui-selectmenu-open li.ui-selectmenu-item-focus a { }
+
+.ui-selectmenu-open li.ui-selectmenu-item-selected { background-color: #E9EDF1 !important; }
+
+.ui-selectmenu-open li.ui-selectmenu-item-selected a { }
+
+.ui-selectmenu-menu li span, .ui-selectmenu-status span {
+    display: block;
+    margin-bottom: .2em;
+}
+
+.ui-selectmenu-menu li .ui-selectmenu-item-header { }
+
+.ui-selectmenu-menu li .ui-selectmenu-item-content { }
+
+.ui-selectmenu-menu li .ui-selectmenu-item-footer { opacity: .8; }
+
+/* for optgroups */
+
+.ui-selectmenu-menu .ui-selectmenu-group { }
+
+.ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label {
+    display: block;
+    font-weight: bold;
+    padding: .6em .5em 0;
+}
+
+.ui-selectmenu-menu .ui-selectmenu-group ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE6 workaround (dotted transparent borders) */
+
+* html .ui-selectmenu-menu li {
+    border-color: pink;
+    filter: chroma(color=pink);
+}
+
+* html .ui-selectmenu-menu li a { position: relative }
+
+/* IE7 workaround (opacity disabled) */
+
+* + html .ui-state-disabled, * + html .ui-state-disabled a { color: silver; }
+
+li.ui-state-hover {
+    background-color: #D0D3D7 !important;
+    text-decoration: none !important;
+}
+
+/*-------------------------------------------jquery.ui.selectmenu.css-------------------------------------*/
+
+
+/*sel_st*/
+
+.sel_st {
+    background: #fff;
+    border: 1px solid #CDD0D3;
+    color: #252525;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    height: 21px;
+    height: 22px;
+    line-height: 21px;
+    line-height: 22px;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 150px;
+}
+
+a.sel_st,
+a.sel_st:hover {
+    background: #fff;
+    color: #252525;
+}
+
+a.sel_st .ui-selectmenu-status {
+    display: block;
+    margin-left: 5px;
+    margin-right: 20px;	
+}
+
+/*
+.sprite-bg3_yellow_lf{ background-position: 0 -108px; width: 5px; height: 17px; } 
+.sprite-bg3_yellow_rt{ background-position: 0 -126px; width: 300px; height: 17px; } 
+
+*/
+
+a.sel_st .ui-selectmenu-icon {
+    background: url("../images/arrow_sel.png") no-repeat 0 0;
+    height: 4px;
+    position: absolute;
+    right: 3px;
+    top: 10px;
+    width: 8px;	
+}
+
+ul.sel_st {
+    border: 1px solid #CDD0D3;
+    z-index: 2000;
+}
+
+ul.sel_st li {
+    font-size: 12px;
+    line-height: 18px !important;
+}
+
+ul.sel_st li a,
+ul.sel_st li a:hover {
+    color: #252525;
+    padding-left: 5px;
+}

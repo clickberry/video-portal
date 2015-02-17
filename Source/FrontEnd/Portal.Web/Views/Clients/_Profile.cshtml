@@ -1,0 +1,40 @@
+﻿@using Asp.Infrastructure.Extensions
+<script type="text/ng-template" id="client.profile.html">
+    
+    <!-- fix-content -->
+    <div class="fix-content">
+        <h1><span class="img-title"><img src="@CdnResources.RenderUrl("~/cdn/pic/content/small/pic-3.png")" alt="" /></span>Edit Client Profile</h1>
+        <!-- edit-profile -->
+        <div class="edit-profile">
+            <form action="" ng-submit="submit(model)" name="clientEditProfile">
+                <div class="holder-input"><input type="email" placeholder="E-mail" ng-model="model.email" ng-minlength="4" cb-model-email required></div>
+                <!-- drop-select -->
+                <cb-select placeholder="Country*" ng-model="model.country" ng-options="countries" ng-required="true">
+                </cb-select>
+                <!-- drop-select end -->
+                <div class="holder-input"><input type="text" placeholder="Company name" ng-model="model.companyName"  ng-maxlength="100"></div>
+                <div class="holder-input" ng-if="showEin"> <input type="text" placeholder="EIN" ng-model="model.ein" cb-model-ein></div>
+                <div class="holder-input"><input type="text" placeholder="Contact Person" ng-model="model.contactPerson" ng-maxlength="100"></div>
+                <div class="holder-input"><input type="text" placeholder="Company address" ng-model="model.address" ng-maxlength="320" ></div>
+                <div class="holder-input"><input type="text" placeholder="ZIP code*" ng-model="model.zipCode" cb-model-zipcode required></div>
+                <div class="holder-input"><input type="text" placeholder="Phone number" ng-model="model.phoneNumber" cb-model-phone ></div>
+                <div class="btn-list" ng-class="{'disabled': clientEditProfile.$invalid}">
+                    <div class="btn btn-silver">
+                        <input type="reset" value="" ng-click="cancel()" />
+                        Cancel
+                    </div>
+                    <div class="btn btn-green btn-submit">
+                        <input type="submit" value="" ng-disabled="clientEditProfile.$invalid" />
+                        Change
+                    </div>
+                </div>
+            </form>
+            <div class="indicates-field">* - Indicates required field</div>
+        </div>
+        <cb-loader loader-if="isLoading"></cb-loader>
+    </div>
+    <!-- fix-content end -->
+
+</script>
+
+@Html.Partial("_Select")

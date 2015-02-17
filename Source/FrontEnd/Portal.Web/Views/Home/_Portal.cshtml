@@ -1,0 +1,120 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Asp.Infrastructure.Extensions
+@using Configuration
+@using Portal.Resources.Web
+@using Portal.Web.Constants
+@using Portal.Web.Models
+@{
+    var frontPageBanners = ViewBag.FrontPageBanners as List<BannerSetting>;
+    var frontPageBanner = frontPageBanners != null ? frontPageBanners.FirstOrDefault() : null;
+}
+
+<script type="text/ng-template" id="portal.html">
+    
+    <div cb-connect-socials-notification></div>
+
+    <div ui-view></div>
+
+</script>
+
+<script type="text/ng-template" id="portal.home.html">
+
+    <!-- front page banner -->
+    <div class="main-slider">
+        <div class="frame">
+        @if (frontPageBanner != null)
+        {
+            <a href="@frontPageBanner.LinkUrl" ng-click="trackBannerClick()" target="_blank"><img src="@frontPageBanner.ImageUrl" alt="" width="2000" height="400" /></a>
+        }
+        else
+        {
+            <a href="@Url.RouteUrl(RouteNames.DownloadAddon)" ng-click="trackBannerClick()" target="_blank"><img src="@CdnResources.RenderUrl("~/cdn/pic/slides/chrome.jpg")" alt="" width="2000" height="400" /></a>
+        }
+        </div>
+    </div>
+
+    <!-- fix-content -->
+    <div class="fix-content">
+
+        <div class="menu-tabs">
+
+            <div class="tab" ng-class="{active: currentTab == 0}">
+                <a href="" ng-click="selectTab(0)">@InterfaceMessages.MenuTrends</a>
+                <div class="tab-corner"></div>
+            </div>
+            <div class="tab" ng-class="{active: currentTab == 1}">
+                <a href="" ng-click="selectTab(1)">@InterfaceMessages.MenuLatest</a>
+                <div class="tab-corner"></div>
+            </div>
+            <div class="tab" ng-class="{active: currentTab == 2}">
+                <a href="" ng-click="selectTab(2)">How it works</a>
+                <div class="tab-corner"></div>
+            </div>
+
+        </div>
+
+        <div ng-if="currentTab == 0">
+            <div class="list-tags-holder">
+                <div class="list-tags" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="trends">
+                    <div class="tags-item" ng-repeat="trend in trends" cb-watch-card ng-model="trend">
+                    </div>
+
+                </div>
+            </div>
+
+            <cb-loader loader-if="isTrendsLoading"></cb-loader>
+
+            <div class="btn-more-wrapper">
+
+                <div class="btn btn-green btn-submit" ng-show="!isTrendsLoading && !isTrendsAllLoaded">
+                    <input type="submit" value="" ng-click="moreTrends()">
+                    More from @InterfaceMessages.MenuTrends
+                </div>
+
+            </div>
+
+        </div>
+        <div ng-if="currentTab == 1">
+            <div class="list-tags-holder">
+                <div class="list-tags" cb-masonry masonry-item-selector="tags-item" masonry-gutter="10" masonry-items="latest">
+                    <div class="tags-item" ng-repeat="watch in latest" cb-watch-card ng-model="watch">
+                    </div>
+
+                </div>
+            </div>
+
+            <cb-loader loader-if="isLatestLoading"></cb-loader>
+
+            <div class="btn-more-wrapper">
+
+                <div class="btn btn-green btn-submit" ng-show="!isLatestLoading && !isLatestAllLoaded">
+                    <input type="submit" value="" ng-click="moreLatest()">
+                    More from @InterfaceMessages.MenuLatest
+                </div>
+
+            </div>
+
+        </div>
+        <div ng-if="currentTab == 2">
+            @Html.Partial("_HowTo")
+        </div>
+
+    </div>
+    <!-- fix-content end -->
+    
+    <div ui-view="video"></div>
+
+</script>
+
+
+@Html.Partial("_Menu", new MenuModel { GenerateUserSpaLinks = true})
+@Html.Partial("Video/_Video")
+@Html.Partial("Video/_WatchCard")
+@Html.Partial("Video/_ExampleCard")
+@Html.Partial("User/_User")
+@Html.Partial("Account/_Account")
+@Html.Partial("_Trends")
+@Html.Partial("_Latest")
+@Html.Partial("_Tag")
+@Html.Partial("_ConnectSocialsNotification")

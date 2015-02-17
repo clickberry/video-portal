@@ -1,0 +1,26 @@
+﻿@using System
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        @if (!string.IsNullOrEmpty(ViewBag.Type))
+        {
+            <meta property="og:type" content="@ViewBag.Type" />
+        }
+        @if (!string.IsNullOrEmpty(ViewBag.Title))
+        {
+            <meta property="og:title" content="@ViewBag.Title" />
+        }
+        @if (!string.IsNullOrEmpty(ViewBag.Description))
+        {
+            <meta property="og:description" content="@ViewBag.Description" />
+        }
+        @if (!string.IsNullOrEmpty(ViewBag.Image) && Uri.IsWellFormedUriString(ViewBag.Image, UriKind.Absolute))
+        {
+            <meta property="og:image" content="@ViewBag.Image" />
+        }
+    </head>
+</html>

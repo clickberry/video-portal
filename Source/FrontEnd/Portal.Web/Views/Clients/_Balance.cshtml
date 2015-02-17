@@ -1,0 +1,46 @@
+﻿<script type="text/ng-template" id="client.balance.html">
+    
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- static -->
+        <div class="payment-story">
+            
+            <cb-client-balance-widget></cb-client-balance-widget>
+
+            <h1>Balance details</h1>
+            <div class="payment-story-inner">
+                
+                <div class="payment-complete" ng-if="paymentSucceed === true">
+                    <div class="icon-complete"></div>Transaction successful. Balance will be updated in few minutes.
+                </div>
+                
+                <div class="payment-error" ng-if="paymentSucceed === false">
+                    <div class="icon-error"></div>Transaction could not be completed. Try again later.
+                </div>	
+
+                <table class="table-silver table-payment" infinite-scroll="nextPage()">
+                    <thead>
+                        <tr>
+                            <th class="col-date"><a href="" ng-click="setOrder('Date')">Date & time</a> <i ng-class="{'arrow-down': filter.orderBy == 'Date' && !filter.orderByAsc, 'arrow-up': filter.orderBy == 'Date' && filter.orderByAsc}"></i></th>
+                            <th class="col-amount">Amount</th>
+                            <th class="col-status">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="record in balanceHistory" ng-class-even="'even'">
+                            <td class="col-date">{{record.date | apiDate:'DD-MM-YYYY HH:mm:ss'}}</td>
+                            <td class="col-amount">$<span ng-bind="record.amount / 100 | number : 4"></span></td>
+                            <td class="col-status">{{record.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <cb-loader loader-if="isLoading"></cb-loader>
+
+            </div>
+        </div>
+    </div>
+    <!-- fix-content end -->
+
+
+</script>

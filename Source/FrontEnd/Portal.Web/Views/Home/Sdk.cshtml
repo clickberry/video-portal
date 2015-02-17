@@ -1,0 +1,135 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+@using Portal.Web.Constants
+@using Portal.Web.Models
+@model FeedbackModel
+
+@{
+    ViewBag.Title = InterfaceMessages.Sdk;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="fix-content">
+
+    <div class="registration-field count-wrap">
+
+        <h1><i class="fa fa-wrench"></i> Clickberry plugin for JW Player
+        </h1>
+
+        <div class="btn btn-submit edit-profile-submit">
+            <a href="@Url.RouteUrl(RouteNames.ClientSignup)">SIGN UP</a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="content-block content-block-green">
+    <h2>Make your videos interactive automatically <small>Allow your viewers to annotate, draw and share your videos</small></h2>
+
+    <div class="video-block">
+        <div id="player"></div>
+    </div>
+
+    <script type="text/javascript" src="//clickcdn.blob.core.windows.net/extensions/jwplayer/dev/demo/clickberry.com/extension.min.js"></script>
+    <script type="text/javascript">
+        if (window.location.href.indexOf("src=") !== -1) {
+            var src = decodeURIComponent(window.location.href.split("src=")[1]);
+            if (src.indexOf("cbid") !== -1) {
+                var cbid = decodeURIComponent(src.split("cbid=")[1]);
+                window.location = window.location.href.split(window.location.search)[0] + "?cbid=" + cbid;
+            }
+        }
+
+        var settings = {
+            subscriptionId: "2e74c373-e8b2-44b3-b57a-07c794968597",
+            videoUrl: "//az411958.vo.msecnd.net/extensions/jwplayer/dev/demo/clickberry.com/Screencast_JW.mp4",
+            screenshotUrl: "//az411958.vo.msecnd.net/extensions/jwplayer/dev/demo/clickberry.com/screen.png"
+        }
+        initExtension(settings);
+
+    </script>
+</div>
+
+<div class="content-block content-block-white">
+    <h2>Make your viewers share your videos 10x more <small>With Clickberry’s plugin your JW Player becomes a super sharing machine</small></h2>
+    <div class="fix-content">
+        <div class="content-row">
+            <div class="col2">
+                <img src="@CdnResources.RenderUrl("~/cdn/pic/sdk/magic3.jpg")" alt="Make your viewers share your videos 10x more" />
+            </div>
+            <div class="col2">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <h3>Small button that does the magic!</h3>
+                <p>This a tiny button that is added to your player. But it makes the magic happen. This is the only solution that enables your viewers to draw, comment and share parts of your video bringing more new visitors to your website. All automatic.</p>
+                <p>&nbsp;</p>
+                <p>Clickberry is a unique plugin (overlay) for any video to enable viewers draw, comment, place emoji inside and share snapshots to social networks.</p>
+                <p>&nbsp;</p>
+                <p>Don’t worry about your original video as it stays untouched. All the creatives you visitors add and share are visible only if followed the link shared.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-block content-block-grey">
+    <h2>Turn your viewers into sharing machines! <small>Your viewers are your best ambassadors. Just give them a chance!</small></h2>
+    <div class="fix-content">
+        <div class="content-row content-row-centered">
+            <div class="col3">
+                <img src="@CdnResources.RenderUrl("~/cdn/pic/sdk/users1.png")" alt="Your viewers"/>
+                <h3>Your viewers</h3>
+                <p>Your viewers are your best marketing ambassadors. Just give them a tool to share your videos more actively.</p>
+            </div>
+            <div class="col3">
+                <img src="@CdnResources.RenderUrl("~/cdn/pic/sdk/draw-chat2.png")" alt="Comment, draw and share" />
+                <h3>Comment, draw and share</h3>
+                <p>Easy to use tools, like: Commenting, drawing, adding EMOJIs make your viewers exited and happy to share to social networks.</p>
+            </div>
+            <div class="col3">
+                <img src="@CdnResources.RenderUrl("~/cdn/pic/sdk/like.png")" alt="Bring new visitors" />
+                <h3>Bring new visitors</h3>
+                <p>When friends click on the snaps shared they get back to your video. It is a best possible viral marketing you can get with zero to invest.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-block content-block-white">
+    <h2>Here’s some more things your viewers will love.</h2>
+    <p>&nbsp;</p>
+    <div class="fix-content">
+        <div class="content-row content-row-centered">
+            <div class="col3">
+                <h3><i class="fa fa-paint-brush"></i> Draw</h3>
+                <p>Draw inside a video. Highlight important moments or objects.</p>
+            </div>
+            <div class="col3">
+                <h3><i class="fa fa-comments"></i> Comment</h3>
+                <p>Add text comments inside any video. Make friends see what you were talking about.</p>
+            </div>
+            <div class="col3">
+                <h3><i class="fa fa-meh-o"></i> Emoji</h3>
+                <p>Express your emotions with EMOJIs. All sorts for for every mood.</p>
+            </div>
+        </div>
+        <div class="content-row content-row-centered">
+            <div class="col3">
+                <h3><i class="fa fa-eye"></i> Snaps</h3>
+                <p>Do not share the video. Share what’s more important inside. Friends will see the video when they follow the link.</p>
+            </div>
+            <div class="col3">
+                <h3><i class="fa fa-mobile"></i> Mobile oriented</h3>
+                <p>Works best on desktop and mobile. There are no other such powerful tools for mobile video yet!</p>
+            </div>
+            <div class="col3">
+                <h3><i class="fa fa-lock"></i> Accounts</h3>
+                <p>Everything viewers create is stored in their accounts and never lost.</p>
+            </div>
+        </div>
+        <div class="btn btn-submit edit-profile-submit">
+            <a href="@Url.RouteUrl(RouteNames.ClientSignup)">SIGN UP</a>
+        </div>
+    </div>
+</div>

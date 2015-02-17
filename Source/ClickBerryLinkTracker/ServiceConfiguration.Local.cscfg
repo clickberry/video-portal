@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="ClickBerryLinkTracker" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="LinkTracker.Api">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="ProjectBaseUri" value="http://localhost:81/video" />
+      <Setting name="MongoConnectionString" value="mongodb://localhost/clickberry" />
+      <Setting name="StripeApiKey" value="{StripeKey}" />
+      <Setting name="JiraIssueCollectorUri" value="" />
+      <Setting name="PortalUri" value="http://localhost" />
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="EmailSubjectErrors" value="Clickberry LinkTracker.Api Exception" />
+      <Setting name="EmailAddressErrors" value="errors@email.com" />
+      <Setting name="EmailAddressAlerts" value="noreply@email.com" />
+      <Setting name="MailSettings" value="{&quot;enableSsl&quot;: true, &quot;host&quot;: &quot;smtp.email.com&quot;, &quot;password&quot;: &quot;password&quot;, &quot;port&quot;: 123, &quot;timeout&quot;: 20000, &quot;userName&quot;: &quot;user&quot; }" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </Role>
+  <Role name="LinkTracker.BillingSync">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="MongoConnectionString" value="mongodb://localhost/clickberry" />
+      <Setting name="SyncInterval" value="60000" />
+      <Setting name="BillingInvoiceItemDescriptionTemplate" value="{0} clicks for subscription {1} (id: {2}, {3} plan, ${4}/click for {5} package, period: {6:h:mm:ss tt}-{7:h:mm:ss tt})" />
+      <Setting name="StripeApiKey" value="{StripeKey}" />
+      <Setting name="PortalUri" value="http://localhost" />
+      <Setting name="JiraIssueCollectorUri" value="" />
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="SubscriptionPlans" value="{ 0: { syncPeriodMs: 0, cyclePeriodMs: 0, clickRates: { 0: 0 } }, 1: { syncPeriodMs: 60000, cyclePeriodMs: 2592000000, clickRates: { 0: 0, 10000: 0.1 } }, 2: { syncPeriodMs: 2592000000, cyclePeriodMs: 2592000000, clickRates: { 0: 0, 100000: 0.05, 1000000: 0.01 } }, 3: { syncPeriodMs: 2592000000, cyclePeriodMs: 2592000000, clickRates: { 0: 0, 100000: 0.05, 1000000: 0.01 } } }" />
+      <Setting name="EmailSubjectErrors" value="Clickberry LinkTracker.BillingSync Exception" />
+      <Setting name="EmailAddressErrors" value="errors@email.com" />
+      <Setting name="EmailAddressAlerts" value="noreply@email.com" />
+      <Setting name="MailSettings" value="{&quot;enableSsl&quot;: true, &quot;host&quot;: &quot;smtp.email.com&quot;, &quot;password&quot;: &quot;password&quot;, &quot;port&quot;: 123, &quot;timeout&quot;: 20000, &quot;userName&quot;: &quot;user&quot; }" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

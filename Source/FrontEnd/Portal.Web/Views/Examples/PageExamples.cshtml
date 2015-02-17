@@ -1,0 +1,53 @@
+﻿@using Portal.Resources.Web
+<div id="examplesPage" style="display: none;">
+    <div class="cont_t">
+        <div class="b_choice">
+            <div class="choice_rt">
+                <ul data-bind="foreach: availableFilters, css: { inactive: loading}">
+                    <li data-bind="text: name, click: $parent.selectedFilterChanged"></li>
+                </ul>
+                <span class="active_el"><span data-bind="text: selectedFilter().name"></span></span>
+            </div>
+        </div>
+        <div class="b_search">
+            <form data-bind="submit: reloadVideos" method="POST">
+                <div class="wrap_imp">
+                    <div class="rt_part">
+                        <input type="text" placeholder="@InterfaceMessages.VideosSearch" x-webkit-speech="x-webkit-speech"
+                               data-bind="value: searchText, valueUpdate: 'afterkeydown', enable: !loading(), event: {webkitspeechchange: searchTextChanged}" />
+                        <input type="submit" value="" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p class="title">@ViewBag.Title</p>
+    </div>
+    <div class="b_gallery">
+        <div data-bind="style: {visibility: loading() ? 'hidden' : 'visible' }" style="visibility: hidden;">
+            <span data-bind="visible: videos().length == 0">@InterfaceMessages.VideosSearchNoResults</span>
+            <ul data-bind="foreach: videos">
+                <li>
+                    <div class="gall_i">
+                        <p>
+                            <span class="notification" data-bind="css: { notified: notified }, attr: { title: notified() ? '@InterfaceMessages.ExamplesPushSent' : '@InterfaceMessages.ExamplesPushNotSent' }"></span>
+                            <a href="#" data-bind="    text: name, attr: { href: publicUrl }"></a>
+                        </p>
+                        <a href="#" class="b_img" data-bind="attr: { href: publicUrl }">
+                            <img src="" alt="" data-bind="attr: { src: poster, alt: name }" />
+                            <span class="shadow"></span>
+                        </a>
+                        <div class="gall_b">
+                            <span data-bind="dateString: created"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div style="text-align: center;">
+                <a href="#" class="bt_green_big" data-bind="visible: showMoreVideos, click: loadVideos">
+                    <span class="bt_rt">@InterfaceMessages.VideosShowMore</span>
+                </a>
+            </div>
+        </div>
+        <div class="spinner" data-bind="visible: loading"></div>​
+    </div>
+</div>

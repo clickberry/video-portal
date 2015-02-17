@@ -1,0 +1,51 @@
+﻿@using Portal.Resources.Web
+@using Portal.Web.Models
+@model FeedbackModel
+
+@{
+    ViewBag.Title = InterfaceMessages.Feedback;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="fix-content">
+
+    <div class="edit-profile">
+
+        <div class="registration-field count-wrap">
+
+            <h1><i class="fa fa-envelope"></i> @ViewBag.Title</h1>
+
+            @using (Html.BeginForm("PostFeedback", "Home", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+
+                <div class="holder-input">
+                    @Html.TextBoxFor(x => x.Name, new { placeholder = InterfaceMessages.FeedbackName })
+                </div>
+                @Html.ValidationMessageFor(x => x.Name)
+
+                <div class="holder-input">
+                    @Html.TextBoxFor(x => x.Email, new { placeholder = InterfaceMessages.FeedbackEmail })
+                </div>
+                @Html.ValidationMessageFor(x => x.Email)
+
+                <div class="holder-input">
+                    @Html.TextBoxFor(x => x.Phone, new { placeholder = InterfaceMessages.FeedbackPhone })
+                </div>
+                @Html.ValidationMessageFor(x => x.Phone)
+
+                <div class="holder-input">
+                    @Html.TextAreaFor(x => x.Message, new { placeholder = InterfaceMessages.FeedbackMessage })
+                </div>
+                @Html.ValidationMessageFor(x => x.Message)
+
+                <div class="btn btn-submit edit-profile-submit">
+                    <input type="submit" value="" />
+                    @InterfaceMessages.FeedbackSubmit
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA03C85E-6BF2-4EC1-BD13-DBFC5A3B3018}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Asp.Infrastructure</RootNamespace>
+    <AssemblyName>Asp.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AsyncEventAggregator">
+      <HintPath>..\..\packages\EventAggregator.1.0.0\lib\net40\AsyncEventAggregator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client">
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\packages\SimpleInjector.2.7.1\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Diagnostics">
+      <HintPath>..\..\packages\SimpleInjector.2.7.1\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial">
+      <HintPath>..\..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.OData.5.1.2\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\AuthorizeHttpAttribute.cs" />
+    <Compile Include="Attributes\AuthorizeMvcAttribute.cs" />
+    <Compile Include="Attributes\CheckAccessHttpAttribute.cs" />
+    <Compile Include="Attributes\CustomQueryableAttribute.cs" />
+    <Compile Include="Attributes\Mvc\GoogleAnalyticsAttribute.cs" />
+    <Compile Include="Attributes\Mvc\StatUserLoginMvcAttribute.cs" />
+    <Compile Include="Attributes\Mvc\StatUserRegistrationMvcAttribute.cs" />
+    <Compile Include="Attributes\Mvc\StatWatchingMvcAttribute.cs" />
+    <Compile Include="Attributes\ODataValidationAttribute.cs" />
+    <Compile Include="Attributes\WebApi\ExceptionHandlingWebApiAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatAttributeBase.cs" />
+    <Compile Include="Attributes\WebApi\StatProjectCreatingAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatProjectDeletionWebApiAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatProjectExternalAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatProjectUploadingWebApiAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatProjectStateAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatUserLoginWebApiAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatUserRegistrationWebApiAttribute.cs" />
+    <Compile Include="Attributes\WebApi\StatWatchingWebApiAttribute.cs" />
+    <Compile Include="Extensions\CdnResources.cs" />
+    <Compile Include="Extensions\ResponseExtensions.cs" />
+    <Compile Include="Extensions\TimeoutTaskExtensions.cs" />
+    <Compile Include="Attributes\MultipartHttpAttribute.cs" />
+    <Compile Include="Attributes\ValidationHttpAttribute.cs" />
+    <Compile Include="Commands\ControllerCommandApi.cs" />
+    <Compile Include="Commands\ControllerCommandMvc.cs" />
+    <Compile Include="Filters\ImportPropertySelectionBehavior.cs" />
+    <Compile Include="Filters\ODataValidationExceptionFilterAttribute.cs" />
+    <Compile Include="MessageHandlers\CancelledTaskBugWorkaroundMessageHandler.cs" />
+    <Compile Include="MessageHandlers\MethodOverrideHandler.cs" />
+    <Compile Include="MessageHandlers\UserAgentOverrideHandler.cs" />
+    <Compile Include="Modules\Authentication\AuthenticationModule.cs" />
+    <Compile Include="Modules\HeadersModification\HeadersModificationModule.cs" />
+    <Compile Include="Modules\LanguageModification\LanguageModificationModule.cs" />
+    <Compile Include="Modules\UriModification\HttpsUriModifier.cs" />
+    <Compile Include="Modules\UriModification\IUriModifier.cs" />
+    <Compile Include="Modules\UriModification\PrefixUriModifier.cs" />
+    <Compile Include="Modules\UriModification\UriModificationModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\AvsxFileAttribute.cs" />
+    <Compile Include="Validation\CountryAttribute.cs" />
+    <Compile Include="Validation\BoolValueAttribute.cs" />
+    <Compile Include="Validation\EinAttribute.cs" />
+    <Compile Include="Validation\EmailListAttribute.cs" />
+    <Compile Include="Validation\HostnameAttribute.cs" />
+    <Compile Include="Validation\VideoTypeAttribute.cs" />
+    <Compile Include="Validation\EmailAttribute.cs" />
+    <Compile Include="Validation\ImageFileAttribute.cs" />
+    <Compile Include="Validation\NonWhiteSpaceStringAttribute.cs" />
+    <Compile Include="Validation\VideoFileAttribute.cs" />
+    <Compile Include="Validation\ZipCodeAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\Portal.BLL.Concrete\Portal.BLL.Concrete.csproj">
+      <Project>{2D195BC7-A964-440E-AA73-97343AEF49F8}</Project>
+      <Name>Portal.BLL.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BLL\Portal.BLL\Portal.BLL.csproj">
+      <Project>{7DBEA20E-3095-4D37-B651-0C172D2A3598}</Project>
+      <Name>Portal.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\MongoRepository\MongoRepository.csproj">
+      <Project>{543D3FDE-4931-40B0-B5D3-A912D145E6E3}</Project>
+      <Name>MongoRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL.Infrastructure\Portal.DAL.Infrastructure.csproj">
+      <Project>{BF19381C-95A1-4B7B-8ECB-A0DABCB9B906}</Project>
+      <Name>Portal.DAL.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrontEnd\Portal.Resources\Portal.Resources.csproj">
+      <Project>{BC19BEEE-9F24-4DE3-AC41-524AC046B2CF}</Project>
+      <Name>Portal.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration\Configuration.csproj">
+      <Project>{5A5BCFA5-7514-425C-B0D8-D9FDC8D4A3FB}</Project>
+      <Name>Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL.Azure\Portal.DAL.Azure.csproj">
+      <Project>{16c53383-42a7-4855-9e3a-5a473ea8716d}</Project>
+      <Name>Portal.DAL.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL\Portal.DAL.csproj">
+      <Project>{9d7c61a2-bfdc-4638-8da8-ff69526aa0cd}</Project>
+      <Name>Portal.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.DAL.Entities\Portal.DAL.Entities.csproj">
+      <Project>{e65a1c84-d68d-4712-bbd2-9891ee95e481}</Project>
+      <Name>Portal.DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.DTO\Portal.DTO.csproj">
+      <Project>{a55ee877-c49a-49c1-8943-2fbd6061207e}</Project>
+      <Name>Portal.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration.Azure\Configuration.Azure.csproj">
+      <Project>{4A796F62-28BC-4F45-A570-5C2CDC4A53A1}</Project>
+      <Name>Configuration.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EventAggregator\EventAggregator.csproj">
+      <Project>{3fba3f83-7c4e-4324-aa98-d77293744ab4}</Project>
+      <Name>EventAggregator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\File.Information\FileInformation.csproj">
+      <Project>{f8b7340e-4a33-4db9-b29c-0e6259f2d8b6}</Project>
+      <Name>FileInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Exceptions\Portal.Exceptions.csproj">
+      <Project>{FA9ECF9A-ADA5-452A-B3D2-88D2DAEC61FD}</Project>
+      <Name>Portal.Exceptions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

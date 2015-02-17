@@ -1,0 +1,93 @@
+﻿
+<!-- fix-content -->
+<div class="fix-content static">
+    <h1>Clickberry Extension JW Player Plugin</h1>
+
+    <ul style="list-style:decimal;">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li>
+            <a href="#video">Requirements to video files</a>
+            <ul>
+                <li><a href="#flash">Flash cross-domain security requirements</a></li>
+                <li><a href="#jw">Installation of Clickberry Extension JW Player Plugin</a></li>
+            </ul>
+        </li>
+        <li><a href="#config">Configuration parameters</a></li>
+    </ul>
+
+    <h2><a name="overview"></a>1. Overview</h2>
+    <p>Clickberry Extension JW Player Plugin extends standard JW Player with functionality of tagging objects and moments inside video, sharing of video tags to social networks and playing of video tags. These features are implemented by means of Clickberry Extension SDK.</p>
+    <p>Clickberry Extension JW Player Plugin can be integrated with any third party website on the condition that this website meets technical requirements described in the current documentation.</p>
+    <p>Integration with third party websites implies that tagging (or creation of video tags) and tags playback takes place on the same website. </p>
+    <h2><a name="glossary"></a>2. Glossary</h2>
+    <p><b>Player landing page</b> - page of third party website where playback of video tags takes place.</p>
+
+    <h2><a name="video"></a>3. Requirements to video files</h2>
+    <p>Clickberry JW Player Extension plays videos with flash verison of JW Player with disabled Stage Video acceleration feature. Currently input video files formats are restricted to the following:</p>
+    <ul>
+        <li>MP4 videos using the H.264 video codec and the AAC audio codec.</li>
+        <li>FLV videos using the H.263 video codec and the MP3 audio codec.</li>
+    </ul>
+    <h3><a name="flash"></a>3.1 Flash cross-domain security requirements</h3>
+    <p>Input video file may have an arbitrary URL on the condition that server that stores this video file allows access to this files from Flash applications located on an arbitrary domain.</p>
+    <p>To achieve this one need to add to the root directory of the webserver (that stores video files) crossdomain.xml file with either of the following contents:</p>
+    <textarea rows="4">
+        <cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
+            <site-control permitted-cross-domain-policies="all" />
+            <allow-access-from domain="*" />
+        </cross-domain-policy>
+    </textarea>
+    <p>Without granting permission to access video files to applications from any domain tag's screenshot generation will fail.</p>
+    <h3><a name="jw"></a>3.2 Installation of Clickberry Extension JW Player Plugin</h3>
+    <p>To install Clickberry Extension JW Player Plugin one need to add the following parameters to the JW Player 6 config:</p>
+    <textarea rows="23">
+        jwplayer("player").setup({
+        flashplayer: "%LINK TO JW PLAYER SWF FILE%",
+        width: 640,
+        height: 395,
+        primary: "flash",
+        playlist: [{
+        provider: "https://az411958.vo.msecnd.net/extensions/jwplayer/%JW EXTENSION VERSION%/mediaprovider.swf",
+        sources: [{
+        file: "%VIDEO LINK%",
+        type: "flv"
+        }]
+        }],
+        plugins: {
+        "https://az411958.vo.msecnd.net/extensions/jwplayer/%JW EXTENSION VERSION%/JWPlayerPlugin6.swf": {
+        googleAnalyticsId: "%GOOGLE ANALYTICS ID%",
+        subscriptionId: "%SUBSCRIPTION ID%",
+        linkTracker: "%LINK TRACKER SUBDOMAIN%"
+        },
+        //...other plugins
+        }
+        });
+    </textarea>
+    <p>For JW Player 5:</p>
+    <textarea rows="18">
+        jwplayer('player').setup({
+        'width': 640,
+        'height': 395,
+        'modes': [{
+        'type': "flash",
+        'src': "%LINK TO JW PLAYER SWF FILE%"
+        }],
+        "file": "%VIDEO LINK%",
+        'plugins': {
+        "https://az411958.vo.msecnd.net/extensions/jwplayer/%JW EXTENSION VERSION%/JWPlayerPlugin5.swf": {
+        googleAnalyticsId: "%GOOGLE ANALYTICS ID%",
+        subscriptionId: "%SUBSCRIPTION ID%",
+        linkTracker: "%LINK TRACKER SUBDOMAIN%"
+        }
+        }
+        });
+    </textarea>
+    <h2><a name="config"></a>4. Configuration parameters</h2>
+    <p>Full list of supported plugin config parameters:</p>
+    <ul>
+        <li><b>googleAnalyticsId</b> - identifier of Google Analytics counter.</li>
+        <li><b>subscriptionId</b> - subscription identifier.</li>
+    </ul>
+</div>
+<!-- fix-content end -->

@@ -1,0 +1,49 @@
+﻿@using Portal.Resources.Web
+<div id="examplePage" style="display: none;"> 
+    <p data-bind="visible: state() == 'error', text: errorText" style="display: none;"></p>
+    <div data-bind="visible: state() == 'uploading'"> 
+        @Html.Partial("_NotUploadedYet")
+    </div>
+    <div data-bind="visible: state() == 'ready'" style="display: none;">
+        <form>
+            <div class="wrap_inf">
+                <div class="b_inf">
+                    <p class="title">
+                        <span class="notification" data-bind="css: { notified: notified }, attr: { title: notified() ? '@InterfaceMessages.ExamplesPushSent' : '@InterfaceMessages.ExamplesPushNotSent' }"></span>
+                        <span data-bind="text: project.name"></span>
+                    </p>
+                    <p data-bind="text: project.description" />
+                </div>
+            </div>
+            <div class="b_status" data-bind="visible: watch.isEditable">
+                <ul>
+                    <li>@InterfaceMessages.VideoDateUpload –<span data-bind="dateString: watch.created"></span></li>
+                    <li></li>
+                    @*<li class="i_eye"><span><em class="ico"></em>25</span></li>
+                        <li class="i_human"><span><em class="ico"></em>20</span></li>
+                        <li class="i_hend"><span><em class="ico"></em>57</span></li>
+                        <li class="i_heard"><span><em class="ico"></em>81</span></li>*@
+                    <li class="i_del_v"></li>
+                    <li class="float_right">
+                        <span data-bind="text: project.isPublic ? '@InterfaceMessages.ExamplesVideoPublic' : '@InterfaceMessages.ExamplesVideoPrivate'"></span>
+                    </li>
+                    <li class="push_sender float_right">
+                        <a href="javascript:void()" class="bt_green_def" data-bind="click: sendNotification">
+                            <span class="bt_rt">Send this example in PUSH notification</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        <div class="wrap_video">
+            <div class="b_video">
+                <div class="video"></div>
+            </div>
+        </div>
+    </div>
+    <div data-bind="visible: state() == 'encoding'" style="display: none; text-align: center;">
+        <div class="spinner"></div>
+        <p style="font-size: large; margin-top: 1em;">@InterfaceMessages.VideoEncodingInProgress</p>
+    </div>
+    <div class="spinner" data-bind="visible: state() == 'loading'" style="display: none;"></div>
+</div>

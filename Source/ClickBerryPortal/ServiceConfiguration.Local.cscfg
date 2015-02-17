@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="ClickBerryPortal" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="Portal.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="DataConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="DefaultMaxUserCapacity" value="1073741824" />
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="PortalUri" value="http://localhost:81" />
+      <Setting name="CdnUri" value="" />
+      <Setting name="ExtensionUri" value="//az411958.vo.msecnd.net/extension/2.34.0.1/" />
+      <Setting name="PlayerUrl" value="//az411958.vo.msecnd.net/cbplayer/2.7.1/" />
+      <Setting name="StorageReadOnly" value="false" />
+      <Setting name="JiraIssueCollectorUri" value="" />
+      <Setting name="TwitterConsumerKey" value="{TwitterConsumerKey}" />
+      <Setting name="TwitterConsumerSecret" value="{TwitterConsumerSecret}" />
+      <Setting name="AcsNamespace" value="acs-namespace" />
+      <Setting name="PushServiceNamespace" value="push-namespace" />
+      <Setting name="PushServiceSAS" value="push-sas" />
+      <Setting name="PushServiceHubname" value="push-hubname" />
+      <Setting name="EmailAddressAlerts" value="noreply@email.com" />
+      <Setting name="EmailAddressInfo" value="info@email.com" />
+      <Setting name="EmailNotifications" value="true" />
+      <Setting name="FacebookApplicationId" value="{FacebookAppId}" />
+      <Setting name="FacebookApplicationSecret" value="{FacebookAppSecret}" />
+      <Setting name="VkApplicationId" value="{VkAppId}" />
+      <Setting name="VkApplicationSecret" value="{VkAppSecret}" />
+      <Setting name="JwFlashPlayerUrl" value="//az411958.vo.msecnd.net/extensions/jwplayer/2.20.0.5/" />
+      <Setting name="NotificationHubName" value="notification-hubname" />
+      <Setting name="NotificationHubConnectionString" value="Endpoint=sb://push-namespace.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=key" />
+      <Setting name="OkApplicationId" value="{OkAppId}" />
+      <Setting name="OkApplicationSecret" value="{OkAppSecret}" />
+      <Setting name="OkApplicationPublic" value="{OkAppPublic}" />
+      <Setting name="MongoConnectionString" value="mongodb://localhost/clickberry" />
+      <Setting name="PortalUIPackageUri" value="" />
+      <Setting name="GoogleAnalyticsId" value="{GoogleAnalyticsId}" />
+      <Setting name="StripeApiKey" value="{StripeApiKey}" />
+      <Setting name="StripePublicKey" value="{StripePublicKey}" />
+      <Setting name="LinkTrackerUri" value="http://localhost:8888" />
+      <Setting name="FacebookRegistrationMessage" value="" />
+      <Setting name="EmailAddressSupport" value="support@email.com" />
+      <Setting name="AccountSetPasswordPath" value="/account/recovery/set-password" />
+      <Setting name="EmailAddressErrors" value="errors@email.com" />
+      <Setting name="EmailSubjectErrors" value="Clickberry Portal.FrontEnd Exception" />
+      <Setting name="CassandraKeyspace" value="clickberry" />
+      <Setting name="CassandraNodes" value="localhost" />
+      <Setting name="CassandraUsername" value="{CassandraUser}" />
+      <Setting name="CassandraPassword" value="{CassandraPassword}" />
+      <Setting name="CassandraPrivateAddresses" value="" />
+      <Setting name="FrontPageBanners" value="{&quot;//az411958.vo.msecnd.net/images/slide-chrome-2.jpg&quot;: &quot;/download/addon&quot;}" />
+      <Setting name="VideoViewBanner" value="" />
+      <Setting name="ContentBannerLeft" value="" />
+      <Setting name="ContentBannerRight" value="" />
+      <Setting name="DefaultAvatarUri" value="https://az411958.vo.msecnd.net/images/stranger.png" />
+      <Setting name="EmailAddressAbuse" value="support@email.com" />
+      <Setting name="YoutubePlayerUrl" value="//az411958.vo.msecnd.net/extensions/youtube/1.5.11/" />
+      <Setting name="YoutubeHtml5PlayerUrl" value="//az411958.vo.msecnd.net/extensions/html-extension/0.54/" />
+      <Setting name="DailymotionPlayerUrl" value="//az411958.vo.msecnd.net/extensions/dailymotion/1.5.11/" />
+      <Setting name="SocialNetworks" value="[{&quot;name&quot;:&quot;Facebook&quot;,&quot;loginUrl&quot;:&quot;https://www.facebook.com/&quot;},{&quot;name&quot;:&quot;Google&quot;,&quot;loginUrl&quot;:&quot;https://www.google.com/&quot;},{&quot;name&quot;:&quot;Twitter&quot;,&quot;loginUrl&quot;:&quot;https://twitter.com/&quot;},{&quot;name&quot;:&quot;VK&quot;,&quot;loginUrl&quot;:&quot;https://vk.com&quot;}]" />
+      <Setting name="DownloadLinks" value="{&quot;cicPc&quot;: &quot;https://clickcdn.blob.core.windows.net/download/cic-pc.exe&quot;, &quot;cicMac&quot;: &quot;https://clickcdn.blob.core.windows.net/download/cic-mac.dmg&quot;, &quot;addonChrome&quot;:&quot;https://chrome.google.com/webstore/detail/videosnaps-by-clickberry/bappajfeffnkaofoilgobofmgalfmibc&quot;, &quot;addonFirefox&quot;:&quot;https://addons.mozilla.org/en-US/firefox/addon/clickberry&quot;, &quot;addonOpera&quot;:&quot;https://addons.opera.com/extensions/details/ultimate-power-sharing-for-youtubetm/&quot;}" />
+      <Setting name="MailSettings" value="{&quot;enableSsl&quot;: true, &quot;host&quot;: &quot;smtp.email.com&quot;, &quot;password&quot;: &quot;password&quot;, &quot;port&quot;: 123, &quot;timeout&quot;: 20000, &quot;userName&quot;: &quot;user&quot; }" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </Role>
+  <Role name="Portal.BackEnd.WorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="DataConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="BearerToken" value="BearerTokenValue" />
+      <Setting name="BaseUrl" value="http://localhost:8080" />
+      <Setting name="Period" value="30000" />
+      <Setting name="FfmpegVersion" value="1.0.0" />
+      <Setting name="TaskTypes" value="task/video, task/screenshot" />
+      <Setting name="BackendId" value="00000000-0000-0000-0000-000000000003" />
+      <Setting name="JiraIssueCollectorUri" value="" />
+      <Setting name="PortalUri" value="http://localhost:81" />
+      <Setting name="MongoConnectionString" value="mongodb://localhost/clickberry" />
+      <Setting name="EmailAddressAlerts" value="noreply@email.com" />
+      <Setting name="EmailAddressErrors" value="errors@email.com" />
+      <Setting name="EmailSubjectErrors" value="Clickberry Portal.BackEnd Exception" />
+      <Setting name="MailSettings" value="{&quot;enableSsl&quot;: true, &quot;host&quot;: &quot;smtp.email.com&quot;, &quot;password&quot;: &quot;password&quot;, &quot;port&quot;: 123, &quot;timeout&quot;: 20000, &quot;userName&quot;: &quot;user&quot; }" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </Role>
+  <Role name="MiddleEnd.Api">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="BearerToken" value="BearerTokenValue" />
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="DataConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="PortalUri" value="http://localhost:81" />
+      <Setting name="JiraIssueCollectorUri" value="" />
+      <Setting name="MongoConnectionString" value="mongodb://localhost/clickberry" />
+      <Setting name="MongoAutomigrationEnabled" value="true" />
+      <Setting name="EmailAddressAlerts" value="noreply@email.com" />
+      <Setting name="EmailAddressErrors" value="errors@email.com" />
+      <Setting name="EmailSubjectErrors" value="Clickberry Portal.MiddleEnd Exception" />
+      <Setting name="DefaultAdministrator" value="admin@email.com;password" />
+      <Setting name="MailSettings" value="{&quot;enableSsl&quot;: true, &quot;host&quot;: &quot;smtp.email.com&quot;, &quot;password&quot;: &quot;password&quot;, &quot;port&quot;: 123, &quot;timeout&quot;: 20000, &quot;userName&quot;: &quot;user&quot; }" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

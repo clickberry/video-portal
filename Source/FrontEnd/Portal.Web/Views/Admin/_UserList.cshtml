@@ -1,0 +1,101 @@
+﻿@using Portal.Domain.PortalContext
+
+<script type="text/ng-template" id="admin.users.list.layout.html">
+
+    <div ui-view="header"></div>
+    
+    <div ui-view="filters"></div>
+    <div ui-view="table"></div>
+
+</script>
+
+<script type="text/ng-template" id="admin.users.list.header.html">
+
+    <h2>All users</h2>
+
+</script>
+
+<script type="text/ng-template" id="admin.users.list.filters.html">
+
+    <div class="b_rt">
+        <a class="bt_green_def" ng-class="{'bt_dissabled': isCsvProcessing}" ng-click="downloadCsv()">
+            <span class="bt_rt" ng-if="!isCsvProcessing">Download Csv</span>
+            <span class="bt_rt" ng-if="isCsvProcessing">Preparing Csv...</span>
+        </a>
+    </div>
+
+    <form ng-submit="submitFilter()">
+        <select ng-model="filterType" ng-options="c.name for c in filterTypeOptions"></select>
+
+        <input ng-show="filterType.value == filterTypes.name" type="text" ng-model="filter.userName">
+        <input ng-show="filterType.value == filterTypes.email" type="text" ng-model="filter.email">
+        <select ng-show="filterType.value == filterTypes.product" ng-model="filter.productType" ng-options="k for (k, v) in productTypeOptions"></select>
+        <span ng-show="filterType.value == filterTypes.date">
+            <input ui-date="dateFromOptions" ng-model="dateFromStr" /> - <input ui-date="dateToOptions" ng-model="dateToStr" />
+        </span>
+
+        <button type="submit">Search</button>
+
+    </form>
+
+</script>
+
+<script type="text/ng-template" id="admin.users.list.table.html">
+
+    <div class="spinner" ng-show="isLoading"></div>
+
+    <div class="wrap_table statisticsTable users">
+
+        <table>
+            <thead>
+                <tr>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'UserName' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'UserName' && filter.orderByAsc}"><a href="" ng-click="setOrder('UserName')">Name</a></th>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'Created' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'Created' && filter.orderByAsc}"><a href="" ng-click="setOrder('Created')">Created</a></th>
+                    <th>Memberships</th>
+                    <th>Used Space, MB</th>
+                    <th>Total Space, MB</th>
+                    <th>Videos Count</th>
+                    <th ng-class="{'sorting_desc': filter.orderBy == 'ProductType' && !filter.orderByAsc, 'sorting_asc': filter.orderBy == 'ProductType' && filter.orderByAsc}"><a href="" ng-click="setOrder('ProductType')">Product</a></th>
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <th>Action</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td><a ng-click="gotoUserVideos(user)" ng-attr-title="User from: {{user.appName}}">{{user.userName}}</a></td>
+                    <td><span>{{user.created | apiDate:'DD-MM-YYYY HH:mm:ss'}}</span></td>
+                    <td>
+                        <span ng-if="user.email"><b>E-mail</b>: {{user.email}}</span>
+                        <ul ng-repeat="membership in user.memberships">
+                            <li><b>{{membership.provider}}</b>: {{membership.identity}}</li>
+                        </ul>
+                    </td>
+                    <td><span>{{user.usedStorageSpace/1048576 | number:0}}</span></td>
+                    <td><span>{{user.maximumStorageSpace/1048576 | number:0}}</span></td>
+                    <td><span>{{user.videosCount}}</span></td>
+                    <td><span>{{user.productName}}</span></td>
+                    @if (User.IsInRole(DomainRoles.SuperAdministrator))
+                    {
+                        <td>
+                            <span ng-if="user.email"><a ng-click="changePass(user)">Change Password</a></span>
+                            <a cb-confirm-click="delete(user)" cb-confirmation="Do you really want to delete user?">Delete</a>
+                        </td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+        <div ng-show="users.length > 0">
+            <div class="dataTables_info" id="dataTable_info">Showing {{filter.skip + 1}} to {{filter.skip + users.length}} of {{usersCount}}</div>
+            <div class="dataTables_paginate paging_two_button">
+                <a ng-class="{paginate_disabled_previous: filter.skip == 0}" role="button" id="dataTable_previous" aria-controls="dataTable" ng-click="prevPage()">Previous</a>
+                <a ng-class="{paginate_disabled_next: isAllLoaded}" role="button" id="dataTable_next" aria-controls="dataTable" ng-click="nextPage()">Next</a>
+            </div>
+        </div>
+
+    </div>
+
+
+</script>

@@ -1,0 +1,13 @@
+﻿@model Portal.DTO.Watch.Watch
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div class="tag">
+        <a href="@Url.Action("index", "video", new { id = Model.Id })">
+            <img src="@Model.ScreenshotUrl" alt="@Model.Name"/>
+        </a>
+        <p>@Model.Name</p>
+    </div>
+}

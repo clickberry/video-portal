@@ -1,0 +1,20 @@
+﻿@using Asp.Infrastructure.Extensions
+@using Portal.Resources.Web
+@{
+    ViewBag.Title = InterfaceMessages.UnsupportedBrowser;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="fix-content static">
+    <div style="text-align: center; width: 602px; margin: 0 auto;">
+        <img id="supported-browser" src="@CdnResources.RenderUrl("/cdn/img/addon-supported-browser.png")" width="602" height="286" usemap="#image-maps-2014-12-03-095256" alt="" />
+        <map name="image-maps-2014-12-03-095256" id="supported-browser">
+            <area alt="Chrome" title="Chrome" href="https://www.google.com/chrome/" shape="rect" coords="10,89,183,276" style="outline:none;" target="_blank">
+            <area alt="Firefox" title="Firefox" href="https://www.mozilla.org/firefox/" shape="rect" coords="423,91,585,276" style="outline:none;" target="_blank">
+        </map>
+        <h2>Sorry, your browser isn't supported</h2>
+        <p>Please revisit this page using either <a href="https://www.google.com/chrome/">Chrome</a> or <a href="https://www.mozilla.org/firefox/">Firefox</a>.</p>
+        <img src="@CdnResources.RenderUrl("/cdn/img/addon-tagger.png")" width="386" height="275" alt="" style="float: left" />
+        <p>You can also try out our mobile app that lets you make snaps, share, like and comment inside a video.</p>
+    </div>
+</div>

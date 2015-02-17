@@ -1,0 +1,12 @@
+﻿<browsers>
+  <!-- Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36 OPR/16.0.1196.73 -->
+  <browser id="OperaNew" parentID="WebKit">
+    <identification>
+      <userAgent match="OPR" />
+    </identification>
+    <capabilities>
+      <capability name="browser" value="Opera" />
+      <capability name="type" value="Opera16" />
+    </capabilities>
+  </browser>
+</browsers>

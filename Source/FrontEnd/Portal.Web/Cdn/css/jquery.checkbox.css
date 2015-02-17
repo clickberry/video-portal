@@ -1,0 +1,23 @@
+.jquery-checkbox {
+    cursor: pointer;
+    display: inline;
+    margin-right: 6px;
+}
+
+.jquery-checkbox .mark { display: inline; }
+
+.jquery-checkbox img {
+    background: url('../images/sp16_form_el.png') 0 0 no-repeat;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+
+.jquery-checkbox img,
+.jquery-checkbox-hover img,
+.jquery-checkbox-disabled img,
+.jquery-checkbox-checked .jquery-checkbox-disabled img { background-position: 0 -78px; }
+
+.jquery-checkbox-checked img,
+.jquery-checkbox-checked .jquery-checkbox-hover img { background-position: 0 -104px; }

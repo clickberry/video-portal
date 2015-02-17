@@ -1,0 +1,51 @@
+﻿@using Portal.Resources.Web
+@using Portal.Web.Constants
+<script type="text/ng-template" id="client.menu.html">
+    
+    <nav class="navigation subscrib">
+        <ul class="navigation-list">
+            <li><a href="@Url.RouteUrl(RouteNames.Trends, null)" target="_self">@InterfaceMessages.MenuTrends</a></li>
+            <li><a href="@Url.RouteUrl(RouteNames.Latest, null)" target="_self">@InterfaceMessages.MenuLatest</a></li>
+            <li ng-if="client"><a href="" ui-sref="client.subscriptions.list" ui-sref-active="active">@InterfaceMessages.MenuSubscriptions</a></li>
+            @*<li ng-if="client"><a href="">Support</a></li>
+            <li ng-if="client"><a href="">Documents</a></li>*@
+            <li>
+                <!-- login -->
+                <div class="login-holder" ng-if="isAuthorized(userRoles.client)">
+                    <div class="login ">
+                        <!-- login-top -->
+                        <div class="login-top">
+
+                            <!-- login-name -->
+                            <div class="login-text"><a href="" ui-sref="client.profile"><div class="login-text-name">{{client.companyName}}</div><span class="icon-login"></span></a></div>
+                            <!-- login-name end -->
+                        </div>
+                        <!-- login-top end -->
+                        <div class="login-hover">
+                            <!-- login-middle end -->
+                            <a href="" class="btn btn-login" ng-click="signOut()">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- login end -->
+                
+                <a href="" ng-click="signin()" class="popup-open" ng-if="!isAuthorized(userRoles.client)">
+                    <!-- login -->
+                    <div class="login-holder">
+                        <div class="login">
+                            <!-- login-top -->
+                            <div class="login-top">
+                                <!-- login-name -->
+                                <div class="login-text">Sign in<span class="icon-signin"></span></div>
+                                <!-- login-name end -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- login end -->
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+
+</script>

@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D195BC7-A964-440E-AA73-97343AEF49F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.BLL.Concrete</RootNamespace>
+    <AssemblyName>Portal.BLL.Concrete</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Analytics.NET">
+      <HintPath>..\..\packages\Analytics.1.1.0\lib\Analytics.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Facebook.6.4.2\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Hammock.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client">
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stripe.net, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Stripe.net.2.0.1\lib\net40\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial">
+      <HintPath>..\..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\TweetSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Billing\BillingEventHandler.cs" />
+    <Compile Include="Billing\BillingEventLogService.cs" />
+    <Compile Include="Billing\StripeBillingCardService.cs" />
+    <Compile Include="Billing\StripeBillingEventService.cs" />
+    <Compile Include="Billing\StripeBillingChargeService.cs" />
+    <Compile Include="Billing\StripeBillingCustomerService.cs" />
+    <Compile Include="Infrastructure\CachedEntity.cs" />
+    <Compile Include="Infrastructure\CryptoService.cs" />
+    <Compile Include="Infrastructure\DistributedFileUriProvider.cs" />
+    <Compile Include="Infrastructure\FacebookNotifier.cs" />
+    <Compile Include="Infrastructure\FederatedIdentity\SimpleWebTokenValidator.cs" />
+    <Compile Include="Infrastructure\FileUriProvider.cs" />
+    <Compile Include="Infrastructure\MediaTypeFormatters\CsvExtensions.cs" />
+    <Compile Include="Infrastructure\MediaTypeFormatters\ClientForAdminCsvFormatter.cs" />
+    <Compile Include="Infrastructure\MediaTypeFormatters\ProjectForAdminCsvFormatter.cs" />
+    <Compile Include="Infrastructure\MediaTypeFormatters\UserForAdminCsvFormatter.cs" />
+    <Compile Include="Infrastructure\ProcessedEntity\IProcessedEntityManager.cs" />
+    <Compile Include="Infrastructure\ProcessedEntity\ProcessedEntityManager.cs" />
+    <Compile Include="Infrastructure\ProductIdExtractor.cs" />
+    <Compile Include="Infrastructure\ProductWriterForAdmin.cs" />
+    <Compile Include="Infrastructure\UserUriProvider.cs" />
+    <Compile Include="Infrastructure\Security\CommonClaims.cs" />
+    <Compile Include="Infrastructure\SocialNetworkNotificationFactory.cs" />
+    <Compile Include="Infrastructure\TaskExtensions.cs" />
+    <Compile Include="Infrastructure\TinyUrl.cs" />
+    <Compile Include="Infrastructure\ProcessedEntity\IProcessedEntityGenerator.cs" />
+    <Compile Include="Infrastructure\ProcessedEntity\ProcessedScreenshotGenerator.cs" />
+    <Compile Include="Infrastructure\ProcessedEntity\ProcessedVideoGenerator.cs" />
+    <Compile Include="Infrastructure\ProjectUriProvider.cs" />
+    <Compile Include="Infrastructure\TokenDataExtractorFactory.cs" />
+    <Compile Include="Infrastructure\UserAvatarProvider.cs" />
+    <Compile Include="Multimedia\AdjusterParam\AudioAdjusterParam.cs" />
+    <Compile Include="Multimedia\AdjusterParam\ScreenshotAdjusterParam.cs" />
+    <Compile Include="Multimedia\AdjusterParam\VideoAdjusterParam.cs" />
+    <Compile Include="Multimedia\Adjusters\AudioAdjuster.cs" />
+    <Compile Include="Multimedia\Adjusters\IAudioAdjuster.cs" />
+    <Compile Include="Multimedia\Adjusters\IScreenshotAdjuster.cs" />
+    <Compile Include="Multimedia\Adjusters\IVideoAdjuster.cs" />
+    <Compile Include="Multimedia\Adjusters\ScreenshotAdjuster.cs" />
+    <Compile Include="Multimedia\Adjusters\VideoAdjuster.cs" />
+    <Compile Include="Multimedia\AdjustmentParameters\AdjustmentAudioMetadata.cs" />
+    <Compile Include="Multimedia\AdjustmentParameters\AdjustmentScreenshotMetadata.cs" />
+    <Compile Include="Multimedia\AdjustmentParameters\AdjustmentVideoMetadata.cs" />
+    <Compile Include="Multimedia\AdjustmentParameters\IAdjustmentAudioMetadata.cs" />
+    <Compile Include="Multimedia\AdjustmentParameters\IAdjustmentScreenshotMetadata.cs" />
+    <Compile Include="Multimedia\AdjustmentParameters\IAdjustmentVideoMetadata.cs" />
+    <Compile Include="Multimedia\Builder\IProcessedScreenshotBuilder.cs" />
+    <Compile Include="Multimedia\Builder\IProcessedVideoBuilder.cs" />
+    <Compile Include="Multimedia\Builder\ProcessdScreenshotBuilder.cs" />
+    <Compile Include="Multimedia\Builder\ProcessedVideoBuilder.cs" />
+    <Compile Include="Multimedia\Calculator\IResolutionCalculator.cs" />
+    <Compile Include="Multimedia\Calculator\IVideoSize.cs" />
+    <Compile Include="Multimedia\Calculator\ResolutionCalculator.cs" />
+    <Compile Include="Multimedia\Calculator\VideoSize.cs" />
+    <Compile Include="Multimedia\Comparator\Comparator.cs" />
+    <Compile Include="Multimedia\Comparator\IComparator.cs" />
+    <Compile Include="Multimedia\Constraints\AudioConstraints.cs" />
+    <Compile Include="Multimedia\Constraints\ScreenshotConstraints.cs" />
+    <Compile Include="Multimedia\Constraints\VideoConstraints.cs" />
+    <Compile Include="Multimedia\Factory\IMultimediaAdjusterParamFactory.cs" />
+    <Compile Include="Multimedia\Factory\IScreenshotAdjusterParamFactory.cs" />
+    <Compile Include="Multimedia\Factory\MultimediaAdjusterParamFactory.cs" />
+    <Compile Include="Multimedia\Factory\ScreenshotAdjusterParamFactory.cs" />
+    <Compile Include="Multimedia\Lists\IProcessedVideoList.cs" />
+    <Compile Include="Multimedia\Lists\ProcessedVideoList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminClientService.cs" />
+    <Compile Include="Services\AdminClientSubscriptionService.cs" />
+    <Compile Include="Services\CsvPublishServiceFactory.cs" />
+    <Compile Include="Services\ClientsForAdminCsvPublishService.cs" />
+    <Compile Include="Services\ProjectAbuseService.cs" />
+    <Compile Include="Services\UsersForAdminCsvPublishService.cs" />
+    <Compile Include="Services\ProjectsForAdminCsvPublishService.cs" />
+    <Compile Include="Services\AdminUserService.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Infrastructure\CachingService.cs" />
+    <Compile Include="Infrastructure\UserAgentVerifier.cs" />
+    <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Infrastructure\Security\OdnoklassnikiTokenDataExtractor.cs" />
+    <Compile Include="Services\CsvPublishServiceBase.cs" />
+    <Compile Include="Services\ExampleProjectService.cs" />
+    <Compile Include="Services\PortalRoleService.cs" />
+    <Compile Include="Services\AdminProjectService.cs" />
+    <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Infrastructure\Security\ClaimsTokenDataExtractor.cs" />
+    <Compile Include="Infrastructure\Security\VkTokenDataExtractor.cs" />
+    <Compile Include="Services\EmailNotificationService.cs" />
+    <Compile Include="Services\FacebookService.cs" />
+    <Compile Include="Services\LastProjectService.cs" />
+    <Compile Include="Services\TwitterServiceService.cs" />
+    <Compile Include="Infrastructure\Security\TwitterTokenDataExtractor.cs" />
+    <Compile Include="Infrastructure\Security\FacebookTokenDataExtractor.cs" />
+    <Compile Include="Services\PushNotificationService.cs" />
+    <Compile Include="Services\EmailSenderService.cs" />
+    <Compile Include="Services\ExternalVideoService.cs" />
+    <Compile Include="Services\PasswordRecoveryService.cs" />
+    <Compile Include="Services\PasswordService.cs" />
+    <Compile Include="Services\ProjectAvsxService.cs" />
+    <Compile Include="Services\ProjectProcessedScreenshotService.cs" />
+    <Compile Include="Services\ProjectProcessedVideoService.cs" />
+    <Compile Include="Services\ProjectScreenshotService.cs" />
+    <Compile Include="Services\ProjectVideoService.cs" />
+    <Compile Include="Services\RecoveryLinkService.cs" />
+    <Compile Include="Infrastructure\StringEncryptor.cs" />
+    <Compile Include="Infrastructure\Security\SwtTokenDataExtractor.cs" />
+    <Compile Include="Services\UserFileService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\ProcessedVideoHandler.cs" />
+    <Compile Include="Services\ProjectLikesService.cs" />
+    <Compile Include="Services\WatchProjectService.cs" />
+    <Compile Include="Services\ProjectViewsService.cs" />
+    <Compile Include="Statistics\Aggregator\StatProjectDeletionService.cs" />
+    <Compile Include="Statistics\Aggregator\StatProjectStateService.cs" />
+    <Compile Include="Statistics\Aggregator\StatUserLoginService.cs" />
+    <Compile Include="Statistics\Filter\FiltersChainBuilder.cs" />
+    <Compile Include="Statistics\Filter\FiltersFactory.cs" />
+    <Compile Include="Statistics\Filter\FiltersManager.cs" />
+    <Compile Include="Statistics\Filter\Filters\DailyMotion\DailyMotionCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\DailyMotion\DailyMotionDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\DailyMotion\DailyMotionRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\DailyMotion\DailyMotionUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\JwPlayer\JwPlayerCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\JwPlayer\JwPlayerDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\JwPlayer\JwPlayerRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\JwPlayer\JwPlayerUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\OdnoklassnikiRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\VkRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Registrations\AllRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicIPad\CicIPadCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicIPad\CicIPadDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicIPad\CicIPadRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicIPad\CicIPadUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicMac\CicMacCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicMac\CicMacDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicMac\CicMacRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicMac\CicMacUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicPc\CicPcCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicPc\CicPcDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicPc\CicPcRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\CicPc\CicPcUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Player\PlayerCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Player\PlayerDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Player\PlayerUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Registrations\BrowserRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Registrations\OtherRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Standalone\StandaloneDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerAndroid\TaggerAndroidDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Standalone\StandaloneCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerAndroid\TaggerAndroidCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\EmailRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Standalone\StandaloneUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerAndroid\TaggerAndroidUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Views\EmbeddedViewsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\FacebookRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\GoogleRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\ImageShack\ImageShackCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\ImageShack\ImageShackDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\ImageShack\ImageShackRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\ImageShack\ImageShackUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Player\PlayerRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Standalone\StandaloneRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\StatFilterBase.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerAndroid\TaggerAndroidRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerIPhone\TaggerIPhoneCancellationFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerIPhone\TaggerIPhoneDeletionsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerIPhone\TaggerIPhoneRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\TaggerIPhone\TaggerIPhoneUploadsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Views\TotalViewsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\TwitterRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\WindowsLiveRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Filter\Filters\Providers\YahooRegistrationsFilter.cs" />
+    <Compile Include="Statistics\Generator\ReportGenerator.cs" />
+    <Compile Include="Statistics\Helper\IntervalHelper.cs" />
+    <Compile Include="Statistics\Reporter\AllDaysReportsCompiler.cs" />
+    <Compile Include="Statistics\Reporter\CompilerFactory.cs" />
+    <Compile Include="Statistics\Reporter\StandardReportBuilder.cs" />
+    <Compile Include="Statistics\Reporter\ReportAccumulator.cs" />
+    <Compile Include="Statistics\Reporter\ReportBuilderService.cs" />
+    <Compile Include="Statistics\Reporter\ReportsCompiler.cs" />
+    <Compile Include="Statistics\Reporter\StandardReportService.cs" />
+    <Compile Include="Statistics\Reporter\StatisticsCompiler.cs" />
+    <Compile Include="Statistics\Reporter\StatisticsService.cs" />
+    <Compile Include="Statistics\Aggregator\ActionDataService.cs" />
+    <Compile Include="Statistics\Aggregator\AggregatorBase.cs" />
+    <Compile Include="Statistics\Aggregator\StatProjectUploadingService.cs" />
+    <Compile Include="Statistics\Aggregator\StatUserRegistrationService.cs" />
+    <Compile Include="Statistics\Aggregator\StatWatchingService.cs" />
+    <Compile Include="Statistics\CassandraStatisticsService.cs" />
+    <Compile Include="Statistics\StatisticsSpaces.cs" />
+    <Compile Include="Subscriptions\BalanceService.cs" />
+    <Compile Include="Subscriptions\PendingClientService.cs" />
+    <Compile Include="Subscriptions\CompanyService.cs" />
+    <Compile Include="Subscriptions\SubscriptionService.cs" />
+    <Compile Include="Subscriptions\UrlTrackingStatService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Authentication\Authentication.csproj">
+      <Project>{9EBE2DF9-5BF5-4671-9B2B-3C33A1BF248F}</Project>
+      <Name>Authentication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OkSdk\OkSdk.csproj">
+      <Project>{836486e4-c216-44f3-80f6-a30fe0cb473d}</Project>
+      <Name>OkSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Portal.Common\Portal.Common.csproj">
+      <Project>{C4B38E80-4E9C-45BC-8001-E1DE5B72CBA2}</Project>
+      <Name>Portal.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Portal.Exceptions\Portal.Exceptions.csproj">
+      <Project>{FA9ECF9A-ADA5-452A-B3D2-88D2DAEC61FD}</Project>
+      <Name>Portal.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Portal.Mappers\Portal.Mappers.csproj">
+      <Project>{2FB78B32-4790-4EA5-AF52-7A4AC4037987}</Project>
+      <Name>Portal.Mappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\VkSdk\VkSdk.csproj">
+      <Project>{9927acaa-4371-4dab-a0ae-c25e6b62cd4a}</Project>
+      <Name>VkSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Wrappers\Wrappers.csproj">
+      <Project>{9E8F2D2D-B074-4D22-A271-8BD911C3AF6A}</Project>
+      <Name>Wrappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Configuration\Configuration.csproj">
+      <Project>{5A5BCFA5-7514-425C-B0D8-D9FDC8D4A3FB}</Project>
+      <Name>Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\MongoRepository\MongoRepository.csproj">
+      <Project>{543D3FDE-4931-40B0-B5D3-A912D145E6E3}</Project>
+      <Name>MongoRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL.Infrastructure\Portal.DAL.Infrastructure.csproj">
+      <Project>{BF19381C-95A1-4B7B-8ECB-A0DABCB9B906}</Project>
+      <Name>Portal.DAL.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Portal.DAL\Portal.DAL.csproj">
+      <Project>{9D7C61A2-BFDC-4638-8DA8-FF69526AA0CD}</Project>
+      <Name>Portal.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.DAL.Entities\Portal.DAL.Entities.csproj">
+      <Project>{E65A1C84-D68D-4712-BBD2-9891EE95E481}</Project>
+      <Name>Portal.DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entities\Portal.DTO\Portal.DTO.csproj">
+      <Project>{a55ee877-c49a-49c1-8943-2fbd6061207e}</Project>
+      <Name>Portal.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrontEnd\Portal.Resources\Portal.Resources.csproj">
+      <Project>{bc19beee-9f24-4de3-ac41-524ac046b2cf}</Project>
+      <Name>Portal.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.BLL\Portal.BLL.csproj">
+      <Project>{7DBEA20E-3095-4D37-B651-0C172D2A3598}</Project>
+      <Name>Portal.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

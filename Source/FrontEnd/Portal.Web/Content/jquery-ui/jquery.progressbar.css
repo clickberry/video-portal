@@ -1,0 +1,49 @@
+.ui-progressbar {
+    overflow: hidden;
+    text-align: left;
+}
+
+.ui-progressbar .ui-progressbar-value { height: 100%; }
+
+.progressbar_custom { position: relative; }
+
+.progressbar_custom .ui-progressbar {
+    border-bottom: 1px solid #fff;
+    height: 12px;
+    position: relative;
+}
+
+.progressbar_custom .ui-progressbar,
+.progressbar_custom .ui-progressbar-value {
+    -moz-box-shadow: inset 0px 0px 4px rgba(16, 36, 67, .20);
+    -webkit-box-shadow: inset 0px 0px 4px rgba(16, 36, 67, .20);
+    box-shadow: inset 0px 0px 4px rgba(16, 36, 67, .20);
+}
+
+.progressbar_custom .zebra {
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 12px;
+    text-align: center;
+}
+
+.c_dark .zebra { color: #444; }
+
+.ui-progressbar .ui-progressbar-label {
+    bottom: 1px;
+    font-size: 11px;
+    font-weight: bold;
+    height: 12px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.ui-progressbar.red .ui-progressbar-value { background-color: #d42426; }
+
+.ui-progressbar.green .ui-progressbar-value { background-color: #9eba0f; }
+
+.ui-progressbar .ui-progressbar-label.white { color: white; }
+
+.ui-progressbar .ui-progressbar-label.black { color: black; }

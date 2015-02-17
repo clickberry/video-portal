@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25A2DA05-8C2D-4D7C-8AF4-FC3F97FEB41C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PortalProcessManagerTest</RootNamespace>
+    <AssemblyName>PortalProcessManagerTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\TrunkJiraSVN\trunk\CBASPNET\Source\packages\Microsoft.WindowsAzure.ConfigurationManager.1.7.0.1\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\TrunkJiraSVN\trunk\CBASPNET\Source\packages\WindowsAzure.Storage.1.7.0.0\lib\net35-full\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\Source\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DownloadProcessTest.cs" />
+    <Compile Include="EncodeProcessManagerTest.cs" />
+    <Compile Include="EncodeProcessTest.cs" />
+    <Compile Include="FinishProcessTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueProcessTest.cs" />
+    <Compile Include="UploadProcessTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Common\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\DAL\Portal.FileSystem\Portal.FileSystem.csproj">
+      <Project>{7EFA6BCA-D336-4BC4-8EC7-F473123D7511}</Project>
+      <Name>Portal.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\DAL\Portal.Repository.Azure\Portal.Repository.Azure.csproj">
+      <Project>{87AF4872-1E81-420E-8805-C29725484427}</Project>
+      <Name>Portal.Repository.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\DAL\Portal.Repository\Portal.Repository.csproj">
+      <Project>{A189073F-CB96-40BF-BBF1-FACC0A46A4CD}</Project>
+      <Name>Portal.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\PortalEncoder\PortalEncoder.csproj">
+      <Project>{416C3684-1348-4B2A-8387-E3C86874D4EA}</Project>
+      <Name>PortalEncoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Front-end\Portal.Web\Portal.Web.csproj">
+      <Project>{658CC64F-B755-4BA1-99B0-591954D31743}</Project>
+      <Name>Portal.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Wrappers\Wrappers.csproj">
+      <Project>{9E8F2D2D-B074-4D22-A271-8BD911C3AF6A}</Project>
+      <Name>Wrappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntegrationTestInfrastructure\SupportInfrastructure.csproj">
+      <Project>{10A14CCF-736F-4C24-90EC-7B5ECB0464B5}</Project>
+      <Name>SupportInfrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSTestExtension\MSTestExtension.csproj">
+      <Project>{D88B68DB-B8E1-46F3-B070-FD6A84065B66}</Project>
+      <Name>MSTestExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MediaInfo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

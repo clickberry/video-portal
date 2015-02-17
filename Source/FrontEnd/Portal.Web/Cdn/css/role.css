@@ -1,0 +1,310 @@
+﻿/* newstyles */
+.roles {
+    overflow: hidden;
+    padding-top: 44px;
+}
+
+.roles h3 {
+    color: #474747;
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 11px;
+}
+
+.roles-wrap { float: left; }
+
+.roles-select {
+    background-color: #FFF;
+    border: 1px solid #cdd0d3;
+    color: #666666;
+    font-size: 12px;
+    height: 281px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 469px;
+}
+
+.roles-select ul {
+    float: left;
+    height: 281px;
+    list-style-type: none;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+}
+
+.roles-select li {
+    background-image: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    zoom: 1;
+}
+
+.roles-select a {
+    border-top: 1px dotted #bbbbbb;
+    color: #666666;
+    display: block;
+    margin: 0;
+    padding: 16px 70px 12px 16px;
+    position: relative;
+    position: relative;
+    zoom: 1;
+}
+
+.roles-select li:hover a {
+    background-color: #f7f7f7;
+    margin: 0;
+}
+
+.roles-select li.current a { background-color: #e5e5e5; }
+
+.roles-select li:first-child a { border-top: none; }
+
+.roles-select .name-role {
+    color: #333333;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+.roles-select p {
+    margin: 0;
+    padding: 0;
+}
+
+.roles-select a.edit {
+    background: url(../images/sp1_ic.png) 0 -221px no-repeat !important;
+    border: none !important;
+    display: none;
+    height: 14px;
+    padding: 0 !important;
+    position: absolute !important;
+    right: 52px;
+    top: 16px;
+    width: 13px;
+    z-index: 100;
+}
+
+.roles-select a.edit:hover { background-position: 0 -120px !important; }
+
+.roles-select a.delete,
+.user-list li a.delete {
+    background: url(../images/sp13_ic_edit.png) 0 -144px no-repeat !important;
+    border: none !important;
+    display: none;
+    height: 15px;
+    padding: 0 !important;
+    position: absolute !important;
+    right: 31px;
+    top: 15px;
+    width: 14px;
+    z-index: 100;
+}
+
+.roles-select a.delete:hover,
+.user-list .delete:hover { background-position: 0 -96px !important; }
+
+.roles-select li:hover a,
+.user-list li:hover .delete {
+    background-position: 0 -96px !important;
+    display: block !important;
+}
+
+.jspContainer > * { outline: none !important; }
+
+.roles .jspVerticalBar {
+    background: none;
+    width: 15px;
+}
+
+.roles .jspScrollable { outline: none; }
+
+.roles .jspTrack {
+    background-color: #FCFCFC;
+    border-left: 1px solid #e4e4e4;
+    box-shadow: inset #e2e2e2 0px 0px 10px;
+    width: 15px;
+}
+
+.roles .jspDrag {
+    background-color: #c2c2c2;
+    border-radius: 4px;
+    margin: 0 0 0 3px;
+    width: 8px;
+}
+
+/* newstyles end */
+
+
+/* users-role */
+
+.users-role {
+    float: left;
+    margin-left: 37px;
+    width: 469px;
+}
+
+.add-user {
+    *height: auto;
+    min-height: 30px;
+    overflow: visible;
+    *overflow: hidden;
+    padding-bottom: 2px;
+}
+
+.add-select { display: inline-block; }
+
+.add-select select, .add-select input {
+    height: 25px;
+    vertical-align: auto;
+    width: 405px;
+}
+
+.add-select span[role=status] { display: none; }
+
+.add-link {
+    display: inline-block;
+    line-height: 24px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.add-link span {
+    padding-left: 10px !important;
+    padding-right: 13px !important;
+}
+
+.user-list {
+    background-color: #FFF;
+    border: 1px solid #cdd0d3;
+    clear: both;
+    color: #666666;
+    font-size: 14px;
+}
+
+.user-list ul {
+    height: 249px;
+    list-style-type: none;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    visibility: hidden;
+}
+
+#add_select_chzn.open .chzn-choices { visibility: visible; }
+
+#add_select_chzn.open .chzn-drop { display: block; }
+
+.chzn-drop { display: none; }
+
+.chzn-choices { visibility: hidden; }
+
+.chzn-choices.open { visibility: visible; }
+
+.chzn-container.chzn-container-multi { background-color: #FFF; }
+
+.user-list ul.open { visibility: visible; }
+
+.user-list li {
+    background: none;
+    border-top: 1px dotted #c3c3c3;
+    margin: 0;
+    padding: 12px 40px 12px 19px;
+    position: relative;
+}
+
+.user-list li:first-child { border-top: none; }
+
+.user-list li:hover { background-color: #f7f7f7; }
+
+.user-list .delete { top: 13px; }
+
+.user-list dl {
+    display: block;
+    line-height: 16px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.user-list dt {
+    color: #333;
+    float: left;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.user-list dd {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.add-select .chzn-container {
+    border: 1px solid #cdd0d3;
+    box-shadow: none;
+    min-height: 27px;
+}
+
+.add-select .chzn-container-active .chzn-choices {
+    border: 1px solid #cdd0d3;
+    box-shadow: none;
+}
+
+.add-select .chzn-container-multi .chzn-choices {
+    background: #FFF;
+    border: none;
+}
+
+.add-select .chzn-container-multi .chzn-choices .search-choice {
+    background: #e2e6f1;
+    border: 1px solid #9dacce;
+    border-radius: 2px;
+    color: #555555;
+    font-size: 11px;
+    margin-right: 1px;
+    margin-top: 6px;
+    padding: 0 17px 1px 5px;
+}
+
+.add-select .chzn-container-multi .chzn-choices .search-choice .search-choice-close {
+    background: url(../images/del-user.png) 0 0 no-repeat;
+    display: block;
+    height: 7px;
+    width: 7px;
+}
+
+.add-select .chzn-container-multi .chzn-choices .search-choice .search-choice-close:hover { background-position: 0 0; }
+
+.add-select .chzn-container-multi .chzn-choices {
+    padding-left: 1px;
+    white-space: nowrap;
+    /*height: 27px !important;*/
+}
+
+.add-select .chzn-container .chzn-results .highlighted {
+    background-color: #f7f7f7;
+    background-image: none;
+    color: #333;
+}
+
+.add-select .chzn-container .chzn-drop { border: none; }
+
+/* users-role end */
+
+
+.ui-autocomplete {
+    background: white;
+    border: 1px solid gray;
+    padding-right: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}

@@ -1,0 +1,40 @@
+﻿@using Portal.Web.Constants
+<script type="text/ng-template" id="client.subscription.item.html">
+    
+    <div class="subscriptions-item" ng-class="{'state-deleted': model.state == 2 || model.state == 1}">
+        <div class="subscriptions-item-status" ng-if="model.state == 2">Deleted</div>
+        <div class="subscriptions-item-status" ng-if="model.state == 1">Suspended</div>
+        <div class="subscriptions-item-top">
+            <div class="left-part">
+                <div class="row"><i>Project name:</i> <span ng-bind="model.siteName"></span></div>
+                <div class="row"><i>Project ID:</i> <span ng-bind="model.id"></span></div>
+                <div class="row"><i>Google Analytics ID:</i> <span ng-bind="model.googleAnalyticsId"></span></div>
+                <div class="row"><i>Host Name:</i> <span>{{model.siteHostname}}</span></div>
+                <div class="row plugin-code-select-container"><i>Plugin initialization code for</i> <span><div class="plugin-code-select"><select ng-model="player" players="players" data-placeholder="Chose a player type ... " class="cb-chosen-select"></select></div></span></div>
+            </div>
+            <div class="bottom-part" style="clear:both;">
+                
+                <div class="unselected-text embed-code" ng-show="player == 'jw6'">
+                    "https:{{embed.jwFlashPlayerUrl}}JWPlayerPlugin6.swf": {
+                    googleAnalyticsId: "{{model.googleAnalyticsId}}",
+                    subscriptionId: "{{model.id}}"{{embed.linkTrackerSetting ? ',\n                    linkTracker: "' + embed.linkTrackerSetting + '"' : ''}}
+                    }
+                </div>
+                <div class="unselected-text embed-code" ng-show="player == 'jw5'">
+                    "https:{{embed.jwFlashPlayerUrl}}JWPlayerPlugin5.swf": {
+                    googleAnalyticsId: "{{model.googleAnalyticsId}}",
+                    subscriptionId: "{{model.id}}"{{embed.linkTrackerSetting ? ',\n                    linkTracker: "' + embed.linkTrackerSetting + '"' : ''}}
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="subscriptions-item-bottom">
+            <ul class="subscriptions-option">
+                <li ng-if="model.state == 0"><a href="" cb-confirm-click="onDelete(model)" cb-confirmation="Do you really want to delete subscription?"><div class="icon-del"></div>Delete</a></li>
+                <li class="highlight-green"><a href="@Url.RouteUrl(RouteNames.ClientIntegration)" target="_blank"><div class="icon-integration"></div>About integration</a></li>
+                <li><a href="" ng-click="onStats(model)"><div class="icon-stat"></div>Statistics</a></li>
+            </ul>
+        </div>
+    </div>
+
+</script>

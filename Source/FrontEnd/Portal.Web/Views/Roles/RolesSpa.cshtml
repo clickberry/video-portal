@@ -1,0 +1,60 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Roles and Capabilities";
+}
+
+<div class="title">Roles and Capabilities</div>
+<!-- roles -->
+<div class="roles">
+    <!-- roles-wrap -->
+    <div class="roles-wrap">
+        <h3>Roles [<span data-bind="text: roles().length"></span>]</h3>
+        <div class="roles-select">
+            <div class="spinner" style="height: 100px" data-bind="visible: loadingRoles"></div>
+            <ul data-bind="foreach: roles">
+                <li data-bind="css: { current: name == selectedRole() }">
+                    <a href="#" style="width: 468px" data-bind="click: changeRole">
+                        <span class="name-role" data-bind="text: name"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- roles-wrap end -->
+    <!-- users-role -->
+    <div class="users-role">
+        <h3>Users [<span data-bind="text: users().length"></span>]</h3>
+        <div class="add-user">
+            <div class="spinner" data-bind="visible: searchingUsers" style="float: left; width: 410px;"></div>
+            <div class="add-select" data-bind="visible: !searchingUsers()">
+                <input data-bind="jqAuto: { minLength: 0 }, jqAutoSource: foundUsers, jqAutoQuery: searchUsers, jqAutoValue: selectedUser, jqAutoSourceLabel: 'userName', jqAutoSourceInputValue: 'userName', enable: selectedRole()" style="width: 400px;" />
+            </div>
+            <div class="add-link">
+                <a href="#" class="bt_green_def" data-bind="click: addUsers, css: { bt_dissabled: !selectedRole() || !selectedUser()}"><span class="bt_rt">Add</span></a>
+            </div>
+        </div>
+        <div class="user-list">
+            <ul data-bind="foreach: users, css:{open: !loadingUsers()}">
+                <li>
+                    <a href="#" class="delete" data-bind="click: removeUser" title="Delete"></a>
+                    <dl><dt data-bind="text: userName || 'User #' + userId"></dt></dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- users-role end -->
+</div>
+<!-- roles end -->
+<!-- #content-->
+
+@section ScriptsBottom
+{
+    @Styles.Render("~/cdn/styles/roles.css")
+    @Scripts.Render("~/cdn/scripts/roles.js")
+    <script type="text/javascript">
+        require(["vm.roles", "knockout"], function(rolesVm, ko) {
+            ko.applyBindings(rolesVm());
+        });
+    </script>
+}

@@ -1,0 +1,55 @@
+﻿@using Asp.Infrastructure.Extensions
+<script type="text/ng-template" id="user.profile.html">
+    
+    <!-- fix-content -->
+    <div class="fix-content">
+        <!-- edit-profile -->
+        <div class="edit-profile">
+            
+            <h1><span class="img-title"><img src="@CdnResources.RenderUrl("~/cdn/pic/content/small/pic-3.png")" alt="" /></span>Edit Profile</h1>
+
+            <form action="" ng-submit="submit(model, passwordModel)" name="editProfileForm">
+                
+                <div class="user-avatar">
+                    <a ng-if="currentUser.email" href="https://gravatar.com" title="Change my avatar at Gravatar.com" target="_blank"><img ng-src="{{model.avatarUrl | schemeAgnostic}}" alt="{{model.userName}}" /></a>
+                    <div ng-if="!currentUser.email">
+                        <img ng-src="{{model.avatarUrl | schemeAgnostic}}" alt="{{model.userName}}" /><br />
+                        Specify your email to <a href="https://gravatar.com" title="Change my avatar at Gravatar.com" target="_blank">change default avatar</a>!
+                    </div>
+                </div>
+
+                <div class="holder-input"><input type="text" placeholder="Name" ng-model="model.userName" required ng-maxlength="64"></div>
+                <div class="holder-input"><input type="text" placeholder="Country" ng-model="model.country" ng-maxlength="64"></div>
+                <div class="holder-input"><input type="email" placeholder="E-mail" ng-model="model.email" ng-minlength="4" cb-model-email ng-required="currentUser.email"></div>
+                <div class="holder-input noborder"><input type="checkbox" ng-model="model.notifyOnVideoComments" ng-disabled="!model.email" /><label>Notify about video comments</label></div>
+                <div class="holder-input"><input type="password" placeholder="Current password" ng-model="passwordModel.oldPassword" ng-required="passwordModel.newPassword"></div>
+                <div class="holder-input"><input type="password" placeholder="New password" ng-model="passwordModel.newPassword" ng-minlength="6"></div>
+                <div class="holder-input"><input type="password" placeholder="Confirm new password" ng-model="passwordModel.confirmPassword" cb-model-confirm="passwordModel.newPassword"></div>
+
+                <div class="btn-list" ng-class="{'disabled': editProfileForm.$invalid || editProfileForm.$pristine}">
+                    <div class="btn btn-silver">
+                        <input type="reset" value="" ng-click="cancel()" />
+                        Cancel
+                    </div>
+                    <div class="btn btn-green btn-submit">
+                        <input type="submit" value="" ng-disabled="editProfileForm.$invalid || editProfileForm.$pristine" />
+                        Change
+                    </div>
+                </div>
+            </form>
+            <div class="indicates-field">* - Indicates required field</div>
+            
+            <p>&nbsp;</p>
+            <h2>Social Profiles</h2>
+            <ul class="soc-list">
+                <li ng-repeat="social in socials" class="{{social.className}} inverse" ng-class="{disabled: social.disabled, active: !social.disabled}">
+                    <a href="{{social.url}}" target="_self"></a>
+                    <span ng-if="allowToDeleteSocialProfile && social.disabled" class="close-button" cb-confirm-click="deleteSocialProfile(social)" cb-confirmation="Do you really want to delete social profile?"><i class="fa fa-remove"></i></span>
+                </li>
+            </ul>
+        </div>
+        <cb-loader loader-if="isLoading"></cb-loader>
+    </div>
+    <!-- fix-content end -->
+
+</script>

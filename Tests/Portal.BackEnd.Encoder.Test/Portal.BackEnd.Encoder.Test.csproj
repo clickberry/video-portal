@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1CDFB2E-6D42-4B4E-819A-41F37256AFFB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.BackEnd.Encoder.Test</RootNamespace>
+    <AssemblyName>Portal.BackEnd.Encoder.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Source\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Source\packages\Microsoft.Data.Edm.5.4.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Source\packages\Microsoft.Data.OData.5.4.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Source\packages\WindowsAzure.Storage.2.0.5.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\Source\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\Source\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\Source\packages\SimpleInjector.2.2.3\lib\net40-client\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Spatial, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Source\packages\System.Spatial.5.4.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FactoryTests\EncodeCreatorBaseTest.cs" />
+    <Compile Include="FactoryTests\TokenSourceFactoryTest.cs" />
+    <Compile Include="FfmpegTests\DataReceivedHandlerTest.cs" />
+    <Compile Include="PipelineTests\GettingEntityStepTest.cs" />
+    <Compile Include="PipelineTests\PipelineStepBaseTest.cs" />
+    <Compile Include="PipelineTests\PipelineStepTest.cs" />
+    <Compile Include="PipelineTests\UploadStepTest.cs" />
+    <Compile Include="StringBuilderTests\ScreenshotEncodeStringBuilderTest.cs" />
+    <Compile Include="StringBuilderTests\EncodeStringBuilderBaseTest.cs" />
+    <Compile Include="StringBuilderTests\EncodeStringFactoryTest.cs" />
+    <Compile Include="StringBuilderTests\ScreenshotEncodeStringFactoryTest.cs" />
+    <Compile Include="StringBuilderTests\VideoEncodeStringFactoryTest.cs" />
+    <Compile Include="StringBuilderTests\VideoEncodeStringBuilderTest.cs" />
+    <Compile Include="IntegrationTests\BackEndTest.cs" />
+    <Compile Include="IntegrationTests\Infrastructure\FakeFileSystem.cs" />
+    <Compile Include="IntegrationTests\Infrastructure\IoCInitializer.cs" />
+    <Compile Include="LocalFileSystemTests\TempFileManagerTest.cs" />
+    <Compile Include="MiddleEndClientTests\EncodeWebClientTest.cs" />
+    <Compile Include="FfmpegTests\ScreenshotFfmpegParserTest.cs" />
+    <Compile Include="FfmpegTests\VideoFfmpegParserTest.cs" />
+    <Compile Include="FfmpegTests\FfmpegProcessTest.cs" />
+    <Compile Include="MiddleEndClientTests\RestHelperTest.cs" />
+    <Compile Include="MiddleEndClientTests\EncodeDeserializerTest.cs" />
+    <Compile Include="PipelineTests\InitializingWebClientStepTest.cs" />
+    <Compile Include="PipelineTests\CreatorStepTest.cs" />
+    <Compile Include="EncodeManagerTest.cs" />
+    <Compile Include="PipelineTests\DownloadStepTest.cs" />
+    <Compile Include="PipelineTests\EncodePipelineTest.cs" />
+    <Compile Include="PipelineTests\EncodeStepTest.cs" />
+    <Compile Include="FactoryTests\EncodeCreatorFactoryTest.cs" />
+    <Compile Include="PipelineTests\FinishStepTest.cs" />
+    <Compile Include="PipelineTests\StepMediatorTest.cs" />
+    <Compile Include="PipelineTests\PipelineStrategyTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FactoryTests\ScreenshotEncodeCreatorTest.cs" />
+    <Compile Include="PipelineTests\GetTaskStepTest.cs" />
+    <Compile Include="FactoryTests\VideoEncodeCreatorTest.cs" />
+    <Compile Include="WatchDogTimerTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\BackEnd\Portal.BackEnd.IoC\Portal.BackEnd.IoC.csproj">
+      <Project>{6E69DEEF-81A1-4B7A-A5FE-C497164DF0F9}</Project>
+      <Name>Portal.BackEnd.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\BackEnd\Portal.BackEnd.Encoder\Portal.BackEnd.Encoder.csproj">
+      <Project>{98512880-701E-4798-AC96-EB9B2659DCC7}</Project>
+      <Name>Portal.BackEnd.Encoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\BLL\Portal.BLL\Portal.BLL.csproj">
+      <Project>{7DBEA20E-3095-4D37-B651-0C172D2A3598}</Project>
+      <Name>Portal.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Common\Portal.Exceptions\Portal.Exceptions.csproj">
+      <Project>{FA9ECF9A-ADA5-452A-B3D2-88D2DAEC61FD}</Project>
+      <Name>Portal.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Common\Wrappers\Wrappers.csproj">
+      <Project>{9E8F2D2D-B074-4D22-A271-8BD911C3AF6A}</Project>
+      <Name>Wrappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\DAL\Portal.DAL\Portal.DAL.csproj">
+      <Project>{9D7C61A2-BFDC-4638-8DA8-FF69526AA0CD}</Project>
+      <Name>Portal.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Entities\Portal.DAL.Entities\Portal.DAL.Entities.csproj">
+      <Project>{E65A1C84-D68D-4712-BBD2-9891EE95E481}</Project>
+      <Name>Portal.DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Entities\Portal.Domain\Portal.Domain.csproj">
+      <Project>{3EF05A0E-98C0-4C87-8098-86D7FDEA8A3F}</Project>
+      <Name>Portal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\SLL\Portal.SLL\Portal.SLL.csproj">
+      <Project>{73103a15-b341-49a2-b6be-bd08396791bc}</Project>
+      <Name>Portal.SLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestExtension\TestExtension.csproj">
+      <Project>{746879be-de4d-4839-84d8-32ec7474ffae}</Project>
+      <Name>TestExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
