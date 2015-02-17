@@ -64,4 +64,4 @@ It's a Worker Role which contains following applications:
 
 ## License
 
-Clickberry Portal uses [GNU GENERAL PUBLIC LICENSE 3.0](blob/master/LICENSE) license for code.
+Clickberry Portal uses [GNU GENERAL PUBLIC LICENSE 3.0](LICENSE) license for code.
