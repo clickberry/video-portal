@@ -27,7 +27,7 @@ namespace Asp.Infrastructure.Attributes.Mvc
                 return;
             }
 
-            if (!(filterContext.Result is RedirectToRouteResult))
+            if (!(filterContext.Result is RedirectToRouteResult || filterContext.Result is RedirectResult))
             {
                 return;
             }
