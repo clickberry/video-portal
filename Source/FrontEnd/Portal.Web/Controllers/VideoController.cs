@@ -120,8 +120,13 @@ namespace Portal.Web.Controllers
             }
 
             // Count view in background
-            Task.Run(() => _cassandraStatisticsService.AddViewAsync(StatisticsSpaces.Projects, id, UserId))
-                .ContinueWith(r => _projectService.IncrementHitsCounterAsync(id), TaskContinuationOptions.OnlyOnRanToCompletion).NoWarning();
+            if (!_userAgentVerifier.IsBot(Request.UserAgent) &&
+                (!Request.IsAuthenticated || User.IsInRole(DomainRoles.User) || User.IsInRole(DomainRoles.Client)))
+            {
+                // count views only for unauthorized users and users in roles: User, Client, filtering bots
+                Task.Run(() => _cassandraStatisticsService.AddViewAsync(StatisticsSpaces.Projects, id, UserId))
+                    .ContinueWith(r => _projectService.IncrementHitsCounterAsync(id), TaskContinuationOptions.OnlyOnRanToCompletion).NoWarning();
+            }
 
             VideoModel model = await GetVideoModel(project, id);
 
@@ -137,6 +142,7 @@ namespace Portal.Web.Controllers
 
             model.UserAvatarUrl = _userAvatarProvider.GetAvatar(user);
 
+            // Show banners for non-mobile devices
             if (!_userAgentVerifier.IsMobileDevice(Request.UserAgent))
             {
                 ViewBag.VideoViewBanner = _settings.VideoViewBanner;
