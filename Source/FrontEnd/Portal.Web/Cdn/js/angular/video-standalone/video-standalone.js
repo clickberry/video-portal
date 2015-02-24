@@ -208,8 +208,8 @@ angular.module("ngClickberry.video-standalone", [
 
 // INIT
 
+            countView();
             loadComments();
-
 
 // EVENT HANDLERS
 

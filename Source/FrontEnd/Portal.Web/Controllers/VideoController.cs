@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Asp.Infrastructure.Attributes.Mvc;
 using Configuration;
-using Portal.BLL.Concrete.Infrastructure;
-using Portal.BLL.Concrete.Statistics;
 using Portal.BLL.Infrastructure;
 using Portal.BLL.Services;
-using Portal.BLL.Statistics;
 using Portal.Domain.PortalContext;
 using Portal.Domain.ProfileContext;
 using Portal.DTO.Watch;
@@ -23,9 +20,7 @@ namespace Portal.Web.Controllers
 {
     public class VideoController : VideoControllerBase
     {
-        private readonly ICassandraStatisticsService _cassandraStatisticsService;
         private readonly IProjectLikesService _projectLikesService;
-        private readonly IProjectService _projectService;
         private readonly IPortalFrontendSettings _settings;
         private readonly IUserAgentVerifier _userAgentVerifier;
         private readonly IUserAvatarProvider _userAvatarProvider;
@@ -39,9 +34,7 @@ namespace Portal.Web.Controllers
             IUserAgentVerifier userAgentVerifier,
             IProjectLikesService projectLikesService,
             IUserService userService,
-            IUserAvatarProvider userAvatarProvider,
-            ICassandraStatisticsService cassandraStatisticsService,
-            IProjectService projectService)
+            IUserAvatarProvider userAvatarProvider)
             : base(screenshotService, projectUriProvider, settings)
         {
             _watchProjectRepository = watchProjectRepository;
@@ -50,8 +43,6 @@ namespace Portal.Web.Controllers
             _settings = settings;
             _userService = userService;
             _userAvatarProvider = userAvatarProvider;
-            _cassandraStatisticsService = cassandraStatisticsService;
-            _projectService = projectService;
         }
 
         //
@@ -117,15 +108,6 @@ namespace Portal.Web.Controllers
             {
                 Trace.TraceError("Failed to retrieve project {0}: {1}", id, e);
                 return HttpNotFound();
-            }
-
-            // Count view in background
-            if (!_userAgentVerifier.IsBot(Request.UserAgent) &&
-                (!Request.IsAuthenticated || User.IsInRole(DomainRoles.User) || User.IsInRole(DomainRoles.Client)))
-            {
-                // count views only for unauthorized users and users in roles: User, Client, filtering bots
-                Task.Run(() => _cassandraStatisticsService.AddViewAsync(StatisticsSpaces.Projects, id, UserId))
-                    .ContinueWith(r => _projectService.IncrementHitsCounterAsync(id), TaskContinuationOptions.OnlyOnRanToCompletion).NoWarning();
             }
 
             VideoModel model = await GetVideoModel(project, id);

@@ -57,6 +57,12 @@ namespace Portal.Api.Controllers
         [AuthorizeHttp(Roles = DomainRoles.AllViewers, IsAuthenticationRequired = false)]
         public async Task<HttpResponseMessage> Post(string id)
         {
+            if (User.IsInRole(DomainRoles.Administrator) || User.IsInRole(DomainRoles.SuperAdministrator))
+            {
+                // preventing admin views
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+
             await _watchProjectService.CheckProjectAsync(id, UserId);
 
             // Add to statistics in background
