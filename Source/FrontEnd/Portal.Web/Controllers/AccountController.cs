@@ -199,7 +199,7 @@ namespace Portal.Web.Controllers
                 {
                     try
                     {
-                        user = await _userService.FindByEmailAsync(tokenData.Email);
+                        currentUser = await _userService.FindByEmailAsync(tokenData.Email);
                     }
                     catch (NotFoundException)
                     {
@@ -211,11 +211,11 @@ namespace Portal.Web.Controllers
                     }
 
                     // add ip memebership to user
-                    if (user != null)
+                    if (currentUser != null)
                     {
                         try
                         {
-                            await _userService.AddMembersipAsync(user.Id, tokenData);
+                            await _userService.AddMembersipAsync(currentUser.Id, tokenData);
                         }
                         catch (Exception e)
                         {
@@ -226,7 +226,7 @@ namespace Portal.Web.Controllers
                 }
 
                 // ensuring user has all required fields and creating profile
-                if (user == null)
+                if (currentUser == null)
                 {
                     //// PN-1551 Registration: Remove request for e-mail
                     //if (String.IsNullOrEmpty(tokenData.Name) || String.IsNullOrEmpty(tokenData.Email))
@@ -237,7 +237,7 @@ namespace Portal.Web.Controllers
 
                     try
                     {
-                        user = await CompleteRegistrationAsync(tokenData);
+                        currentUser = await CompleteRegistrationAsync(tokenData);
                     }
                     catch (Exception e)
                     {
@@ -245,11 +245,11 @@ namespace Portal.Web.Controllers
                         return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
                     }
                 }
-
-                // Set cookies if not authenticated
-                await _authenticationService.SetUserAsync(user, tokenData);
             }
-            
+
+            // Set cookies if not authenticated
+            await _authenticationService.SetUserAsync(currentUser, tokenData);
+
             // For statistics
             HttpContext.Items.Add("isLogin", true);
 
