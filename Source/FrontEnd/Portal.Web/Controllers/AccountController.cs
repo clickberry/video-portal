@@ -245,11 +245,11 @@ namespace Portal.Web.Controllers
                         return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
                     }
                 }
+
+                // Set cookies if not authenticated
+                await _authenticationService.SetUserAsync(user, tokenData);
             }
-
-            // Set cookies
-            await _authenticationService.SetUserAsync(user, tokenData);
-
+            
             // For statistics
             HttpContext.Items.Add("isLogin", true);
 
