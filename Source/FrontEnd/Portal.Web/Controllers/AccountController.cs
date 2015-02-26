@@ -151,6 +151,23 @@ namespace Portal.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
 
+            // try to find user by email
+            if (user == null && !string.IsNullOrEmpty(tokenData.Email))
+            {
+                try
+                {
+                    user = await _userService.FindByEmailAsync(tokenData.Email);
+                }
+                catch (NotFoundException)
+                {
+                }
+                catch (Exception e)
+                {
+                    Trace.TraceError("Failed to find user by email '{0}': {1}", tokenData.Email, e);
+                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                }
+            }
+
             DomainUser currentUser = null;
             try
             {
@@ -189,55 +206,18 @@ namespace Portal.Web.Controllers
                         return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
                     }
                 }
+
+                // Set cookies
+                await _authenticationService.SetUserAsync(currentUser, tokenData);
             }
             else
             {
-                // non-authenticated user
-
-                // try to find user by email
-                if (user == null && !string.IsNullOrEmpty(tokenData.Email))
+                if(user==null)
                 {
+                    // ensuring user has all required fields and creating profile
                     try
                     {
-                        currentUser = await _userService.FindByEmailAsync(tokenData.Email);
-                    }
-                    catch (NotFoundException)
-                    {
-                    }
-                    catch (Exception e)
-                    {
-                        Trace.TraceError("Failed to find user by email '{0}': {1}", tokenData.Email, e);
-                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                    }
-
-                    // add ip memebership to user
-                    if (currentUser != null)
-                    {
-                        try
-                        {
-                            await _userService.AddMembersipAsync(currentUser.Id, tokenData);
-                        }
-                        catch (Exception e)
-                        {
-                            Trace.TraceError("Failed to add user memebership '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
-                            return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                        }
-                    }
-                }
-
-                // ensuring user has all required fields and creating profile
-                if (currentUser == null)
-                {
-                    //// PN-1551 Registration: Remove request for e-mail
-                    //if (String.IsNullOrEmpty(tokenData.Name) || String.IsNullOrEmpty(tokenData.Email))
-                    //{
-                    //    ModelState.Clear();
-                    //    return View(tokenData);
-                    //}
-
-                    try
-                    {
-                        currentUser = await CompleteRegistrationAsync(tokenData);
+                        user = await CompleteRegistrationAsync(tokenData);
                     }
                     catch (Exception e)
                     {
@@ -245,10 +225,10 @@ namespace Portal.Web.Controllers
                         return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
                     }
                 }
-            }
 
-            // Set cookies if not authenticated
-            await _authenticationService.SetUserAsync(currentUser, tokenData);
+                // Set cookies if not authenticated
+                await _authenticationService.SetUserAsync(user, tokenData);
+            }
 
             // For statistics
             HttpContext.Items.Add("isLogin", true);
