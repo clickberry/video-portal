@@ -11,7 +11,7 @@ Integrated video metadata analysis and video encoding capabilities allow Portal 
 Multimedia content delivery is provided via progressive download technology by leveraging Azure Storage Blob services, avoiding performance bottlenecks and bandwidth starvation.
 
 ## Wiki
-You can find more information about project at [Wiki](wiki).
+You can find more information about project at our [Wiki](../../wiki).
 
 ## Services
 
