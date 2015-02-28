@@ -111,3 +111,4 @@ UpgradeLog*.XML
 *.azurePubxml
 
 *.DotSettings.user
+/wiki/images/Thumbs.db
