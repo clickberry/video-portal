@@ -4,7 +4,7 @@ Clickberry Portal is a distributed software system which powered by Microsoft Az
 
 ## Demo
 
-![Clickberry Online](wiki/images/clickberry-online.png)
+[![Clickberry Online](wiki/images/clickberry-online.png)](https://clickberry.tv)
 
 You can see Portal demonstration at the following link: [https://clickberry.tv](https://clickberry.tv)
 
