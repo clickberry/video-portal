@@ -4,7 +4,7 @@ Clickberry Portal is a distributed software system which powered by Microsoft Az
 
 ## Demo
 
-![Clickberry Online](../blob/master/wiki/images/clickberry-online.png?raw=true)
+![Clickberry Online](wiki/images/clickberry-online.png)
 
 You can see Portal demonstration at the following link: [https://clickberry.tv](https://clickberry.tv)
 
@@ -24,7 +24,7 @@ You can find more information about project at our [Wiki pages](../../wiki).
 ### Portal
 Portal cloud service looks like follows:
 
-![Portal cloud service](../blob/master/wiki/images/portal-components.png)
+![Portal cloud service](wiki/images/portal-components.png)
 
 Portal consists of Front-end, Middle-end and Back-end service and interact with 3rd party service like SendGrid or Stripe.
 Client applications uses Portal API which is a REST API created for user, interactive video and file management scenarios.
@@ -56,7 +56,7 @@ Back-end designed and implemented to be scalable both horizontally and verticall
 ### Link Tracker
 Link Tracker cloud service decomposition is as follows.
 
-![Link Tracker cloud service](../blob/master/wiki/images/link-tracker-components.png)
+![Link Tracker cloud service](wiki/images/link-tracker-components.png)
 
 #### Front-end
 It's a Web Role which hosts following application:
