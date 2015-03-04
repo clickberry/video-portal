@@ -850,7 +850,7 @@ h1 .stat-url {
 .content-notification .close-button {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 15px;
     margin-top: -15px;
     -ms-opacity: 0.7;
     opacity: 0.7;
@@ -950,3 +950,25 @@ h1 .stat-url {
 }
 
 /* Content block end */
+
+
+/* Github */
+
+.github {
+    position: absolute;
+    width: 43px;
+    height: 80px;
+    top: 5px;
+    right: 10px;
+    background: url(../images/fork-me-on-github.png) 0 0 no-repeat;
+    display: none;
+    text-indent: -1000em;
+}
+
+@media (min-width: 1270px) {
+    .github {
+        display: block;
+    }
+}
+
+/* Github end */

@@ -279,6 +279,7 @@
     <Content Include="Cdn\css\select_st.css" />
     <Content Include="Cdn\demo\banner-tagger-android.png" />
     <Content Include="Cdn\fonts\fontawesome-webfont.svg" />
+    <Content Include="Cdn\images\fork-me-on-github.png" />
     <Content Include="Cdn\img\addon-tagger.png" />
     <Content Include="Cdn\img\arrow-down-gray.png" />
     <Content Include="Cdn\img\arrow-down-select.png" />
