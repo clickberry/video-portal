@@ -2,6 +2,12 @@
 
 Clickberry Portal is a distributed software system which powered by Microsoft Azure. It's designed and implemented for quick interactive video delivery to various devices and platforms.
 
+## Demo
+
+[![Clickberry Online](wiki/images/clickberry-online.png)](https://clickberry.tv)
+
+You can see Portal demonstration at the following link: [https://clickberry.tv](https://clickberry.tv)
+
 ## Overview
 
 Exposing unified cross-platform multifunctional RESTful API for authentication and authorization, user profile management, interactive video projects and user files management, Portal stands as a back-end service for mobile and desktop applications.
@@ -11,14 +17,14 @@ Integrated video metadata analysis and video encoding capabilities allow Portal 
 Multimedia content delivery is provided via progressive download technology by leveraging Azure Storage Blob services, avoiding performance bottlenecks and bandwidth starvation.
 
 ## Wiki
-You can find more information about project at our [Wiki](../../wiki).
+You can find more information about project at our [Wiki pages](../../wiki).
 
 ## Services
 
 ### Portal
 Portal cloud service looks like follows:
 
-![Portal cloud service](https://az411958.vo.msecnd.net/wiki/Portal_Components.png)
+![Portal cloud service](wiki/images/portal-components.png)
 
 Portal consists of Front-end, Middle-end and Back-end service and interact with 3rd party service like SendGrid or Stripe.
 Client applications uses Portal API which is a REST API created for user, interactive video and file management scenarios.
@@ -50,7 +56,7 @@ Back-end designed and implemented to be scalable both horizontally and verticall
 ### Link Tracker
 Link Tracker cloud service decomposition is as follows.
 
-![Link Tracker cloud service](https://az411958.vo.msecnd.net/wiki/Link_Tracker_Components.png)
+![Link Tracker cloud service](wiki/images/link-tracker-components.png)
 
 #### Front-end
 It's a Web Role which hosts following application:
