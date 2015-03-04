@@ -17,7 +17,13 @@ angular.module('services.cookies',
 
                     var result = undefined;
 
-                    var cookies = document.cookie ? document.cookie.split('; ') : [];
+                    var cookies = [];
+
+                    try {
+                        cookies = document.cookie ? document.cookie.split('; ') : [];
+                    } catch (e) {
+                        // here may arise SecurityError if page is loaded via sandboxed
+                    }
 
                     for (var i = 0, l = cookies.length; i < l; i++) {
                         var parts = cookies[i].split('=');
@@ -28,15 +34,12 @@ angular.module('services.cookies',
                             result = value;
                             break;
                         }
-
-
                     }
 
                     return result;
                 }
 
             };
-
 
             return service;
         }
