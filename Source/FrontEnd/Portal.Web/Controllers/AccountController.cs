@@ -212,7 +212,7 @@ namespace Portal.Web.Controllers
             }
             else
             {
-                if(user==null)
+                if (user == null)
                 {
                     // ensuring user has all required fields and creating profile
                     try
@@ -222,6 +222,19 @@ namespace Portal.Web.Controllers
                     catch (Exception e)
                     {
                         Trace.TraceError("Authentication failed for '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
+                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                    }
+                }
+                else
+                {
+                    // adding membership to user
+                    try
+                    {
+                        await _userService.AddMembersipAsync(user.Id, tokenData);
+                    }
+                    catch (Exception e)
+                    {
+                        Trace.TraceError("Failed to add user memebership '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
                         return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
                     }
                 }
