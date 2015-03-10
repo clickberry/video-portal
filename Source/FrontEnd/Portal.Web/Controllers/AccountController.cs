@@ -180,7 +180,8 @@ namespace Portal.Web.Controllers
             if (currentUser != null)
             {
                 // authenticated user
-                if (user == null)
+                if (user == null || 
+                    (currentUser.Id == user.Id && user.Memberships.All(membership => membership.IdentityProvider != tokenData.IdentityProvider)))
                 {
                     // adding membership to currentUser
                     try
