@@ -133,25 +133,27 @@ namespace Portal.Web.Controllers
 
             DomainUser user = null;
             DomainUser currentUser = null;
-            user = await GetUserByToken(tokenData);
+            try
+            {
+                user = await GetUserByToken(tokenData);
+            }
+            catch (ForbiddenException)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             currentUser = await GetCurrentUser();
 
             try
             {
-                if (currentUser != null)
+                if (currentUser != null && user == null)
                 {
-                    if (user == null)
-                    {
-                        await _userService.AddMembersipAsync(currentUser.Id, tokenData);
-                        user = await GetUserByEmail(tokenData);
+                    await _userService.AddMembersipAsync(currentUser.Id, tokenData);
+                    user = await GetUserByEmail(tokenData);
 
-                        if (user != null)
-                        {
-                            if (user.Id != currentUser.Id)
-                            {
-                                await _userService.MergeFromAsync(user.Id, currentUser.Id);
-                            }
-                        }
+                    if (user != null && user.Id != currentUser.Id)
+                    {
+                        await _userService.MergeFromAsync(user.Id, currentUser.Id);
                     }
 
                     // Set cookies
@@ -175,10 +177,6 @@ namespace Portal.Web.Controllers
                     // Set cookies if not authenticated
                     await _authenticationService.SetUserAsync(user, tokenData);
                 }
-            }
-            catch (ForbiddenException)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             catch (Exception e)
             {
