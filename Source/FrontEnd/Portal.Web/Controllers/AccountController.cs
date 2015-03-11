@@ -132,14 +132,49 @@ namespace Portal.Web.Controllers
             }
 
             DomainUser user = null;
+            DomainUser currentUser = null;
+            user = await GetUserByToken(tokenData);
+            currentUser = await GetCurrentUser();
 
-            // Try to find user by identity
             try
             {
-                user = await _userService.FindByIdentityAsync(tokenData.IdentityProvider, tokenData.UserIdentifier);
-            }
-            catch (NotFoundException)
-            {
+                if (currentUser != null)
+                {
+                    if (user == null)
+                    {
+                        await _userService.AddMembersipAsync(currentUser.Id, tokenData);
+                        user = await GetUserByEmail(tokenData);
+
+                        if (user != null)
+                        {
+                            if (user.Id != currentUser.Id)
+                            {
+                                await _userService.MergeFromAsync(user.Id, currentUser.Id);
+                            }
+                        }
+                    }
+
+                    // Set cookies
+                    await _authenticationService.SetUserAsync(currentUser, tokenData);
+                }
+                else
+                {
+                    if (user == null)
+                    {
+                        user = await GetUserByEmail(tokenData);
+                        if (user != null)
+                        {
+                            await _userService.AddMembersipAsync(user.Id, tokenData);
+                        }
+                        else
+                        {
+                            user = await CompleteRegistrationAsync(tokenData);
+                        }
+                    }
+
+                    // Set cookies if not authenticated
+                    await _authenticationService.SetUserAsync(user, tokenData);
+                }
             }
             catch (ForbiddenException)
             {
@@ -147,101 +182,8 @@ namespace Portal.Web.Controllers
             }
             catch (Exception e)
             {
-                Trace.TraceError("Failed to validate ip user '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
+                Trace.TraceError("Failed IpLogin '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
-
-            // try to find user by email
-            if (user == null && !string.IsNullOrEmpty(tokenData.Email))
-            {
-                try
-                {
-                    user = await _userService.FindByEmailAsync(tokenData.Email);
-                }
-                catch (NotFoundException)
-                {
-                }
-                catch (Exception e)
-                {
-                    Trace.TraceError("Failed to find user by email '{0}': {1}", tokenData.Email, e);
-                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                }
-            }
-
-            DomainUser currentUser = null;
-            try
-            {
-                currentUser = await _userService.GetAsync(UserId);
-            }
-            catch (NotFoundException)
-            {
-            }
-
-            if (currentUser != null)
-            {
-                // authenticated user
-                if (user == null || 
-                    (currentUser.Id == user.Id && user.Memberships.All(membership => membership.IdentityProvider != tokenData.IdentityProvider)))
-                {
-                    // adding membership to currentUser
-                    try
-                    {
-                        await _userService.AddMembersipAsync(currentUser.Id, tokenData);
-                    }
-                    catch (Exception e)
-                    {
-                        Trace.TraceError("Failed to add user memebership '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
-                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                    }
-                }
-                else if (currentUser.Id != user.Id)
-                {
-                    // merging user into currentUser
-                    try
-                    {
-                        await _userService.MergeFromAsync(user.Id, currentUser.Id);
-                    }
-                    catch (Exception e)
-                    {
-                        Trace.TraceError("Failed to merge account '{0}' into '{1}': {2}", user.Id, currentUser.Id, e);
-                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                    }
-                }
-
-                // Set cookies
-                await _authenticationService.SetUserAsync(currentUser, tokenData);
-            }
-            else
-            {
-                if (user == null)
-                {
-                    // ensuring user has all required fields and creating profile
-                    try
-                    {
-                        user = await CompleteRegistrationAsync(tokenData);
-                    }
-                    catch (Exception e)
-                    {
-                        Trace.TraceError("Authentication failed for '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
-                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                    }
-                }
-                else
-                {
-                    // adding membership to user
-                    try
-                    {
-                        await _userService.AddMembersipAsync(user.Id, tokenData);
-                    }
-                    catch (Exception e)
-                    {
-                        Trace.TraceError("Failed to add user memebership '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
-                        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-                    }
-                }
-
-                // Set cookies if not authenticated
-                await _authenticationService.SetUserAsync(user, tokenData);
             }
 
             // For statistics
@@ -263,6 +205,62 @@ namespace Portal.Web.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        private async Task<DomainUser> GetUserByToken(TokenData tokenData)
+        {
+            DomainUser user = null;
+            try
+            {
+                user = await _userService.FindByIdentityAsync(tokenData.IdentityProvider, tokenData.UserIdentifier);
+            }
+            catch (NotFoundException)
+            {
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError("Failed to validate ip user '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
+                throw;
+            }
+
+            return user;
+        }
+
+        private async Task<DomainUser> GetUserByEmail(TokenData tokenData)
+        {
+            DomainUser user = null;
+            if (string.IsNullOrEmpty(tokenData.Email))
+            {
+                return null;
+            }
+
+            try
+            {
+                user = await _userService.FindByEmailAsync(tokenData.Email);
+            }
+            catch (NotFoundException)
+            {
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError("Failed to find user by email '{0}': {1}", tokenData.Email, e);
+                throw;
+            }
+
+            return user;
+        }
+
+        private async Task<DomainUser> GetCurrentUser()
+        {
+            DomainUser currentUser = null;
+            try
+            {
+                currentUser = await _userService.GetAsync(UserId);
+            }
+            catch (NotFoundException)
+            {
+            }
+            return currentUser;
         }
 
 
@@ -328,58 +326,46 @@ namespace Portal.Web.Controllers
         {
             DomainUser user = null;
 
-            // Try to find user by e-mail
-            if (!string.IsNullOrEmpty(tokenData.Email))
+            // Create new profile
+            try
             {
-                try
-                {
-                    user = await _userService.FindByEmailAsync(tokenData.Email);
-                }
-                catch (NotFoundException)
-                {
-                }
-            }
-
-            // Add ip memebership to user
-            if (user != null)
-            {
-                await _userService.AddMembersipAsync(user.Id, tokenData);
-            }
-            else
-            {
-                // Create new profile
                 user = await _userService.AddAsync(CreateDomainUser(tokenData));
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError("Authentication failed for '{0}:{1}': {2}", tokenData.IdentityProvider, tokenData.UserIdentifier, e);
+                throw;
+            }
 
-                // Send registration e-mail
+            // Send registration e-mail
+            try
+            {
+                await _emailNotificationService.SendRegistrationEmailAsync(user);
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError("Failed to send registration email to address {0} for user {1}: {2}", user.Email, user.Id, e);
+            }
+
+            // Send notification into social network
+            ISocialNetworkNotifier notifier = _notificationFactory.GetNotifier(tokenData.IdentityProvider);
+            if (notifier != null)
+            {
                 try
                 {
-                    await _emailNotificationService.SendRegistrationEmailAsync(user);
+                    await notifier.SendWelcomeMessageAsync(user, tokenData);
+                }
+                catch (BadGatewayException)
+                {
                 }
                 catch (Exception e)
                 {
-                    Trace.TraceError("Failed to send registration email to address {0} for user {1}: {2}", user.Email, user.Id, e);
+                    Trace.TraceError("Failed to send welcome message to user '{0}': {1}", user.Id, e);
                 }
-
-                // Send notification into social network
-                ISocialNetworkNotifier notifier = _notificationFactory.GetNotifier(tokenData.IdentityProvider);
-                if (notifier != null)
-                {
-                    try
-                    {
-                        await notifier.SendWelcomeMessageAsync(user, tokenData);
-                    }
-                    catch (BadGatewayException)
-                    {
-                    }
-                    catch (Exception e)
-                    {
-                        Trace.TraceError("Failed to send welcome message to user '{0}': {1}", user.Id, e);
-                    }
-                }
-
-                //For statistics
-                HttpContext.Items.Add("isRegister", true);
             }
+
+            //For statistics
+            HttpContext.Items.Add("isRegister", true);
 
             return user;
         }
