@@ -146,16 +146,25 @@ namespace Portal.Web.Controllers
 
             try
             {
-                if (currentUser != null && user == null)
+                if (currentUser != null)
                 {
-                    await _userService.AddMembersipAsync(currentUser.Id, tokenData);
-                    user = await GetUserByEmail(tokenData);
-
-                    if (user != null && user.Id != currentUser.Id)
+                    if (user == null)
                     {
-                        await _userService.MergeFromAsync(user.Id, currentUser.Id);
-                    }
+                        await _userService.AddMembersipAsync(currentUser.Id, tokenData);
+                        user = await GetUserByEmail(tokenData);
 
+                        if (user != null && user.Id != currentUser.Id)
+                        {
+                            await _userService.MergeFromAsync(user.Id, currentUser.Id);
+                        }
+                    }
+                    else
+                    {
+                        if (user.Id != currentUser.Id)
+                        {
+                            await _userService.MergeFromAsync(user.Id, currentUser.Id);
+                        }
+                    }
                     // Set cookies
                     await _authenticationService.SetUserAsync(currentUser, tokenData);
                 }
