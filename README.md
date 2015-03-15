@@ -20,7 +20,7 @@ Multimedia content delivery is provided via progressive download technology by l
 You can find more information about project at our [Wiki pages](../../wiki).
 
 ## How to Install
-Portal installation documentation can be find at [How to Install](../../wiki/How%20to%20Install) wiki section.
+Portal installation documentation can be found at [How to Install](../../wiki/How%20to%20Install) wiki section.
 
 ## Services
 
