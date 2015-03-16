@@ -157,6 +157,13 @@ namespace Portal.Web.Controllers
                         {
                             await _userService.MergeFromAsync(user.Id, currentUser.Id);
                         }
+                        else
+                        {
+                            if (String.IsNullOrEmpty(currentUser.Email) && !String.IsNullOrEmpty(tokenData.Email))
+                            {
+                                await _userService.ChangeEmailAsync(UserId, tokenData.Email);
+                            }
+                        }
                     }
                     else
                     {
