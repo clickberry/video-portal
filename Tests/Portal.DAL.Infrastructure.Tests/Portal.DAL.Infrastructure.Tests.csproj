@@ -53,7 +53,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MailerTests\Integration\MailerRepositoryIntegrationTest.cs" />
     <Compile Include="MailerTests\MailerRepositoryTest.cs" />
     <Compile Include="MailerTests\SmtpMailFactoryTest.cs" />
     <Compile Include="MailerTests\EmailTest.cs" />
@@ -88,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FactoriesTests\" />
+    <Folder Include="MailerTests\Integration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Samples\video.mp4">
